@@ -1,12 +1,15 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Countries from './components/Countries';
+
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
       <Services />
+      <Countries />
       {/* <div style={{ height: '200vh', background: '#f8f9ff' }}>
         <div style={{ paddingTop: '120px', textAlign: 'center' }}>
           <h1 style={{ color: '#2100B1', fontSize: '48px', fontWeight: 'bold' }}>
