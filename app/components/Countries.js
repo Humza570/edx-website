@@ -274,6 +274,7 @@ export default function Countries() {
           }}
         >
           <div
+            ref={containerRef}
             style={{
               width: "100%",
               maxWidth: "680px",
