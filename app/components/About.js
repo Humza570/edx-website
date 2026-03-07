@@ -21,17 +21,17 @@ const values = [
   {
     icon: Target,
     title: "Our Mission",
-    desc: "To provide personalized support, career counseling, and professional yet reliable educational consultancy services that empower students to explore top-notch educational opportunities worldwide and help them achieve their academic and career goals.",
+    desc: "Personalized support and professional consultancy services that empower students to explore top-notch educational opportunities worldwide.",
   },
   {
     icon: Heart,
     title: "Our Vision",
-    desc: "To be the most trusted study abroad consultancy in Pakistan, known for integrity, results, and lifelong student relationships — helping every deserving student shape their career and transform their life.",
+    desc: "To be the most trusted study abroad consultancy in Pakistan — known for integrity, results, and lifelong student relationships.",
   },
   {
     icon: Shield,
     title: "Our Promise",
-    desc: "Ensuring transparency in our processes for transforming your ambitions into achievements. Your success is our No. 1 priority and our processes are designed around your success.",
+    desc: "Transparency in every process. Your success is our No. 1 priority and everything we do is designed around achieving it.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function About() {
   return (
     <section
       id="about"
-      style={{ background: "white", padding: "100px 24px", overflow: "hidden" }}
+      style={{ background: "white", padding: "80px 24px", overflow: "hidden" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* ── SPLIT LAYOUT ── */}
@@ -47,9 +47,9 @@ export default function About() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "80px",
+            gap: "64px",
             alignItems: "center",
-            marginBottom: "100px",
+            marginBottom: "80px",
           }}
         >
           {/* Left — Image */}
@@ -73,7 +73,7 @@ export default function About() {
                 alt="EdX Consultants Team"
                 style={{
                   width: "100%",
-                  height: "480px",
+                  height: "420px",
                   objectFit: "cover",
                   display: "block",
                 }}
@@ -87,8 +87,6 @@ export default function About() {
                 }}
               />
             </div>
-
-            {/* Floating card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -96,14 +94,14 @@ export default function About() {
               transition={{ delay: 0.4, duration: 0.5 }}
               style={{
                 position: "absolute",
-                bottom: "-24px",
-                right: "-24px",
+                bottom: "-20px",
+                right: "-20px",
                 background: "white",
                 borderRadius: "16px",
-                padding: "20px 24px",
+                padding: "16px 20px",
                 boxShadow: "0 20px 60px rgba(0,0,0,0.12)",
                 border: "1px solid rgba(237,75,0,0.15)",
-                minWidth: "180px",
+                minWidth: "160px",
               }}
             >
               <div
@@ -111,13 +109,13 @@ export default function About() {
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  marginBottom: "6px",
+                  marginBottom: "4px",
                 }}
               >
-                <Star size={16} color="#ED4B00" fill="#ED4B00" />
+                <Star size={14} color="#ED4B00" fill="#ED4B00" />
                 <span
                   style={{
-                    fontSize: "12px",
+                    fontSize: "11px",
                     fontWeight: 700,
                     color: "#ED4B00",
                     textTransform: "uppercase",
@@ -129,7 +127,7 @@ export default function About() {
               </div>
               <div
                 style={{
-                  fontSize: "36px",
+                  fontSize: "32px",
                   fontWeight: 800,
                   color: "#0d0d1a",
                   lineHeight: 1,
@@ -138,12 +136,11 @@ export default function About() {
                 2014
               </div>
               <div
-                style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}
+                style={{ fontSize: "12px", color: "#888", marginTop: "3px" }}
               >
                 10+ Years of Excellence
               </div>
             </motion.div>
-
             <div
               style={{
                 position: "absolute",
@@ -172,7 +169,7 @@ export default function About() {
                 gap: "8px",
                 padding: "6px 18px",
                 borderRadius: "999px",
-                marginBottom: "20px",
+                marginBottom: "16px",
                 background: "rgba(33,0,177,0.07)",
                 border: "1px solid rgba(33,0,177,0.15)",
               }}
@@ -198,14 +195,13 @@ export default function About() {
                 About Us
               </span>
             </div>
-
             <h2
               style={{
-                fontSize: "clamp(30px, 4vw, 46px)",
+                fontSize: "clamp(28px, 4vw, 42px)",
                 fontWeight: 800,
                 color: "#0d0d1a",
                 lineHeight: 1.15,
-                marginBottom: "20px",
+                marginBottom: "16px",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -214,41 +210,22 @@ export default function About() {
               <br />
               Dreams into <span style={{ color: "#ED4B00" }}>Reality</span>
             </h2>
-
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "15px",
                 color: "#555",
-                lineHeight: 1.8,
-                marginBottom: "16px",
+                lineHeight: 1.75,
+                marginBottom: "20px",
               }}
             >
-              At EdX Consultants, we aim to nurture your study abroad dreams
-              into reality. With extensive expertise in international student
-              recruitment & mobilization, transnational education, career
-              counseling, and visa processing — we specialize in connecting
-              aspiring students with top-ranked universities across the globe,
-              including the UK, USA, Canada, Australia, Ireland, Germany,
-              Turkey, Malaysia, and UAE.
+              At EdX Consultants, we connect aspiring students with top-ranked
+              universities across the UK, USA, Canada, Australia, Ireland,
+              Germany, Turkey, Malaysia, and UAE — with extensive expertise in
+              international student recruitment, career counseling, and visa
+              processing.
             </p>
-
-            <p
-              style={{
-                fontSize: "16px",
-                color: "#555",
-                lineHeight: 1.8,
-                marginBottom: "28px",
-              }}
-            >
-              We don't just facilitate students — we help them in shaping their
-              careers and transforming their lives. We strive to guide our
-              students in making informed decisions by understanding their
-              academic aspirations and synchronizing them with the best
-              available educational opportunities worldwide.
-            </p>
-
             {[
-              "Free one-on-one consultation to design your personalized plan",
+              "Free one-on-one consultation and personalized plan",
               "Dedicated visa counselor assigned to your case",
               "Direct partnerships with 200+ universities worldwide",
               "Pre-departure briefings and post-arrival support",
@@ -259,34 +236,33 @@ export default function About() {
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "10px",
-                  marginBottom: "12px",
+                  marginBottom: "10px",
                 }}
               >
                 <CheckCircle
-                  size={18}
+                  size={17}
                   color="#ED4B00"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                 />
                 <span
-                  style={{ fontSize: "15px", color: "#444", lineHeight: 1.5 }}
+                  style={{ fontSize: "14px", color: "#444", lineHeight: 1.5 }}
                 >
                   {point}
                 </span>
               </div>
             ))}
-
             <a
               href="#contact"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                marginTop: "32px",
-                padding: "14px 32px",
+                marginTop: "24px",
+                padding: "13px 28px",
                 background: "#2100B1",
                 color: "white",
                 borderRadius: "8px",
-                fontSize: "15px",
+                fontSize: "14px",
                 fontWeight: 700,
                 textDecoration: "none",
                 boxShadow: "0 6px 24px rgba(33,0,177,0.3)",
@@ -301,7 +277,7 @@ export default function About() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Get Free Consultation <ArrowRight size={16} />
+              Get Free Consultation <ArrowRight size={15} />
             </a>
           </motion.div>
         </div>
@@ -314,10 +290,10 @@ export default function About() {
           transition={{ duration: 0.6 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
             borderRadius: "20px",
             overflow: "hidden",
-            marginBottom: "100px",
+            marginBottom: "80px",
             boxShadow: "0 20px 60px rgba(33,0,177,0.12)",
           }}
         >
@@ -325,7 +301,7 @@ export default function About() {
             <div
               key={item.label}
               style={{
-                padding: "40px 24px",
+                padding: "32px 20px",
                 textAlign: "center",
                 background: i % 2 === 0 ? "#2100B1" : "#ED4B00",
                 borderRight:
@@ -336,7 +312,7 @@ export default function About() {
             >
               <div
                 style={{
-                  fontSize: "clamp(36px, 5vw, 52px)",
+                  fontSize: "clamp(32px, 5vw, 48px)",
                   fontWeight: 800,
                   color: "white",
                   lineHeight: 1,
@@ -346,9 +322,9 @@ export default function About() {
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "12px",
                   color: "rgba(255,255,255,0.75)",
-                  marginTop: "8px",
+                  marginTop: "6px",
                   fontWeight: 500,
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
@@ -369,20 +345,19 @@ export default function About() {
           style={{
             background: "linear-gradient(135deg, #0d0d1a 0%, #1a0050 100%)",
             borderRadius: "24px",
-            padding: "clamp(40px, 6vw, 72px)",
-            marginBottom: "100px",
+            padding: "clamp(28px, 5vw, 52px)",
+            marginBottom: "80px",
             position: "relative",
             overflow: "hidden",
           }}
         >
-          {/* Glow blobs */}
           <div
             style={{
               position: "absolute",
               top: "-60px",
               right: "-60px",
-              width: "350px",
-              height: "350px",
+              width: "300px",
+              height: "300px",
               borderRadius: "50%",
               background: "rgba(237,75,0,0.08)",
               filter: "blur(70px)",
@@ -393,8 +368,8 @@ export default function About() {
               position: "absolute",
               bottom: "-40px",
               left: "15%",
-              width: "250px",
-              height: "250px",
+              width: "200px",
+              height: "200px",
               borderRadius: "50%",
               background: "rgba(33,0,177,0.12)",
               filter: "blur(60px)",
@@ -407,9 +382,9 @@ export default function About() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "6px 10px",
+              padding: "5px 14px",
               borderRadius: "999px",
-              marginBottom: "15px",
+              marginBottom: "24px",
               background: "rgba(237,75,0,0.12)",
               border: "1px solid rgba(237,75,0,0.25)",
             }}
@@ -425,7 +400,7 @@ export default function About() {
             />
             <span
               style={{
-                fontSize: "13px",
+                fontSize: "12px",
                 fontWeight: 600,
                 color: "#ED4B00",
                 letterSpacing: "0.06em",
@@ -440,35 +415,120 @@ export default function About() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "56px",
+              gap: "48px",
               alignItems: "center",
               position: "relative",
             }}
           >
-            {/* CEO Photo + Info */}
+            {/* ✅ Text FIRST — on mobile this renders on top */}
+            <div style={{ position: "relative", order: 1 }}>
+              {/* Quote mark — fixed height, no overflow gap */}
+              <div
+                style={{
+                  fontSize: "80px",
+                  color: "#ED4B00",
+                  opacity: 0.25,
+                  fontFamily: "Georgia, serif",
+                  lineHeight: "0.75",
+                  height: "44px",
+                  overflow: "hidden",
+                  marginBottom: "16px",
+                  userSelect: "none",
+                }}
+              >
+                "
+              </div>
+
+              <p
+                style={{
+                  fontSize: "clamp(13px, 1.6vw, 15px)",
+                  color: "rgba(255,255,255,0.82)",
+                  lineHeight: 1.8,
+                  marginBottom: "12px",
+                }}
+              >
+                Dear Students, you are embarking on a journey full of
+                possibilities. Education is about influencing your future,
+                unlocking doors to your aspirations, and empowering yourself to
+                make an impact on the world.
+              </p>
+              <p
+                style={{
+                  fontSize: "clamp(13px, 1.6vw, 15px)",
+                  color: "rgba(255,255,255,0.82)",
+                  lineHeight: 1.8,
+                  marginBottom: "12px",
+                }}
+              >
+                Every challenge is an opportunity to grow, every setback teaches
+                resilience, and every success shows your commitment. At EdX
+                Consultants, we are dedicated to providing the resources,
+                guidance, and encouragement you need to make informed decisions.
+              </p>
+              <p
+                style={{
+                  fontSize: "clamp(13px, 1.6vw, 15px)",
+                  color: "rgba(255,255,255,0.82)",
+                  lineHeight: 1.8,
+                  marginBottom: "20px",
+                }}
+              >
+                Stay focused, stay positive, and never stop learning.{" "}
+                <span style={{ color: "#ED4B00", fontWeight: 700 }}>
+                  Believe in yourself — because we believe in you.
+                </span>
+              </p>
+
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "14px",
+                  paddingTop: "16px",
+                  borderTop: "1px solid rgba(255,255,255,0.1)",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "2px",
+                    background: "#ED4B00",
+                    borderRadius: "2px",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "13px",
+                    color: "rgba(255,255,255,0.45)",
+                    fontStyle: "italic",
+                  }}
+                >
+                  Warm Regards, Dr. Syed Shujaat Ali Shah
+                </span>
+              </div>
+            </div>
+
+            {/* ✅ Photo SECOND — on mobile this renders below text */}
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: "24px",
+                gap: "20px",
+                order: 2,
               }}
             >
               <div
                 style={{
-                  width: "210px",
-                  height: "210px",
+                  width: "180px",
+                  height: "180px",
                   borderRadius: "50%",
                   overflow: "hidden",
                   border: "4px solid rgba(237,75,0,0.5)",
                   boxShadow:
                     "0 0 0 8px rgba(237,75,0,0.08), 0 20px 60px rgba(0,0,0,0.4)",
                   background: "linear-gradient(135deg, #2100B1, #ED4B00)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   flexShrink: 0,
-                  position: "relative",
                 }}
               >
                 <img
@@ -484,36 +544,35 @@ export default function About() {
                     e.currentTarget.style.display = "none";
                     e.currentTarget.parentElement.innerHTML =
                       '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">' +
-                      '<span style="font-size:80px;font-weight:800;color:white;font-family:sans-serif">S</span>' +
+                      '<span style="font-size:70px;font-weight:800;color:white;font-family:sans-serif">S</span>' +
                       "</div>";
                   }}
                 />
               </div>
 
-              {/* Name Card */}
               <div
                 style={{
                   textAlign: "center",
                   background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "14px",
-                  padding: "18px 24px",
+                  padding: "16px 24px",
                   backdropFilter: "blur(10px)",
                 }}
               >
                 <div
                   style={{
-                    fontSize: "17px",
+                    fontSize: "16px",
                     fontWeight: 800,
                     color: "white",
-                    marginBottom: "4px",
+                    marginBottom: "3px",
                   }}
                 >
                   Dr. Syed Shujaat Ali Shah
                 </div>
                 <div
                   style={{
-                    fontSize: "13px",
+                    fontSize: "12px",
                     color: "#ED4B00",
                     fontWeight: 600,
                     marginBottom: "3px",
@@ -523,7 +582,7 @@ export default function About() {
                 </div>
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "11px",
                     color: "rgba(255,255,255,0.4)",
                     letterSpacing: "0.04em",
                   }}
@@ -532,120 +591,14 @@ export default function About() {
                 </div>
               </div>
             </div>
-
-            {/* Message Text */}
-            <div style={{ position: "relative" }}>
-              {/* Big quote mark */}
-              <div
-                style={{
-                  fontSize: "100px",
-                  lineHeight: 0.7,
-                  color: "#ED4B00",
-                  opacity: 0.2,
-                  fontFamily: "Georgia, serif",
-                  marginBottom: "20px",
-                  userSelect: "none",
-                }}
-              >
-                "
-              </div>
-
-              <p
-                style={{
-                  fontSize: "clamp(14px, 1.8vw, 16px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.9,
-                  marginBottom: "16px",
-                }}
-              >
-                Dear Students, I would like to take a moment to remind you that
-                you are embarking on a journey that is full of possibilities and
-                opportunities. Education is about more than simply learning;
-                it's about influencing your future, unlocking doors to your
-                aspirations, and empowering yourself to make an impact on the
-                world.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(14px, 1.8vw, 16px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.9,
-                  marginBottom: "16px",
-                }}
-              >
-                The path may not always be easy, but it is filled with growth,
-                learning, and opportunities. Remember, every challenge you
-                encounter is an opportunity to grow, every setback teaches you
-                to be resilient, and every success shows how committed you are.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(14px, 1.8vw, 16px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.9,
-                  marginBottom: "16px",
-                }}
-              >
-                At EdX Consultants, we are committed to support and mentor you
-                at every stage of your academic journey. We believe in your
-                potential and we are dedicated to providing you with the
-                resources, counselling and guidance, and encouragement you
-                require to make informed decisions about your future. Remember,
-                you are capable of achieving greatness, and we are thrilled to
-                accompany you on your journey to greatness.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(14px, 1.8vw, 16px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.9,
-                  marginBottom: "28px",
-                }}
-              >
-                Stay focused, stay positive, keep pushing your limits and never
-                stop learning.{" "}
-                <span style={{ color: "#ED4B00", fontWeight: 700 }}>
-                  Believe in yourself — because we believe in you.
-                </span>
-              </p>
-
-              {/* Signature line */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "16px",
-                  paddingTop: "20px",
-                  borderTop: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                <div
-                  style={{
-                    width: "36px",
-                    height: "2px",
-                    background: "#ED4B00",
-                    borderRadius: "2px",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.45)",
-                    fontStyle: "italic",
-                  }}
-                >
-                  Warm Regards, Dr. Syed Shujaat Ali Shah
-                </span>
-              </div>
-            </div>
           </div>
         </motion.div>
 
         {/* ── VALUES ── */}
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <h3
             style={{
-              fontSize: "clamp(28px, 4vw, 42px)",
+              fontSize: "clamp(26px, 4vw, 38px)",
               fontWeight: 800,
               color: "#0d0d1a",
               letterSpacing: "-0.02em",
@@ -659,7 +612,7 @@ export default function About() {
               height: "3px",
               borderRadius: "2px",
               background: "linear-gradient(90deg, #2100B1, #ED4B00)",
-              margin: "16px auto 0",
+              margin: "14px auto 0",
             }}
           />
         </div>
@@ -667,8 +620,8 @@ export default function About() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "24px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "20px",
           }}
         >
           {values.map((val, i) => (
@@ -680,7 +633,7 @@ export default function About() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               style={{
-                padding: "36px 28px",
+                padding: "28px 24px",
                 borderRadius: "16px",
                 background: "#f8f9ff",
                 border: "1px solid rgba(33,0,177,0.08)",
@@ -696,34 +649,34 @@ export default function About() {
             >
               <div
                 style={{
-                  width: "52px",
-                  height: "52px",
+                  width: "48px",
+                  height: "48px",
                   borderRadius: "12px",
                   background:
                     i === 1 ? "rgba(237,75,0,0.08)" : "rgba(33,0,177,0.08)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                 }}
               >
                 <val.icon
-                  size={24}
+                  size={22}
                   color={i === 1 ? "#ED4B00" : "#2100B1"}
                   strokeWidth={1.8}
                 />
               </div>
               <h4
                 style={{
-                  fontSize: "18px",
+                  fontSize: "17px",
                   fontWeight: 700,
                   color: "#0d0d1a",
-                  marginBottom: "12px",
+                  marginBottom: "10px",
                 }}
               >
                 {val.title}
               </h4>
-              <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.75 }}>
+              <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.7 }}>
                 {val.desc}
               </p>
             </motion.div>

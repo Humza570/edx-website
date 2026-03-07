@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   GraduationCap,
   FileCheck,
@@ -11,78 +12,95 @@ import {
   Plane,
   Home,
   DollarSign,
+  Stamp,
+  Headphones,
+  LifeBuoy,
+  MessageCircle,
   ArrowRight,
 } from "lucide-react";
+
 const services = [
   {
     icon: Compass,
     title: "Career Counseling",
+    slug: "career-counseling",
     desc: "Expert advice on aligning your education choices with long-term career goals, ensuring your academic investments lead to professional success.",
     color: "#2100B1",
   },
   {
     icon: GraduationCap,
     title: "University Selection",
+    slug: "university-selection",
     desc: "We help you choose the best university that aligns with your academic goals, career aspirations, and budget across 10+ destinations.",
     color: "#ED4B00",
   },
   {
     icon: BookOpen,
     title: "Course Selection",
+    slug: "course-selection",
     desc: "With in-depth knowledge of worldwide education systems, we guide you to the right program that matches your profile and future goals.",
     color: "#2100B1",
   },
   {
     icon: FileCheck,
     title: "Admission Application",
+    slug: "admission-application",
     desc: "Our counselors handle your entire application — from filling forms to submitting documents — ensuring everything is done correctly and on time.",
     color: "#ED4B00",
   },
   {
     icon: Award,
     title: "Scholarship Guidance",
+    slug: "scholarship-guidance",
     desc: "We identify the best scholarship opportunities matching your profile and help you craft winning applications to reduce your financial burden.",
     color: "#2100B1",
   },
   {
     icon: DollarSign,
     title: "Financial Aid",
+    slug: "financial-aid",
     desc: "We assist you in finding and applying for financial aid programs, education loans, and blocked accounts to fund your studies abroad.",
     color: "#ED4B00",
   },
   {
-    icon: FileCheck,
+    icon: Stamp,
     title: "Visa Assistance",
+    slug: "visa-assistance",
     desc: "Complete visa documentation support with 98% success rate. We prepare you for interviews and ensure every requirement is met perfectly.",
     color: "#2100B1",
   },
   {
-    icon: BookOpen,
+    icon: Headphones,
     title: "IELTS / PTE Preparation",
+    slug: "ielts-pte-preparation",
     desc: "Structured preparation programs with experienced trainers to help you achieve your target band score for university admissions.",
     color: "#ED4B00",
   },
   {
     icon: Plane,
     title: "Pre-Departure Briefing",
-    desc: "Comprehensive orientation covering travel tips, cultural differences, packing essentials, and what to expect on arrival in your destination country.",
+    slug: "pre-departure-briefing",
+    desc: "Comprehensive orientation covering travel tips, cultural differences, packing essentials, and what to expect on arrival in your destination.",
     color: "#2100B1",
   },
   {
     icon: Home,
     title: "Accommodation Support",
+    slug: "accommodation-support",
     desc: "We help you find safe, affordable student accommodation near your university — whether on-campus housing or private rentals.",
     color: "#ED4B00",
   },
   {
-    icon: Compass,
+    icon: LifeBuoy,
     title: "Post-Arrival Support",
+    slug: "post-arrival-support",
     desc: "Once you land, we assist you in settling into your new environment — banking, transport, part-time work, networking, and local resources.",
     color: "#2100B1",
   },
   {
-    icon: Users,
+    icon: MessageCircle,
     title: "Initial Consultation",
+    slug: "initial-consultation",
     desc: "A free one-on-one session to explore your academic goals and career aspirations, designing a personalized roadmap aligned with your profile.",
     color: "#ED4B00",
   },
@@ -101,10 +119,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      style={{
-        background: "#f8f9ff",
-        padding: "100px 24px",
-      }}
+      style={{ background: "#f8f9ff", padding: "100px 24px" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* Section Header */}
@@ -169,7 +184,6 @@ export default function Services() {
             we guide you through every step of the journey.
           </p>
 
-          {/* Decorative line */}
           <div
             style={{
               width: "60px",
@@ -199,8 +213,8 @@ export default function Services() {
           <p style={{ fontSize: "16px", color: "#666", marginBottom: "20px" }}>
             Not sure where to start? Let our experts guide you.
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -226,7 +240,7 @@ export default function Services() {
           >
             Book Free Consultation
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -235,6 +249,7 @@ export default function Services() {
 
 function ServiceCard({ service, index }) {
   const Icon = service.icon;
+  const isBlue = service.color === "#2100B1";
 
   return (
     <motion.div
@@ -248,19 +263,19 @@ function ServiceCard({ service, index }) {
         background: "white",
         borderRadius: "16px",
         padding: "36px 28px",
-        cursor: "default",
         border: "1px solid rgba(0,0,0,0.06)",
         boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
-        transition: "box-shadow 0.3s",
+        transition: "box-shadow 0.3s, border-color 0.3s",
         position: "relative",
         overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `0 12px 40px rgba(${service.color === "#2100B1" ? "33,0,177" : "237,75,0"},0.15)`;
-        e.currentTarget.style.borderColor =
-          service.color === "#2100B1"
-            ? "rgba(33,0,177,0.2)"
-            : "rgba(237,75,0,0.2)";
+        e.currentTarget.style.boxShadow = `0 12px 40px rgba(${isBlue ? "33,0,177" : "237,75,0"},0.15)`;
+        e.currentTarget.style.borderColor = isBlue
+          ? "rgba(33,0,177,0.2)"
+          : "rgba(237,75,0,0.2)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.05)";
@@ -275,10 +290,9 @@ function ServiceCard({ service, index }) {
           left: 0,
           right: 0,
           height: "3px",
-          background:
-            service.color === "#2100B1"
-              ? "linear-gradient(90deg, #2100B1, #0ea5e9)"
-              : "linear-gradient(90deg, #ED4B00, #ff9a00)",
+          background: isBlue
+            ? "linear-gradient(90deg, #2100B1, #0ea5e9)"
+            : "linear-gradient(90deg, #ED4B00, #ff9a00)",
         }}
       />
 
@@ -288,10 +302,7 @@ function ServiceCard({ service, index }) {
           width: "56px",
           height: "56px",
           borderRadius: "14px",
-          background:
-            service.color === "#2100B1"
-              ? "rgba(33,0,177,0.08)"
-              : "rgba(237,75,0,0.08)",
+          background: isBlue ? "rgba(33,0,177,0.08)" : "rgba(237,75,0,0.08)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -309,7 +320,6 @@ function ServiceCard({ service, index }) {
           color: "#0d0d1a",
           marginBottom: "12px",
           lineHeight: 1.3,
-          whiteSpace: "pre-line",
         }}
       >
         {service.title}
@@ -322,26 +332,36 @@ function ServiceCard({ service, index }) {
           color: "#666",
           lineHeight: 1.75,
           marginBottom: "20px",
+          flex: 1,
         }}
       >
         {service.desc}
       </p>
 
-      {/* Learn more link */}
-      <div
+      {/* ✅ Sirf Learn More linked hai — card nahi */}
+      <Link
+        href={`/services/${service.slug}`}
         style={{
-          display: "flex",
+          display: "inline-flex",
           alignItems: "center",
           gap: "6px",
           fontSize: "13px",
           fontWeight: 700,
           color: service.color,
           letterSpacing: "0.02em",
+          textDecoration: "none",
+          width: "fit-content",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.gap = "10px";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.gap = "6px";
         }}
       >
         Learn More
         <ArrowRight size={14} />
-      </div>
+      </Link>
     </motion.div>
   );
 }
