@@ -1,15 +1,25 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Countries from './components/Countries';
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Countries from "./components/Countries";
+import WhyUs from "./components/WhyUs";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <About />
       <Services />
       <Countries />
+      <WhyUs />
+      <Testimonials />
+      <Contact />
+      <Footer />
       {/* <div style={{ height: '200vh', background: '#f8f9ff' }}>
         <div style={{ paddingTop: '120px', textAlign: 'center' }}>
           <h1 style={{ color: '#2100B1', fontSize: '48px', fontWeight: 'bold' }}>
