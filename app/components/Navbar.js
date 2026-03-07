@@ -372,23 +372,36 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize();
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  // Top bar: hidden on mobile AND hidden when scrolled on desktop
+  const showTopBar = !isMobile && !scrolled;
 
   return (
     <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}>
 
-      {/* ===== TOP INFO BAR ===== */}
+      {/* ===== TOP INFO BAR — desktop only ===== */}
       <div
         style={{
           background: '#2100B1',
-          height: scrolled ? '0px' : '40px',
-          opacity: scrolled ? 0 : 1,
+          height: showTopBar ? '40px' : '0px',
+          opacity: showTopBar ? 1 : 0,
           overflow: 'hidden',
           transition: 'all 0.3s ease',
         }}
@@ -406,7 +419,7 @@ export default function Navbar() {
         >
           {/* Left: Contact Info */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
-<a
+            <a
               href="tel:+923000000000"
               style={{ display: 'flex', alignItems: 'center', gap: '7px', color: 'rgba(255,255,255,0.80)', fontSize: '12px', textDecoration: 'none' }}
               onMouseEnter={e => e.currentTarget.style.color = 'white'}
@@ -415,7 +428,6 @@ export default function Navbar() {
               <Phone size={11} strokeWidth={2} />
               <span>+92 300 0000000</span>
             </a>
-
             <a
               href="mailto:info@edxconsultants.com"
               style={{ display: 'flex', alignItems: 'center', gap: '7px', color: 'rgba(255,255,255,0.80)', fontSize: '12px', textDecoration: 'none' }}
@@ -425,7 +437,6 @@ export default function Navbar() {
               <Mail size={11} strokeWidth={2} />
               <span>info@edxconsultants.com</span>
             </a>
-
             <a
               href="mailto:admissions@edxconsultants.com"
               style={{ display: 'flex', alignItems: 'center', gap: '7px', color: 'rgba(255,255,255,0.80)', fontSize: '12px', textDecoration: 'none' }}
@@ -467,15 +478,15 @@ export default function Navbar() {
           style={{
             maxWidth: '1280px',
             margin: '0 auto',
-            padding: '0 32px',
-            height: '90px',
+            padding: '0 24px',
+            height: isMobile ? '68px' : '90px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '24px',
+            transition: 'height 0.3s',
           }}
         >
-
           {/* Logo */}
           <Link href="/" style={{ flexShrink: 0, display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <Image
@@ -483,107 +494,126 @@ export default function Navbar() {
               alt="EdX Consultants"
               width={220}
               height={110}
-              style={{ height: '88px', width: 'auto', objectFit: 'contain' }}
+              style={{ height: isMobile ? '52px' : '88px', width: 'auto', objectFit: 'contain', transition: 'height 0.3s' }}
               priority
             />
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              flex: 1,
-              justifyContent: 'center',
-              gap: '4px',
-            }}
-            className="hidden md:flex"
-          >
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href.split('/#')[0]));
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  style={{
-                    padding: '10px 22px',
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    color: isActive ? '#2100B1' : '#333',
-                    textDecoration: 'none',
-                    borderRadius: '8px',
-                    transition: 'all 0.2s',
-                    whiteSpace: 'nowrap',
-                    background: isActive ? 'rgba(33,0,177,0.07)' : 'transparent',
-                    borderBottom: isActive ? '2px solid #2100B1' : '2px solid transparent',
-                  }}
-                  onMouseEnter={e => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = '#2100B1';
-                      e.currentTarget.style.background = 'rgba(33,0,177,0.05)';
-                    }
-                  }}
-                  onMouseLeave={e => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = '#333';
-                      e.currentTarget.style.background = 'transparent';
-                    }
-                  }}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+          {!isMobile && (
+            <nav style={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', gap: '4px' }}>
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href.split('/#')[0]));
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    style={{
+                      padding: '10px 22px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: isActive ? '#2100B1' : '#333',
+                      textDecoration: 'none',
+                      borderRadius: '8px',
+                      transition: 'all 0.2s',
+                      whiteSpace: 'nowrap',
+                      background: isActive ? 'rgba(33,0,177,0.07)' : 'transparent',
+                      borderBottom: isActive ? '2px solid #2100B1' : '2px solid transparent',
+                    }}
+                    onMouseEnter={e => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = '#2100B1';
+                        e.currentTarget.style.background = 'rgba(33,0,177,0.05)';
+                      }
+                    }}
+                    onMouseLeave={e => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = '#333';
+                        e.currentTarget.style.background = 'transparent';
+                      }
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
 
-          {/* CTA Button */}
-          <a
-            href="/#contact"
-            className="hidden md:flex"
-            style={{
-              alignItems: 'center',
-              gap: '8px',
-              background: '#ED4B00',
-              color: 'white',
-              padding: '12px 28px',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '700',
-              textDecoration: 'none',
-              flexShrink: 0,
-              transition: 'all 0.2s',
-              boxShadow: '0 4px 15px rgba(237,75,0,0.3)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#cc3f00';
-              e.currentTarget.style.transform = 'translateY(-1px)';
-              e.currentTarget.style.boxShadow = '0 8px 25px rgba(237,75,0,0.45)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = '#ED4B00';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(237,75,0,0.3)';
-            }}
-          >
-            <Phone size={15} />
-            Free Consultation
-          </a>
+          {/* Desktop CTA */}
+          {!isMobile && (
+            <a
+              href="/contact"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#ED4B00',
+                color: 'white',
+                padding: '12px 28px',
+                borderRadius: '8px',
+                fontSize: '14px',
+                fontWeight: '700',
+                textDecoration: 'none',
+                flexShrink: 0,
+                transition: 'all 0.2s',
+                boxShadow: '0 4px 15px rgba(237,75,0,0.3)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#cc3f00';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(237,75,0,0.45)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = '#ED4B00';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(237,75,0,0.3)';
+              }}
+            >
+              <Phone size={15} />
+              Free Consultation
+            </a>
+          )}
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#2100B1', padding: '8px' }}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
+          {/* Mobile Right — call icon + hamburger */}
+          {isMobile && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <a
+                href="tel:+923000000000"
+                style={{
+                  width: '38px', height: '38px',
+                  borderRadius: '8px',
+                  background: 'rgba(237,75,0,0.08)',
+                  border: '1px solid rgba(237,75,0,0.2)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: '#ED4B00', textDecoration: 'none',
+                }}
+              >
+                <Phone size={16} />
+              </a>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                style={{
+                  width: '38px', height: '38px',
+                  borderRadius: '8px',
+                  background: isOpen ? '#2100B1' : 'rgba(33,0,177,0.06)',
+                  border: '1px solid rgba(33,0,177,0.15)',
+                  cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: isOpen ? 'white' : '#2100B1',
+                  transition: 'all 0.2s',
+                }}
+              >
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
       {/* ===== MOBILE MENU ===== */}
       <AnimatePresence>
-        {isOpen && (
+        {isOpen && isMobile && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -595,7 +625,7 @@ export default function Navbar() {
               boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
             }}
           >
-            <div style={{ padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href.split('/#')[0]));
                 return (
@@ -604,8 +634,8 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     style={{
-                      padding: '12px 16px',
-                      fontSize: '14px',
+                      padding: '13px 16px',
+                      fontSize: '15px',
                       fontWeight: '600',
                       color: isActive ? '#2100B1' : '#333',
                       textDecoration: 'none',
@@ -613,25 +643,54 @@ export default function Navbar() {
                       background: isActive ? 'rgba(33,0,177,0.07)' : 'transparent',
                       transition: 'all 0.2s',
                       borderLeft: isActive ? '3px solid #2100B1' : '3px solid transparent',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
                     }}
                   >
                     {link.name}
+                    {isActive && <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2100B1' }} />}
                   </Link>
                 );
               })}
-              <Link
-                href="/#contact"
-                onClick={() => setIsOpen(false)}
-                style={{
-                  marginTop: '12px', padding: '14px 24px',
-                  background: '#ED4B00', color: 'white',
-                  borderRadius: '8px', textAlign: 'center',
-                  fontWeight: '700', fontSize: '14px',
-                  textDecoration: 'none', display: 'block',
-                }}
-              >
-                Free Consultation
-              </Link>
+
+              {/* Mobile CTA + Socials */}
+              <div style={{ paddingTop: '10px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    padding: '14px 24px',
+                    background: '#ED4B00',
+                    color: 'white',
+                    borderRadius: '8px',
+                    textAlign: 'center',
+                    fontWeight: '700',
+                    fontSize: '14px',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 15px rgba(237,75,0,0.3)',
+                  }}
+                >
+                  <Phone size={15} /> Book Free Consultation
+                </Link>
+
+                {/* Social row */}
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', padding: '6px 0 4px' }}>
+                  {[Instagram, Facebook, Youtube, Linkedin, Twitter].map((Icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      style={{ color: '#aaa', display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                      <Icon size={18} strokeWidth={1.8} />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
