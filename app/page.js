@@ -19,7 +19,6 @@ export default function Home() {
       <WhyUs />
       <Testimonials />
       <Contact />
-      <Footer />
       {/* <div style={{ height: '200vh', background: '#f8f9ff' }}>
         <div style={{ paddingTop: '120px', textAlign: 'center' }}>
           <h1 style={{ color: '#2100B1', fontSize: '48px', fontWeight: 'bold' }}>

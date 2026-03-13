@@ -2,109 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  GraduationCap,
-  FileCheck,
-  Users,
-  Award,
-  BookOpen,
-  Compass,
-  Plane,
-  Home,
-  DollarSign,
-  Stamp,
-  Headphones,
-  LifeBuoy,
-  MessageCircle,
-  ArrowRight,
-} from "lucide-react";
-
-const services = [
-  {
-    icon: Compass,
-    title: "Career Counseling",
-    slug: "career-counseling",
-    desc: "Expert advice on aligning your education choices with long-term career goals, ensuring your academic investments lead to professional success.",
-    color: "#2100B1",
-  },
-  {
-    icon: GraduationCap,
-    title: "University Selection",
-    slug: "university-selection",
-    desc: "We help you choose the best university that aligns with your academic goals, career aspirations, and budget across 10+ destinations.",
-    color: "#ED4B00",
-  },
-  {
-    icon: BookOpen,
-    title: "Course Selection",
-    slug: "course-selection",
-    desc: "With in-depth knowledge of worldwide education systems, we guide you to the right program that matches your profile and future goals.",
-    color: "#2100B1",
-  },
-  {
-    icon: FileCheck,
-    title: "Admission Application",
-    slug: "admission-application",
-    desc: "Our counselors handle your entire application — from filling forms to submitting documents — ensuring everything is done correctly and on time.",
-    color: "#ED4B00",
-  },
-  {
-    icon: Award,
-    title: "Scholarship Guidance",
-    slug: "scholarship-guidance",
-    desc: "We identify the best scholarship opportunities matching your profile and help you craft winning applications to reduce your financial burden.",
-    color: "#2100B1",
-  },
-  {
-    icon: DollarSign,
-    title: "Financial Aid",
-    slug: "financial-aid",
-    desc: "We assist you in finding and applying for financial aid programs, education loans, and blocked accounts to fund your studies abroad.",
-    color: "#ED4B00",
-  },
-  {
-    icon: Stamp,
-    title: "Visa Assistance",
-    slug: "visa-assistance",
-    desc: "Complete visa documentation support with 98% success rate. We prepare you for interviews and ensure every requirement is met perfectly.",
-    color: "#2100B1",
-  },
-  {
-    icon: Headphones,
-    title: "IELTS / PTE Preparation",
-    slug: "ielts-pte-preparation",
-    desc: "Structured preparation programs with experienced trainers to help you achieve your target band score for university admissions.",
-    color: "#ED4B00",
-  },
-  {
-    icon: Plane,
-    title: "Pre-Departure Briefing",
-    slug: "pre-departure-briefing",
-    desc: "Comprehensive orientation covering travel tips, cultural differences, packing essentials, and what to expect on arrival in your destination.",
-    color: "#2100B1",
-  },
-  {
-    icon: Home,
-    title: "Accommodation Support",
-    slug: "accommodation-support",
-    desc: "We help you find safe, affordable student accommodation near your university — whether on-campus housing or private rentals.",
-    color: "#ED4B00",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Post-Arrival Support",
-    slug: "post-arrival-support",
-    desc: "Once you land, we assist you in settling into your new environment — banking, transport, part-time work, networking, and local resources.",
-    color: "#2100B1",
-  },
-  {
-    icon: MessageCircle,
-    title: "Initial Consultation",
-    slug: "initial-consultation",
-    desc: "A free one-on-one session to explore your academic goals and career aspirations, designing a personalized roadmap aligned with your profile.",
-    color: "#ED4B00",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { services } from "@/app/data/services";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -157,7 +56,6 @@ export default function Services() {
               What We Offer
             </span>
           </div>
-
           <h2
             style={{
               fontSize: "clamp(32px, 5vw, 52px)",
@@ -170,20 +68,17 @@ export default function Services() {
           >
             Our <span style={{ color: "#2100B1" }}>Services</span>
           </h2>
-
           <p
             style={{
               fontSize: "17px",
               color: "#666",
-              maxWidth: "560px",
+              maxWidth: "60vw",
               margin: "0 auto",
               lineHeight: 1.7,
             }}
           >
-            From your first consultation to landing at your dream university —
-            we guide you through every step of the journey.
+            From that first spark of an idea to the moment you step onto your new campus, we manage every detail of your study abroad journey. You focus on your future; we’ll handle the logistics.
           </p>
-
           <div
             style={{
               width: "60px",
@@ -204,7 +99,7 @@ export default function Services() {
           }}
         >
           {services.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
+            <ServiceCard key={service.slug} service={service} index={i} />
           ))}
         </div>
 
@@ -238,8 +133,7 @@ export default function Services() {
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            Book Free Consultation
-            <ArrowRight size={16} />
+            Book Free Consultation <ArrowRight size={16} />
           </Link>
         </div>
       </div>
@@ -282,7 +176,6 @@ function ServiceCard({ service, index }) {
         e.currentTarget.style.borderColor = "rgba(0,0,0,0.06)";
       }}
     >
-      {/* Top accent line */}
       <div
         style={{
           position: "absolute",
@@ -296,7 +189,25 @@ function ServiceCard({ service, index }) {
         }}
       />
 
-      {/* Icon */}
+      {service.badge && (
+        <div
+          style={{
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            background: service.color,
+            color: "white",
+            fontSize: "10px",
+            fontWeight: 700,
+            padding: "3px 10px",
+            borderRadius: "999px",
+            letterSpacing: "0.04em",
+          }}
+        >
+          {service.badge}
+        </div>
+      )}
+
       <div
         style={{
           width: "56px",
@@ -312,7 +223,6 @@ function ServiceCard({ service, index }) {
         <Icon size={26} color={service.color} strokeWidth={1.8} />
       </div>
 
-      {/* Title */}
       <h3
         style={{
           fontSize: "18px",
@@ -325,7 +235,6 @@ function ServiceCard({ service, index }) {
         {service.title}
       </h3>
 
-      {/* Description */}
       <p
         style={{
           fontSize: "14px",
@@ -338,7 +247,6 @@ function ServiceCard({ service, index }) {
         {service.desc}
       </p>
 
-      {/* ✅ Sirf Learn More linked hai — card nahi */}
       <Link
         href={`/services/${service.slug}`}
         style={{
@@ -351,6 +259,7 @@ function ServiceCard({ service, index }) {
           letterSpacing: "0.02em",
           textDecoration: "none",
           width: "fit-content",
+          transition: "gap 0.2s",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.gap = "10px";
@@ -359,8 +268,7 @@ function ServiceCard({ service, index }) {
           e.currentTarget.style.gap = "6px";
         }}
       >
-        Learn More
-        <ArrowRight size={14} />
+        Learn More <ArrowRight size={14} />
       </Link>
     </motion.div>
   );

@@ -9,6 +9,8 @@ import {
   Shield,
   Star,
 } from "lucide-react";
+import { aboutContent } from "@/app/data/services";
+import Link from "next/link";
 
 const achievements = [
   { number: "10+", label: "Years Experience" },
@@ -17,25 +19,11 @@ const achievements = [
   { number: "98%", label: "Visa Success Rate" },
 ];
 
-const values = [
-  {
-    icon: Target,
-    title: "Our Mission",
-    desc: "Personalized support and professional consultancy services that empower students to explore top-notch educational opportunities worldwide.",
-  },
-  {
-    icon: Heart,
-    title: "Our Vision",
-    desc: "To be the most trusted study abroad consultancy in Pakistan — known for integrity, results, and lifelong student relationships.",
-  },
-  {
-    icon: Shield,
-    title: "Our Promise",
-    desc: "Transparency in every process. Your success is our No. 1 priority and everything we do is designed around achieving it.",
-  },
-];
+const valueIcons = [Target, Heart, Shield];
 
 export default function About() {
+  const { split, ceo, values } = aboutContent;
+
   return (
     <section
       id="about"
@@ -195,6 +183,7 @@ export default function About() {
                 About Us
               </span>
             </div>
+
             <h2
               style={{
                 fontSize: "clamp(28px, 4vw, 42px)",
@@ -205,11 +194,15 @@ export default function About() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Nurturing Your{" "}
+              {split.heading.split("Study Abroad")[0]}
               <span style={{ color: "#2100B1" }}>Study Abroad</span>
               <br />
-              Dreams into <span style={{ color: "#ED4B00" }}>Reality</span>
+              {split.heading.split("Reality")[0].split("into ")[1]
+                ? "Dreams into "
+                : ""}
+              <span style={{ color: "#ED4B00" }}>Reality</span>
             </h2>
+
             <p
               style={{
                 fontSize: "15px",
@@ -218,18 +211,10 @@ export default function About() {
                 marginBottom: "20px",
               }}
             >
-              At EdX Consultants, we connect aspiring students with top-ranked
-              universities across the UK, USA, Canada, Australia, Ireland,
-              Germany, Turkey, Malaysia, and UAE — with extensive expertise in
-              international student recruitment, career counseling, and visa
-              processing.
+              {split.text}
             </p>
-            {[
-              "Free one-on-one consultation and personalized plan",
-              "Dedicated visa counselor assigned to your case",
-              "Direct partnerships with 200+ universities worldwide",
-              "Pre-departure briefings and post-arrival support",
-            ].map((point, i) => (
+
+            {split.points.map((point, i) => (
               <div
                 key={i}
                 style={{
@@ -247,12 +232,13 @@ export default function About() {
                 <span
                   style={{ fontSize: "14px", color: "#444", lineHeight: 1.5 }}
                 >
-                  {point}
+                  <strong>{point.title}:</strong> {point.desc}
                 </span>
               </div>
             ))}
-            <a
-              href="#contact"
+
+            <Link
+              href="/contact"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -278,12 +264,12 @@ export default function About() {
               }}
             >
               Get Free Consultation <ArrowRight size={15} />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
         {/* ── ACHIEVEMENTS BAR ── */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -334,10 +320,10 @@ export default function About() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* ── CEO MESSAGE ── */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -376,7 +362,6 @@ export default function About() {
             }}
           />
 
-          {/* Label */}
           <div
             style={{
               display: "inline-flex",
@@ -420,9 +405,7 @@ export default function About() {
               position: "relative",
             }}
           >
-            {/* ✅ Text FIRST — on mobile this renders on top */}
             <div style={{ position: "relative", order: 1 }}>
-              {/* Quote mark — fixed height, no overflow gap */}
               <div
                 style={{
                   fontSize: "80px",
@@ -438,47 +421,19 @@ export default function About() {
               >
                 "
               </div>
-
-              <p
-                style={{
-                  fontSize: "clamp(13px, 1.6vw, 15px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.8,
-                  marginBottom: "12px",
-                }}
-              >
-                Dear Students, you are embarking on a journey full of
-                possibilities. Education is about influencing your future,
-                unlocking doors to your aspirations, and empowering yourself to
-                make an impact on the world.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(13px, 1.6vw, 15px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.8,
-                  marginBottom: "12px",
-                }}
-              >
-                Every challenge is an opportunity to grow, every setback teaches
-                resilience, and every success shows your commitment. At EdX
-                Consultants, we are dedicated to providing the resources,
-                guidance, and encouragement you need to make informed decisions.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(13px, 1.6vw, 15px)",
-                  color: "rgba(255,255,255,0.82)",
-                  lineHeight: 1.8,
-                  marginBottom: "20px",
-                }}
-              >
-                Stay focused, stay positive, and never stop learning.{" "}
-                <span style={{ color: "#ED4B00", fontWeight: 700 }}>
-                  Believe in yourself — because we believe in you.
-                </span>
-              </p>
-
+              {ceo.quote.split("\n\n").map((para, i) => (
+                <p
+                  key={i}
+                  style={{
+                    fontSize: "clamp(13px, 1.6vw, 15px)",
+                    color: "rgba(255,255,255,0.82)",
+                    lineHeight: 1.8,
+                    marginBottom: "12px",
+                  }}
+                >
+                  {para}
+                </p>
+              ))}
               <div
                 style={{
                   display: "flex",
@@ -503,12 +458,11 @@ export default function About() {
                     fontStyle: "italic",
                   }}
                 >
-                  Warm Regards, Dr. Syed Shujaat Ali Shah
+                  Warm Regards, {ceo.name}
                 </span>
               </div>
             </div>
 
-            {/* ✅ Photo SECOND — on mobile this renders below text */}
             <div
               style={{
                 display: "flex",
@@ -533,7 +487,7 @@ export default function About() {
               >
                 <img
                   src="/Dr.-Syed-Shujaat-Ali-Shah.jpg"
-                  alt="Dr. Syed Shujaat Ali Shah"
+                  alt={ceo.name}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -543,13 +497,10 @@ export default function About() {
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                     e.currentTarget.parentElement.innerHTML =
-                      '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">' +
-                      '<span style="font-size:70px;font-weight:800;color:white;font-family:sans-serif">S</span>' +
-                      "</div>";
+                      '<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%"><span style="font-size:70px;font-weight:800;color:white;font-family:sans-serif">S</span></div>';
                   }}
                 />
               </div>
-
               <div
                 style={{
                   textAlign: "center",
@@ -568,7 +519,7 @@ export default function About() {
                     marginBottom: "3px",
                   }}
                 >
-                  Dr. Syed Shujaat Ali Shah
+                  {ceo.name}
                 </div>
                 <div
                   style={{
@@ -592,7 +543,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* ── VALUES ── */}
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
@@ -624,63 +575,66 @@ export default function About() {
             gap: "20px",
           }}
         >
-          {values.map((val, i) => (
-            <motion.div
-              key={val.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              style={{
-                padding: "28px 24px",
-                borderRadius: "16px",
-                background: "#f8f9ff",
-                border: "1px solid rgba(33,0,177,0.08)",
-                transition: "box-shadow 0.3s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow =
-                  "0 12px 40px rgba(33,0,177,0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              <div
+          {values.map((val, i) => {
+            const Icon = valueIcons[i];
+            return (
+              <motion.div
+                key={val.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "12px",
-                  background:
-                    i === 1 ? "rgba(237,75,0,0.08)" : "rgba(33,0,177,0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "16px",
+                  padding: "28px 24px",
+                  borderRadius: "16px",
+                  background: "#f8f9ff",
+                  border: "1px solid rgba(33,0,177,0.08)",
+                  transition: "box-shadow 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 40px rgba(33,0,177,0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                <val.icon
-                  size={22}
-                  color={i === 1 ? "#ED4B00" : "#2100B1"}
-                  strokeWidth={1.8}
-                />
-              </div>
-              <h4
-                style={{
-                  fontSize: "17px",
-                  fontWeight: 700,
-                  color: "#0d0d1a",
-                  marginBottom: "10px",
-                }}
-              >
-                {val.title}
-              </h4>
-              <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.7 }}>
-                {val.desc}
-              </p>
-            </motion.div>
-          ))}
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "12px",
+                    background:
+                      i === 1 ? "rgba(237,75,0,0.08)" : "rgba(33,0,177,0.08)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "16px",
+                  }}
+                >
+                  <Icon
+                    size={22}
+                    color={i === 1 ? "#ED4B00" : "#2100B1"}
+                    strokeWidth={1.8}
+                  />
+                </div>
+                <h4
+                  style={{
+                    fontSize: "17px",
+                    fontWeight: 700,
+                    color: "#0d0d1a",
+                    marginBottom: "10px",
+                  }}
+                >
+                  {val.title}
+                </h4>
+                <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.7 }}>
+                  {val.desc}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
