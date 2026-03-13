@@ -77,7 +77,9 @@ export default function Services() {
               lineHeight: 1.7,
             }}
           >
-            From that first spark of an idea to the moment you step onto your new campus, we manage every detail of your study abroad journey. You focus on your future; we’ll handle the logistics.
+            From that first spark of an idea to the moment you step onto your
+            new campus, we manage every detail of your study abroad journey. You
+            focus on your future; we’ll handle the logistics.
           </p>
           <div
             style={{
@@ -94,7 +96,7 @@ export default function Services() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "24px",
           }}
         >

@@ -596,9 +596,6 @@ export default function CountriesPage() {
           Book Free Consultation <ArrowRight size={16} />
         </Link>
       </div>
-
-      <Footer />
-
       <style>{`
         .country-card:hover > div { border-color: rgba(255,255,255,0.15) !important; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         .country-card:hover .country-img { transform: scale(1.06); }

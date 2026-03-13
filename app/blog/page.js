@@ -753,9 +753,6 @@ export default function BlogPage() {
           </button>
         </div>
       </div>
-
-      <Footer />
-
       <style>{`
         .featured-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important; }
         .blog-card:hover > div { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.1) !important; }

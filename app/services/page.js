@@ -1,7 +1,6 @@
 'use client';
 
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Link from 'next/link';
 import {
   Compass, GraduationCap, BookOpen, FileText, Award, DollarSign,
@@ -50,28 +49,12 @@ const services = [
     tag: 'Save Money',
   },
   {
-    slug: 'financial-aid',
-    icon: DollarSign,
-    title: 'Financial Aid',
-    short: 'We help you explore student loans, grants, and financial aid options available in your destination country.',
-    color: '#ED4B00',
-    tag: null,
-  },
-  {
     slug: 'visa-assistance',
     icon: Stamp,
     title: 'Visa Assistance',
     short: 'Our dedicated visa team prepares your complete file for a 98% success rate across all major destinations.',
     color: '#2100B1',
     tag: '98% Success',
-  },
-  {
-    slug: 'ielts-pte-preparation',
-    icon: Headphones,
-    title: 'IELTS / PTE Preparation',
-    short: 'Expert coaching and mock tests to help you achieve the score required by your target university.',
-    color: '#ED4B00',
-    tag: null,
   },
   {
     slug: 'pre-departure-briefing',
@@ -87,14 +70,6 @@ const services = [
     title: 'Accommodation Support',
     short: 'We help you find safe, affordable, and convenient housing options near your university.',
     color: '#ED4B00',
-    tag: null,
-  },
-  {
-    slug: 'post-arrival-support',
-    icon: LifeBuoy,
-    title: 'Post-Arrival Support',
-    short: 'We stay with you after you land — bank account, SIM, orientation, and settling into your new city.',
-    color: '#2100B1',
     tag: null,
   },
   {
@@ -168,7 +143,7 @@ export default function ServicesPage() {
             <div style={{ width: '60px', height: '3px', borderRadius: '2px', background: 'linear-gradient(90deg, #2100B1, #ED4B00)', margin: '20px auto 0' }} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
             {services.map((service, i) => (
               <Link
                 key={service.slug}
@@ -239,8 +214,6 @@ export default function ServicesPage() {
           Book Free Consultation <ArrowRight size={16} />
         </Link>
       </div>
-
-      <Footer />
     </main>
   );
 }

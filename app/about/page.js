@@ -147,8 +147,6 @@ export default function AboutPage() {
 
       {/* About Section (reusing existing component) */}
       <About />
-
-      <Footer />
     </main>
   );
 }
