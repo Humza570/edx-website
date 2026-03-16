@@ -15,7 +15,7 @@ const countries = [
     universities: "25+",
     students: "500+",
     image: "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&q=80",
-    highlight: "UAE · ARU · RGU",
+    highlight: "UEA · ARU · RGU",
     color: "#ED4B00",
     desc: "The UK is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe.",
     duration: "1–3 Years",
@@ -310,7 +310,7 @@ export default function Countries() {
               Your Global Education,{" "}<span style={{ color: "#ED4B00" }}>Starts Here</span>
             </h2>
             <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.5)", maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-              With 200+ partner universities in 10 countries, we help you choose the best destination for your academic journey.
+              With 100+ partner universities in 10 countries, we help you choose the best destination for your academic journey.
             </p>
             <div style={{ width: "60px", height: "3px", borderRadius: "2px", background: "linear-gradient(90deg, #2100B1, #ED4B00)", margin: "24px auto 0" }} />
           </motion.div>
