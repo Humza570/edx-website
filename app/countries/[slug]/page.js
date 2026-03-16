@@ -1,5 +1,3 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -21,13 +19,13 @@ const countries = {
     color: "#ED4B00",
     image:
       "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1200&q=85",
-    highlight: "Oxford · Cambridge · Imperial",
-    universities: "150+",
-    students: "800+",
+    highlight: "UAE · ARU · RGU",
+    universities: "25+",
+    students: "500+",
     tagline: "Where Tradition Meets Excellence.",
-    desc: "The United Kingdom is home to some of the world's most prestigious and globally recognized universities. A UK degree opens doors across every industry worldwide and is valued by employers across the globe. With a rich academic tradition, cutting-edge research facilities, and a multicultural student environment, the UK remains the top choice for Pakistani students.",
+    desc: "The United Kingdom is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe. With a rich academic tradition, cutting-edge research facilities, and a multicultural student environment, the UK remains the top choice for Pakistani students.",
     whyChoose: [
-      "Home to 4 of the world's top 10 universities",
+      "Home to some of the world's most prestigious universities",
       "Degrees recognized by employers worldwide",
       "Post-Study Work Visa — work up to 2 years after graduation",
       "English-speaking country — no language barrier",
@@ -35,15 +33,15 @@ const countries = {
       "Strong alumni networks globally",
     ],
     topUnis: [
-      "University of Oxford",
-      "University of Cambridge",
-      "Imperial College London",
-      "University College London",
-      "University of Edinburgh",
+      "UAE",
+      "ARU",
+      "RGU",
       "University of Manchester",
+      "University of Edinburgh",
+      "Coventry University",
     ],
-    intake: "September / January",
-    duration: "1 year (PG) · 3 years (UG)",
+    intake: "January / May / September",
+    duration: "1–3 Years",
     tuition: "£10,000 – £38,000 / year",
     living: "£12,000 – £15,000 / year",
     workRights: "20 hrs/week during studies · 2 years PSW visa",
@@ -63,10 +61,10 @@ const countries = {
     image:
       "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=1200&q=85",
     highlight: "Harvard · MIT · Stanford",
-    universities: "200+",
-    students: "600+",
+    universities: "20+",
+    students: "100+",
     tagline: "Dream Big. Study Bigger.",
-    desc: "The USA offers the most diverse higher education system in the world with over 4,000 accredited universities. American degrees are among the most respected globally, and the country is home to the world's top research institutions. With generous financial aid, OPT work authorization, and a vibrant campus culture, the USA is ideal for ambitious students.",
+    desc: "The USA offers a variety of academic programs, research facilities, and globally acclaimed degrees. The country is also home to some of the world's top-ranked universities as well as innovative learning environments. With generous financial aid, OPT work authorization, and a vibrant campus culture, the USA is ideal for ambitious students.",
     whyChoose: [
       "World's largest higher education system",
       "Generous merit scholarships and financial aid",
@@ -84,7 +82,7 @@ const countries = {
       "University of California",
     ],
     intake: "August / January",
-    duration: "1–2 years (PG) · 4 years (UG)",
+    duration: "2–4 Years",
     tuition: "$20,000 – $60,000 / year",
     living: "$12,000 – $18,000 / year",
     workRights: "20 hrs/week on-campus · OPT 1–3 years after",
@@ -97,60 +95,19 @@ const countries = {
       "Law",
     ],
   },
-  canada: {
-    name: "Canada",
-    flag: "🇨🇦",
-    color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=1200&q=85",
-    highlight: "Toronto · UBC · McGill",
-    universities: "80+",
-    students: "500+",
-    tagline: "Study, Work, Settle — Canada Has It All.",
-    desc: "Canada has become one of the most popular destinations for Pakistani students — and for good reason. It offers excellent education at affordable tuition rates, a clear Post-Graduate Work Permit (PGWP) pathway, and one of the most accessible routes to Permanent Residency in the world. Safe, multicultural, and welcoming, Canada is ideal for students planning long-term settlement.",
-    whyChoose: [
-      "Post-Graduate Work Permit up to 3 years",
-      "Clear pathway to Permanent Residency (Express Entry)",
-      "Affordable tuition compared to UK and USA",
-      "Safe and multicultural society",
-      "Part-time work — 20 hrs during studies, full-time in holidays",
-      "High quality of life and strong economy",
-    ],
-    topUnis: [
-      "University of Toronto",
-      "UBC",
-      "McGill University",
-      "University of Waterloo",
-      "McMaster University",
-      "University of Alberta",
-    ],
-    intake: "September / January / May",
-    duration: "1–2 years (PG) · 4 years (UG)",
-    tuition: "CAD 15,000 – 40,000 / year",
-    living: "CAD 12,000 – 18,000 / year",
-    workRights: "20 hrs/week · PGWP up to 3 years after",
-    popularCourses: [
-      "Computer Science",
-      "Business",
-      "Engineering",
-      "Healthcare",
-      "Data Analytics",
-      "Hospitality",
-    ],
-  },
   australia: {
     name: "Australia",
     flag: "🇦🇺",
     color: "#2100B1",
     image:
       "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1200&q=85",
-    highlight: "Melbourne · Sydney · ANU",
-    universities: "40+",
-    students: "400+",
+    highlight: "Melbourne · ANU · Sydney",
+    universities: "10+",
+    students: "80+",
     tagline: "World-Class Education, World-Class Lifestyle.",
-    desc: "Australia is consistently ranked among the top study abroad destinations for Pakistani students. With 8 universities in the world's top 100, a safe and friendly environment, and some of the most generous post-study work rights in the world, Australia offers an unmatched combination of quality education and quality of life.",
+    desc: "Australia is famous for its high-standard education system, cultural diversity, and strong post-study work prospects. International students can experience a safe lifestyle, modern campuses, and globally recognized qualifications. Australia offers an unmatched combination of quality education and quality of life.",
     whyChoose: [
-      "8 universities in the global top 100",
+      "High-standard education system globally recognized",
       "Post-Study Work Visa up to 4 years (regional areas)",
       "Safe, clean, and student-friendly cities",
       "Strong job market — especially in IT, engineering, healthcare",
@@ -166,7 +123,7 @@ const countries = {
       "University of Queensland",
     ],
     intake: "February / July",
-    duration: "1–2 years (PG) · 3 years (UG)",
+    duration: "2–3 Years",
     tuition: "AUD 20,000 – 50,000 / year",
     living: "AUD 18,000 – 22,000 / year",
     workRights: "48 hrs/fortnight · PSW visa 2–4 years after",
@@ -179,127 +136,45 @@ const countries = {
       "Architecture",
     ],
   },
-  ireland: {
-    name: "Ireland",
-    flag: "🇮🇪",
+  canada: {
+    name: "Canada",
+    flag: "🇨🇦",
     color: "#ED4B00",
     image:
-      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=1200&q=85",
-    highlight: "Trinity · UCD · UCC",
-    universities: "20+",
-    students: "150+",
-    tagline: "Europe's English-Speaking Tech Hub.",
-    desc: "Ireland is a hidden gem for Pakistani students — an English-speaking country in the heart of Europe with top-ranked universities, a booming technology industry, and a friendly, welcoming culture. As the European headquarters of Google, Meta, Apple, and Microsoft, Ireland offers incredible internship and career opportunities for graduates.",
+      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=1200&q=85",
+    highlight: "UCW · TRU",
+    universities: "10+",
+    students: "50+",
+    tagline: "Study, Work, Settle — Canada Has It All.",
+    desc: "Canada promises affordable education, a conducive environment, and great career opportunities after completing studies. It provides post-study work permits and permanent residence opportunities. Safe, multicultural, and welcoming, Canada is ideal for students planning long-term settlement.",
     whyChoose: [
-      "English-speaking EU country",
-      "Home to Google, Meta, Apple, Microsoft European HQs",
-      "Post-Study Stay Back — up to 2 years",
-      "Access to the entire EU job market",
-      "Excellent quality of life",
-      "Smaller class sizes and personal attention",
+      "Post-Graduate Work Permit up to 3 years",
+      "Clear pathway to Permanent Residency (Express Entry)",
+      "Affordable tuition compared to UK and USA",
+      "Safe and multicultural society",
+      "Part-time work — 20 hrs during studies, full-time in holidays",
+      "High quality of life and strong economy",
     ],
     topUnis: [
-      "Trinity College Dublin",
-      "University College Dublin",
-      "University College Cork",
-      "NUI Galway",
-      "Dublin City University",
-      "Maynooth University",
+      "UCW",
+      "TRU",
+      "University of Toronto",
+      "UBC",
+      "McGill University",
+      "University of Waterloo",
     ],
     intake: "September / January",
-    duration: "1 year (PG) · 3–4 years (UG)",
-    tuition: "€10,000 – €25,000 / year",
-    living: "€10,000 – €14,000 / year",
-    workRights: "20 hrs/week · 2 year stay back visa",
+    duration: "2–4 Years",
+    tuition: "CAD 15,000 – 40,000 / year",
+    living: "CAD 12,000 – 18,000 / year",
+    workRights: "20 hrs/week · PGWP up to 3 years after",
     popularCourses: [
       "Computer Science",
+      "Business",
+      "Engineering",
+      "Healthcare",
       "Data Analytics",
-      "Business",
-      "Pharma",
-      "Finance",
-      "Engineering",
-    ],
-  },
-  germany: {
-    name: "Germany",
-    flag: "🇩🇪",
-    color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=85",
-    highlight: "TU Munich · Heidelberg · LMU",
-    universities: "50+",
-    students: "200+",
-    tagline: "World-Class Education. Almost Free.",
-    desc: "Germany is one of the best-kept secrets in international education. Most public universities charge little to no tuition fees — even for international students — making it the most affordable top-tier destination in the world. With a strong engineering and technology tradition, Germany is especially popular among students from technical disciplines.",
-    whyChoose: [
-      "Tuition-free or very low tuition at public universities",
-      "World-renowned engineering and technical education",
-      "Stay back visa — 18 months to find a job after graduation",
-      "Strong economy and high graduate employment rates",
-      "Central location in Europe",
-      "Scholarships from DAAD and German universities",
-    ],
-    topUnis: [
-      "TU Munich",
-      "LMU Munich",
-      "Heidelberg University",
-      "Humboldt University Berlin",
-      "RWTH Aachen",
-      "Karlsruhe Institute of Technology",
-    ],
-    intake: "October / April",
-    duration: "1–2 years (PG) · 3 years (UG)",
-    tuition: "€0 – €3,000 / year (public)",
-    living: "€10,000 – €12,000 / year",
-    workRights: "120 full days/year · 18-month job-seeker visa",
-    popularCourses: [
-      "Engineering",
-      "Computer Science",
-      "Automotive",
-      "Business",
-      "Natural Sciences",
-      "Architecture",
-    ],
-  },
-  turkey: {
-    name: "Turkey",
-    flag: "🇹🇷",
-    color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85",
-    highlight: "Istanbul · Ankara · Bilkent",
-    universities: "30+",
-    students: "300+",
-    tagline: "Quality Education, Exceptional Value.",
-    desc: "Turkey has emerged as a top destination for Pakistani students seeking quality education at an affordable cost. The Turkish Government Scholarship (Türkiye Burslari) covers full tuition, accommodation, and a monthly stipend — making it one of the most generous scholarship programs in the world for international students.",
-    whyChoose: [
-      "Turkish Government Scholarships available (full funding)",
-      "Very affordable tuition and living costs",
-      "Culturally and linguistically close to Pakistan",
-      "No IELTS required at many universities",
-      "English and Turkish medium programs available",
-      "Strong medical and engineering programs",
-    ],
-    topUnis: [
-      "Istanbul University",
-      "Ankara University",
-      "Bilkent University",
-      "Sabanci University",
-      "Bogazici University",
-      "METU",
-    ],
-    intake: "October / February",
-    duration: "1–2 years (PG) · 4 years (UG)",
-    tuition: "$0 – $8,000 / year",
-    living: "$4,000 – $7,000 / year",
-    workRights: "Limited part-time work rights",
-    popularCourses: [
-      "Medicine (MBBS)",
-      "Engineering",
-      "Business",
-      "Architecture",
-      "International Relations",
-      "Dentistry",
+      "Hospitality",
     ],
   },
   malaysia: {
@@ -308,13 +183,13 @@ const countries = {
     color: "#2100B1",
     image:
       "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
-    highlight: "UM · UPM · Monash Malaysia",
-    universities: "25+",
-    students: "250+",
+    highlight: "APU · UCSI · Raffles",
+    universities: "30+",
+    students: "300+",
     tagline: "Affordable Excellence in the Heart of Asia.",
-    desc: "Malaysia is the most popular destination for Pakistani students seeking MBBS and medical degrees abroad at an affordable cost. With internationally accredited programs, English as the primary medium of instruction, and a multicultural environment, Malaysia offers an excellent balance of quality and affordability.",
+    desc: "Malaysia provides an international education at an affordable price with modern educational campuses and globally recognized qualifications. It is a popular destination for international students seeking quality education at a lower tuition fee, particularly for MBBS and medical programs.",
     whyChoose: [
-      "Most affordable MBBS programs internationally recognized",
+      "Most affordable MBBS programs — internationally recognized",
       "English medium instruction at all universities",
       "Culturally similar and Muslim-friendly environment",
       "Low cost of living compared to Western countries",
@@ -322,15 +197,15 @@ const countries = {
       "Branch campuses of UK and Australian universities",
     ],
     topUnis: [
-      "University of Malaya",
-      "UPM",
-      "Monash University Malaysia",
-      "Taylor's University",
+      "APU",
       "UCSI University",
+      "Raffles",
+      "University of Malaya",
+      "Taylor's University",
       "IMU",
     ],
-    intake: "March / September",
-    duration: "5 years (MBBS) · 1–3 years (others)",
+    intake: "February / May / September",
+    duration: "2–3 Years",
     tuition: "RM 30,000 – 120,000 / year",
     living: "RM 12,000 – 18,000 / year",
     workRights: "Limited — student visa restrictions",
@@ -343,17 +218,140 @@ const countries = {
       "Nursing",
     ],
   },
+  germany: {
+    name: "Germany",
+    flag: "🇩🇪",
+    color: "#2100B1",
+    image:
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=85",
+    highlight: "GISMA · UE · BSBI",
+    universities: "10+",
+    students: "100+",
+    tagline: "World-Class Education. Almost Free.",
+    desc: "Germany is popular for quality education, especially in the field of engineering and technology, with affordable options for students. Students have access to quality research facilities and good job opportunities in Europe. Most public universities charge little to no tuition fees, even for international students.",
+    whyChoose: [
+      "Tuition-free or very low tuition at public universities",
+      "World-renowned engineering and technical education",
+      "Stay back visa — 18 months to find a job after graduation",
+      "Strong economy and high graduate employment rates",
+      "Central location in Europe",
+      "Scholarships from DAAD and German universities",
+    ],
+    topUnis: [
+      "GISMA",
+      "UE",
+      "BSBI",
+      "TU Munich",
+      "LMU Munich",
+      "Heidelberg University",
+    ],
+    intake: "October / April",
+    duration: "2–3 Years",
+    tuition: "€0 – €3,000 / year (public)",
+    living: "€10,000 – €12,000 / year",
+    workRights: "120 full days/year · 18-month job-seeker visa",
+    popularCourses: [
+      "Engineering",
+      "Computer Science",
+      "Automotive",
+      "Business",
+      "Natural Sciences",
+      "Architecture",
+    ],
+  },
+  france: {
+    name: "France",
+    flag: "🇫🇷",
+    color: "#ED4B00",
+    image:
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200&q=85",
+    highlight: "Sorbonne · HEC Paris · École Polytechnique",
+    universities: "10+",
+    students: "30+",
+    tagline: "Academic Excellence with a Rich Cultural Experience.",
+    desc: "France offers academic excellence with a rich cultural experience and good international career prospects. It is known for its excellent business schools and creative programs of study. France is home to some of Europe's most prestigious institutions with globally recognized degrees.",
+    whyChoose: [
+      "World-renowned business schools and creative programs",
+      "Affordable tuition at public universities",
+      "Rich cultural and academic environment",
+      "Central location for European career opportunities",
+      "Strong post-study work options",
+      "International and English-taught programs available",
+    ],
+    topUnis: [
+      "Sorbonne University",
+      "HEC Paris",
+      "École Polytechnique",
+      "Sciences Po",
+      "ESSEC Business School",
+      "University of Paris",
+    ],
+    intake: "September / January",
+    duration: "1–2 Years",
+    tuition: "€3,000 – €15,000 / year",
+    living: "€10,000 – €14,000 / year",
+    workRights: "20 hrs/week during studies",
+    popularCourses: [
+      "Business & MBA",
+      "Fashion & Design",
+      "Engineering",
+      "Culinary Arts",
+      "Computer Science",
+      "International Relations",
+    ],
+  },
+  netherlands: {
+    name: "Netherlands",
+    flag: "🇳🇱",
+    color: "#2100B1",
+    image:
+      "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=1200&q=85",
+    highlight: "UE Amsterdam",
+    universities: "10+",
+    students: "50+",
+    tagline: "Innovative Education in the Heart of Europe.",
+    desc: "The Netherlands is famous for its innovative educational system, English-taught courses, and open environment for international students. Students benefit from a modern educational system that emphasizes research and practical knowledge, with strong links to global industries.",
+    whyChoose: [
+      "Most programs taught entirely in English",
+      "Innovative and research-focused education system",
+      "Highly international and open student environment",
+      "Strong links to global tech and business industries",
+      "Orientation year visa to find work after graduation",
+      "Central European location with easy travel access",
+    ],
+    topUnis: [
+      "UE Amsterdam",
+      "University of Amsterdam",
+      "Delft University of Technology",
+      "Erasmus University Rotterdam",
+      "Leiden University",
+      "Utrecht University",
+    ],
+    intake: "September / February",
+    duration: "1–3 Years",
+    tuition: "€8,000 – €20,000 / year",
+    living: "€10,000 – €14,000 / year",
+    workRights: "16 hrs/week · 1-year orientation visa after graduation",
+    popularCourses: [
+      "Business & MBA",
+      "Engineering",
+      "Computer Science",
+      "Data Science",
+      "Economics",
+      "International Law",
+    ],
+  },
   "new-zealand": {
     name: "New Zealand",
     flag: "🇳🇿",
     color: "#ED4B00",
     image:
       "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=1200&q=85",
-    highlight: "Auckland · Otago · Victoria",
-    universities: "15+",
-    students: "100+",
+    highlight: "Auckland · Otago · Victoria University of Wellington",
+    universities: "10+",
+    students: "20+",
     tagline: "Safe, Scenic, and Seriously Good Education.",
-    desc: "New Zealand offers a high-quality, internationally recognized education system in one of the safest and most beautiful countries in the world. With post-study work visa options and a clear path to New Zealand residency, it is increasingly becoming a preferred destination for Pakistani students seeking both quality education and long-term opportunities.",
+    desc: "New Zealand provides good quality education, a secure environment, and great prospects for international students. New Zealand is also famous for providing good student communities and a picturesque environment. With post-study work visa options and a clear path to residency, it is an ideal destination.",
     whyChoose: [
       "One of the safest countries in the world",
       "Post-Study Work Visa up to 3 years",
@@ -371,7 +369,7 @@ const countries = {
       "AUT",
     ],
     intake: "February / July",
-    duration: "1–2 years (PG) · 3 years (UG)",
+    duration: "2–3 Years",
     tuition: "NZD 22,000 – 45,000 / year",
     living: "NZD 15,000 – 20,000 / year",
     workRights: "20 hrs/week · PSW visa up to 3 years",
@@ -384,17 +382,99 @@ const countries = {
       "Tourism Management",
     ],
   },
+  ireland: {
+    name: "Ireland",
+    flag: "🇮🇪",
+    color: "#ED4B00",
+    image:
+      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=1200&q=85",
+    highlight: "Trinity College Dublin · UCD · University of Galway",
+    universities: "25+",
+    students: "10+",
+    tagline: "Europe's English-Speaking Tech Hub.",
+    desc: "Ireland is becoming a popular destination for international students owing to its connectivity to global industries. Many global technology companies are located in Ireland, creating great opportunities for students to work after graduating. An English-speaking EU country with top-ranked universities.",
+    whyChoose: [
+      "English-speaking EU country",
+      "Home to Google, Meta, Apple, Microsoft European HQs",
+      "Post-Study Stay Back — up to 2 years",
+      "Access to the entire EU job market",
+      "Excellent quality of life",
+      "Smaller class sizes and personal attention",
+    ],
+    topUnis: [
+      "Trinity College Dublin",
+      "University College Dublin",
+      "University of Galway",
+      "NUI Galway",
+      "Dublin City University",
+      "Maynooth University",
+    ],
+    intake: "September / January",
+    duration: "1–2 Years",
+    tuition: "€10,000 – €25,000 / year",
+    living: "€10,000 – €14,000 / year",
+    workRights: "20 hrs/week · 2 year stay back visa",
+    popularCourses: [
+      "Computer Science",
+      "Data Analytics",
+      "Business",
+      "Pharma",
+      "Finance",
+      "Engineering",
+    ],
+  },
+  turkey: {
+    name: "Turkey",
+    flag: "🇹🇷",
+    color: "#ED4B00",
+    image:
+      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85",
+    highlight: "BAU · Bilkent University",
+    universities: "10+",
+    students: "30+",
+    tagline: "Quality Education, Exceptional Value.",
+    desc: "Turkey has affordable education, modern universities, and a unique cultural experience for international students. Turkey is a bridge between Europe and Asia and has many academic and cultural opportunities to offer. Turkish Government Scholarships provide full funding for eligible international students.",
+    whyChoose: [
+      "Turkish Government Scholarships available (full funding)",
+      "Very affordable tuition and living costs",
+      "Culturally and linguistically close to Pakistan",
+      "No IELTS required at many universities",
+      "English and Turkish medium programs available",
+      "Strong medical and engineering programs",
+    ],
+    topUnis: [
+      "BAU",
+      "Bilkent University",
+      "Istanbul University",
+      "Ankara University",
+      "Sabanci University",
+      "METU",
+    ],
+    intake: "September / February",
+    duration: "2–4 Years",
+    tuition: "$0 – $8,000 / year",
+    living: "$4,000 – $7,000 / year",
+    workRights: "Limited part-time work rights",
+    popularCourses: [
+      "Medicine (MBBS)",
+      "Engineering",
+      "Business",
+      "Architecture",
+      "International Relations",
+      "Dentistry",
+    ],
+  },
   uae: {
     name: "UAE",
     flag: "🇦🇪",
     color: "#2100B1",
     image:
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
-    highlight: "NYU Abu Dhabi · AUS · HBMeU",
-    universities: "20+",
-    students: "180+",
+    highlight: "UE · American University in Dubai",
+    universities: "10+",
+    students: "20+",
     tagline: "World-Class Education in a World-Class City.",
-    desc: "The UAE has rapidly established itself as a major global education hub, with branch campuses of world-renowned universities from the UK, USA, and Australia. For Pakistani students, the UAE offers the advantage of proximity, a familiar culture, and a tax-free environment with strong networking and career opportunities.",
+    desc: "The UAE offers international quality education with modern campus facilities and industry ties with the rest of the world. Students have the opportunity to study in international branch campuses in Dubai and Abu Dhabi. Proximity to Pakistan and a familiar culture make it a convenient and attractive destination.",
     whyChoose: [
       "Proximity to Pakistan — easy for families to visit",
       "Familiar culture and large Pakistani community",
@@ -404,15 +484,15 @@ const countries = {
       "No IELTS required at some institutions",
     ],
     topUnis: [
+      "UE",
+      "American University in Dubai",
       "NYU Abu Dhabi",
       "American University of Sharjah",
-      "HBMeU",
-      "University of Wollongong Dubai",
       "Heriot-Watt University Dubai",
       "Middlesex University Dubai",
     ],
     intake: "September / January",
-    duration: "1–2 years (PG) · 3–4 years (UG)",
+    duration: "2–3 Years",
     tuition: "AED 40,000 – 90,000 / year",
     living: "AED 24,000 – 36,000 / year",
     workRights: "Internships and part-time permitted",
@@ -423,6 +503,47 @@ const countries = {
       "Architecture",
       "Media",
       "Hospitality",
+    ],
+  },
+  "northern-cyprus": {
+    name: "Northern Cyprus",
+    flag: "🇨🇾",
+    color: "#2100B1",
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85",
+    highlight: "Eastern Mediterranean University",
+    universities: "1",
+    students: "10+",
+    tagline: "Affordable Excellence in the Mediterranean.",
+    desc: "Northern Cyprus offers affordable tuition fees, internationally recognized degrees, and a welcoming student environment. Students enjoy modern campuses, small class sizes, and a multicultural learning experience in a beautiful Mediterranean setting.",
+    whyChoose: [
+      "Very affordable tuition fees",
+      "Internationally recognized degrees",
+      "Small class sizes and personal attention",
+      "Multicultural and welcoming environment",
+      "Beautiful Mediterranean lifestyle",
+      "English medium programs available",
+    ],
+    topUnis: [
+      "Eastern Mediterranean University",
+      "Near East University",
+      "Girne American University",
+      "Cyprus International University",
+      "Final International University",
+      "Lefke European University",
+    ],
+    intake: "September / February",
+    duration: "2–4 Years",
+    tuition: "$3,000 – $8,000 / year",
+    living: "$4,000 – $7,000 / year",
+    workRights: "Limited part-time work rights",
+    popularCourses: [
+      "Medicine (MBBS)",
+      "Engineering",
+      "Business",
+      "Law",
+      "Architecture",
+      "Dentistry",
     ],
   },
 };
@@ -447,15 +568,12 @@ export default async function CountryDetailPage({ params }) {
   if (!country) notFound();
 
   const isOrange = country.color === "#ED4B00";
-
   const otherCountries = Object.entries(countries)
     .filter(([s]) => s !== slug)
     .slice(0, 4);
 
   return (
     <main>
-      <Navbar />
-
       {/* Hero */}
       <div
         style={{ position: "relative", height: "520px", overflow: "hidden" }}
@@ -478,7 +596,6 @@ export default async function CountryDetailPage({ params }) {
               "linear-gradient(to bottom, rgba(13,13,26,0.5) 0%, rgba(13,13,26,0.85) 100%)",
           }}
         />
-
         <div
           style={{
             position: "absolute",
@@ -571,8 +688,6 @@ export default async function CountryDetailPage({ params }) {
                 "{country.tagline}"
               </p>
             </div>
-
-            {/* Quick stats */}
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
               {[
                 { val: country.universities, label: "Partner Unis" },
@@ -626,7 +741,7 @@ export default async function CountryDetailPage({ params }) {
               gap: "48px",
             }}
           >
-            {/* Left — About + Why Choose */}
+            {/* Left */}
             <div>
               <h2
                 style={{
@@ -686,7 +801,6 @@ export default async function CountryDetailPage({ params }) {
                 ))}
               </div>
 
-              {/* Top Unis */}
               <h3
                 style={{
                   fontSize: "18px",
@@ -723,7 +837,7 @@ export default async function CountryDetailPage({ params }) {
               </div>
             </div>
 
-            {/* Right — Info Cards */}
+            {/* Right */}
             <div>
               {/* Key Info */}
               <div
@@ -890,7 +1004,7 @@ export default async function CountryDetailPage({ params }) {
                   through every step.
                 </p>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -932,7 +1046,7 @@ export default async function CountryDetailPage({ params }) {
               marginBottom: "40px",
             }}
           >
-            We have active counseling panels in 10 countries.
+            We have active counseling panels in 13 countries.
           </p>
           <div
             style={{
@@ -1012,6 +1126,7 @@ export default async function CountryDetailPage({ params }) {
         </div>
       </div>
 
+      {/* Bottom CTA */}
       <div
         style={{
           background: "linear-gradient(135deg, #2100B1, #ED4B00)",
@@ -1041,7 +1156,7 @@ export default async function CountryDetailPage({ params }) {
           Free consultation — our counselors will build your complete roadmap.
         </p>
         <Link
-          href="/#contact"
+          href="/contact"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -1059,8 +1174,6 @@ export default async function CountryDetailPage({ params }) {
           Book Free Consultation <ArrowRight size={16} />
         </Link>
       </div>
-
-      <Footer />
 
       <style>{`
         .other-country-card > div { transition: all 0.25s; }

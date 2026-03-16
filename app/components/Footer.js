@@ -1,55 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-  Facebook,
-  Youtube,
-  Linkedin,
-  Twitter,
-  ArrowRight,
-  Heart,
-} from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = {
   Services: [
-    "University Admissions",
-    "Visa Assistance",
-    "Scholarship Guidance",
-    "IELTS / PTE Preparation",
-    "Career Counseling",
-    "Pre-Departure Briefing",
+    { label: "University Admissions", href: "/services/admission-application" },
+    { label: "Visa Assistance", href: "/services/visa-assistance" },
+    { label: "Scholarship Guidance", href: "/services/scholarship-guidance" },
+    { label: "Career Counseling", href: "/services/career-counseling" },
+    {
+      label: "Pre-Departure Briefing",
+      href: "/services/pre-departure-briefing",
+    },
+    { label: "Initial Consultation", href: "/services/initial-consultation" },
   ],
   Destinations: [
-    "United Kingdom",
-    "United States",
-    "Canada",
-    "Australia",
-    "Germany",
-    "Ireland",
-    "Turkey",
-    "Malaysia",
+    { label: "United Kingdom", href: "/countries/united-kingdom" },
+    { label: "United States", href: "/countries/united-states" },
+    { label: "Canada", href: "/countries/canada" },
+    { label: "Australia", href: "/countries/australia" },
+    { label: "Germany", href: "/countries/germany" },
+    { label: "Ireland", href: "/countries/ireland" },
+    { label: "Turkey", href: "/countries/turkey" },
+    { label: "Malaysia", href: "/countries/malaysia" },
   ],
   Company: [
-    "About Us",
-    "Why Choose Us",
-    "Student Stories",
-    "Our Team",
-    "Careers",
-    "Contact Us",
+    { label: "About Us", href: "/about" },
+    { label: "Why Choose Us", href: "/#why-us" },
+    { label: "Student Stories", href: "/#success-stories" },
+    { label: "Countries", href: "/countries" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/contact" },
   ],
 };
 
+// Custom SVG social icons
+function FacebookIcon({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+function InstagramIcon({ size = 15 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+function LinkedinIcon({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+function YoutubeIcon({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+      <polygon
+        fill="#0a0a14"
+        points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+      />
+    </svg>
+  );
+}
+function PinterestIcon({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+    </svg>
+  );
+}
+
 const socials = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  {
+    Icon: InstagramIcon,
+    href: "https://www.instagram.com/edxconsultants",
+    label: "Instagram",
+  },
+  {
+    Icon: FacebookIcon,
+    href: "https://www.facebook.com/profile.php?id=61569584940276",
+    label: "Facebook",
+  },
+  { Icon: YoutubeIcon, href: "#", label: "YouTube" },
+  {
+    Icon: LinkedinIcon,
+    href: "https://www.linkedin.com/company/edxconsultants/",
+    label: "LinkedIn",
+  },
+  { Icon: PinterestIcon, href: "#", label: "Pinterest" },
 ];
 
 export default function Footer() {
@@ -73,37 +130,26 @@ export default function Footer() {
           {/* Brand column */}
           <div style={{ gridColumn: "span 1" }}>
             <Image
-              src="/Edx_Logo.png"
+              src="/Edx-Logo-White.gif"
               alt="EdX Consultants"
               width={140}
               height={60}
               style={{
-                height: "60px",
+                height: "140px",
                 width: "auto",
                 objectFit: "contain",
                 marginBottom: "20px",
-                filter: "brightness(0) invert(1)",
               }}
             />
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(255,255,255,0.5)",
-                lineHeight: 1.8,
-                marginBottom: "24px",
-                maxWidth: "260px",
-              }}
-            >
-              Pakistan's leading study abroad consultancy. We have helped 5,000+
-              students achieve their dream of international education.
-            </p>
 
             {/* Socials */}
             <div style={{ display: "flex", gap: "8px" }}>
-              {socials.map(({ icon: Icon, href, label }) => (
+              {socials.map(({ Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   style={{
                     width: "36px",
@@ -150,10 +196,10 @@ export default function Footer() {
                 {title}
               </h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                {links.map((link) => (
-                  <li key={link} style={{ marginBottom: "10px" }}>
-                    <a
-                      href="#"
+                {links.map(({ label, href }) => (
+                  <li key={label} style={{ marginBottom: "10px" }}>
+                    <Link
+                      href={href}
                       style={{
                         fontSize: "14px",
                         color: "rgba(255,255,255,0.45)",
@@ -171,8 +217,8 @@ export default function Footer() {
                       }}
                     >
                       <ArrowRight size={12} />
-                      {link}
-                    </a>
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -194,10 +240,22 @@ export default function Footer() {
               Contact
             </h4>
             {[
-              { icon: Phone, text: "+92 300 0000000" },
-              { icon: Mail, text: "info@edxconsultants.com" },
-              { icon: MapPin, text: "Gulberg III, Lahore, Pakistan" },
-            ].map(({ icon: Icon, text }) => (
+              {
+                icon: Phone,
+                text: "+92 333 9989153",
+                href: "tel:+923339989153",
+              },
+              {
+                icon: Mail,
+                text: "info@edxconsultants.com",
+                href: "mailto:info@edxconsultants.com",
+              },
+              {
+                icon: MapPin,
+                text: "Building No. 55, First Floor, Johar Block B Phase 1, Lahore",
+                href: null,
+              },
+            ].map(({ icon: Icon, text, href }) => (
               <div
                 key={text}
                 style={{
@@ -212,15 +270,36 @@ export default function Footer() {
                   color="#ED4B00"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                 />
-                <span
-                  style={{
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.45)",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {text}
-                </span>
+                {href ? (
+                  <a
+                    href={href}
+                    style={{
+                      fontSize: "14px",
+                      color: "rgba(255,255,255,0.45)",
+                      lineHeight: 1.5,
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#ED4B00")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "rgba(255,255,255,0.45)")
+                    }
+                  >
+                    {text}
+                  </a>
+                ) : (
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      color: "rgba(255,255,255,0.45)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {text}
+                  </span>
+                )}
               </div>
             ))}
 
@@ -295,7 +374,7 @@ export default function Footer() {
           }}
         >
           <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)" }}>
-            © 2024 EdX Consultants Pvt. Ltd. All rights reserved.
+            © 2025 EdX Consultants Pvt. Ltd. All rights reserved.
           </p>
           <p
             style={{
@@ -314,7 +393,7 @@ export default function Footer() {
               { label: "Privacy Policy", href: "/privacy-policy" },
               { label: "Terms of Service", href: "/terms-of-services" },
             ].map(({ label, href }) => (
-              <a
+              <Link
                 key={label}
                 href={href}
                 style={{
@@ -331,7 +410,7 @@ export default function Footer() {
                 }
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

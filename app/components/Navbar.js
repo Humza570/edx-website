@@ -222,12 +222,12 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/Edx_Logo.png"
+              src="/Edx-Logo.gif"
               alt="EdX Consultants"
               width={220}
               height={110}
               style={{
-                height: isMobile ? "52px" : "88px",
+                height: isMobile ? "52px" : "130px",
                 width: "auto",
                 objectFit: "contain",
                 transition: "height 0.3s",

@@ -1,7 +1,5 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Link from "next/link";
 import { ArrowRight, GraduationCap, Users } from "lucide-react";
 
@@ -10,139 +8,176 @@ const countries = [
     slug: "united-kingdom",
     name: "United Kingdom",
     flag: "🇬🇧",
-    universities: "150+",
-    students: "800+",
+    universities: "25+",
+    students: "500+",
     image:
       "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&q=80",
-    highlight: "Oxford · Cambridge · Imperial",
+    highlight: "UAE · ARU · RGU",
     color: "#ED4B00",
     tag: "Most Popular",
-    desc: "World-class education with globally recognized degrees. Home to Oxford, Cambridge, and Imperial College.",
+    desc: "The UK is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe.",
   },
   {
     slug: "united-states",
     name: "United States",
     flag: "🇺🇸",
-    universities: "200+",
-    students: "600+",
+    universities: "20+",
+    students: "100+",
     image:
       "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=800&q=80",
     highlight: "Harvard · MIT · Stanford",
     color: "#2100B1",
     tag: null,
-    desc: "Unmatched research opportunities and campus diversity across the most prestigious universities in the world.",
-  },
-  {
-    slug: "canada",
-    name: "Canada",
-    flag: "🇨🇦",
-    universities: "80+",
-    students: "500+",
-    image:
-      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=800&q=80",
-    highlight: "Toronto · UBC · McGill",
-    color: "#ED4B00",
-    tag: "PR Pathway",
-    desc: "Affordable tuition, post-study work permits, and a clear pathway to permanent residency.",
+    desc: "The USA offers a variety of academic programs, research facilities, and globally acclaimed degrees. The country is also home to some of the world's top-ranked universities and innovative learning environments.",
   },
   {
     slug: "australia",
     name: "Australia",
     flag: "🇦🇺",
-    universities: "40+",
-    students: "400+",
+    universities: "10+",
+    students: "80+",
     image:
       "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&q=80",
-    highlight: "Melbourne · Sydney · ANU",
+    highlight: "Melbourne · ANU · Sydney",
     color: "#2100B1",
     tag: null,
-    desc: "World-ranked universities, safe environment, and generous post-study work rights up to 4 years.",
+    desc: "Australia is famous for its high-standard education system, cultural diversity, and strong post-study work prospects. Students enjoy a safe lifestyle, modern campuses, and globally recognized qualifications.",
   },
   {
-    slug: "ireland",
-    name: "Ireland",
-    flag: "🇮🇪",
-    universities: "20+",
-    students: "150+",
+    slug: "canada",
+    name: "Canada",
+    flag: "🇨🇦",
+    universities: "10+",
+    students: "50+",
     image:
-      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80",
-    highlight: "Trinity · UCD · UCC",
+      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=800&q=80",
+    highlight: "UCW · TRU",
     color: "#ED4B00",
-    tag: null,
-    desc: "English-speaking EU country with top universities and a booming tech industry.",
-  },
-  {
-    slug: "germany",
-    name: "Germany",
-    flag: "🇩🇪",
-    universities: "50+",
-    students: "200+",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80",
-    highlight: "TU Munich · Heidelberg · LMU",
-    color: "#2100B1",
-    tag: "Low Tuition",
-    desc: "Tuition-free or low-cost education at world-class universities. Ideal for engineering and technology.",
-  },
-  {
-    slug: "turkey",
-    name: "Turkey",
-    flag: "🇹🇷",
-    universities: "30+",
-    students: "300+",
-    image:
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80",
-    highlight: "Istanbul · Ankara · Bilkent",
-    color: "#ED4B00",
-    tag: "Scholarships",
-    desc: "Affordable quality education with generous Turkish government scholarships for international students.",
+    tag: "PR Pathway",
+    desc: "Canada promises affordable education, a conducive environment, and great career opportunities. It provides post-study work permits and permanent residence opportunities.",
   },
   {
     slug: "malaysia",
     name: "Malaysia",
     flag: "🇲🇾",
-    universities: "25+",
-    students: "250+",
+    universities: "30+",
+    students: "300+",
     image:
       "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
-    highlight: "UM · UPM · Monash Malaysia",
+    highlight: "APU · UCSI · Raffles",
     color: "#2100B1",
     tag: "MBBS",
-    desc: "Cost-effective destination with internationally recognized degrees, especially popular for MBBS.",
+    desc: "Malaysia provides international education at an affordable price with modern campuses and globally recognized qualifications. A popular destination for students seeking quality education at lower tuition fees.",
+  },
+  {
+    slug: "germany",
+    name: "Germany",
+    flag: "🇩🇪",
+    universities: "10+",
+    students: "100+",
+    image:
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80",
+    highlight: "GISMA · UE · BSBI",
+    color: "#2100B1",
+    tag: "Low Tuition",
+    desc: "Germany is popular for quality education, especially in engineering and technology, with affordable options for students. Students have access to quality research facilities and good job opportunities in Europe.",
+  },
+  {
+    slug: "france",
+    name: "France",
+    flag: "🇫🇷",
+    universities: "10+",
+    students: "30+",
+    image:
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+    highlight: "Sorbonne · HEC Paris · École Polytechnique",
+    color: "#ED4B00",
+    tag: null,
+    desc: "France offers academic excellence with a rich cultural experience and good international career prospects. Known for its excellent business schools and creative programs of study.",
+  },
+  {
+    slug: "netherlands",
+    name: "Netherlands",
+    flag: "🇳🇱",
+    universities: "10+",
+    students: "50+",
+    image:
+      "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=800&q=80",
+    highlight: "UE Amsterdam",
+    color: "#2100B1",
+    tag: null,
+    desc: "The Netherlands is famous for its innovative educational system, English-taught courses, and open environment for international students. A modern system that emphasizes research and practical knowledge.",
   },
   {
     slug: "new-zealand",
     name: "New Zealand",
     flag: "🇳🇿",
-    universities: "15+",
-    students: "100+",
+    universities: "10+",
+    students: "20+",
     image:
       "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80",
-    highlight: "Auckland · Otago · Victoria",
+    highlight: "Auckland · Otago · Victoria University of Wellington",
     color: "#ED4B00",
     tag: null,
-    desc: "Safe, welcoming environment with globally recognized qualifications and post-study work visa.",
+    desc: "New Zealand provides good quality education, a secure environment, and great prospects for international students. Famous for providing good student communities and a picturesque environment.",
+  },
+  {
+    slug: "ireland",
+    name: "Ireland",
+    flag: "🇮🇪",
+    universities: "25+",
+    students: "10+",
+    image:
+      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80",
+    highlight: "Trinity College Dublin · UCD · University of Galway",
+    color: "#ED4B00",
+    tag: null,
+    desc: "Ireland is becoming a popular destination owing to its connectivity to global industries. Many global technology companies are located in Ireland, creating great work opportunities after graduating.",
+  },
+  {
+    slug: "turkey",
+    name: "Turkey",
+    flag: "🇹🇷",
+    universities: "10+",
+    students: "30+",
+    image:
+      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80",
+    highlight: "BAU · Bilkent University",
+    color: "#ED4B00",
+    tag: "Scholarships",
+    desc: "Turkey has affordable education, modern universities, and a unique cultural experience for international students. A bridge between Europe and Asia with many academic and cultural opportunities.",
   },
   {
     slug: "uae",
     name: "UAE",
     flag: "🇦🇪",
-    universities: "20+",
-    students: "180+",
+    universities: "10+",
+    students: "20+",
     image:
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-    highlight: "NYU Abu Dhabi · AUS · HBMeU",
+    highlight: "UE · American University in Dubai",
     color: "#2100B1",
     tag: null,
-    desc: "Rapidly growing education hub with global university campuses and a tax-free lifestyle.",
+    desc: "The UAE offers international quality education with modern campus facilities and strong industry ties. Students can study in international branch campuses in Dubai and Abu Dhabi.",
+  },
+  {
+    slug: "northern-cyprus",
+    name: "Northern Cyprus",
+    flag: "🇨🇾",
+    universities: "1",
+    students: "10+",
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    highlight: "Eastern Mediterranean University",
+    color: "#2100B1",
+    tag: null,
+    desc: "Northern Cyprus offers affordable tuition fees, internationally recognized degrees, and a welcoming student environment. Students enjoy modern campuses, small class sizes, and a multicultural learning experience.",
   },
 ];
 
 export default function CountriesPage() {
   return (
     <main>
-      <Navbar />
-
       {/* Hero Banner */}
       <div
         style={{
@@ -181,6 +216,7 @@ export default function CountriesPage() {
         />
 
         <div style={{ position: "relative", zIndex: 1, padding: "0 24px" }}>
+          {/* Breadcrumb */}
           <div
             style={{
               display: "flex",
@@ -252,7 +288,7 @@ export default function CountriesPage() {
               marginBottom: "20px",
             }}
           >
-            10 Countries,
+            13 Countries,
             <br />
             <span style={{ color: "#ED4B00" }}>Endless Possibilities</span>
           </h1>
@@ -266,7 +302,7 @@ export default function CountriesPage() {
               lineHeight: 1.7,
             }}
           >
-            We have active panels and 200+ partner universities across 10
+            We have active panels and 200+ partner universities across 13
             destinations. Find the country that's right for you.
           </p>
 
@@ -281,7 +317,7 @@ export default function CountriesPage() {
             }}
           >
             {[
-              ["10", "Countries"],
+              ["13", "Countries"],
               ["200+", "Universities"],
               ["5,000+", "Students Placed"],
               ["98%", "Visa Success"],
@@ -434,7 +470,7 @@ export default function CountriesPage() {
                       </div>
                     )}
 
-                    {/* Country name on image */}
+                    {/* Country name */}
                     <div
                       style={{
                         position: "absolute",
@@ -578,7 +614,7 @@ export default function CountriesPage() {
           profile, budget, and goals.
         </p>
         <Link
-          href="/#contact"
+          href="/contact"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -596,6 +632,7 @@ export default function CountriesPage() {
           Book Free Consultation <ArrowRight size={16} />
         </Link>
       </div>
+
       <style>{`
         .country-card:hover > div { border-color: rgba(255,255,255,0.15) !important; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         .country-card:hover .country-img { transform: scale(1.06); }

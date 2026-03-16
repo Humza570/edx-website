@@ -27,7 +27,7 @@ export default function About() {
   return (
     <section
       id="about"
-      style={{ background: "white", padding: "80px 24px", overflow: "hidden" }}
+      style={{ background: "white", padding: "80px 24px 0px", overflow: "hidden" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* ── SPLIT LAYOUT ── */}
@@ -57,7 +57,7 @@ export default function About() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=85"
+                src="/consultants.jpeg"
                 alt="EdX Consultants Team"
                 style={{
                   width: "100%",
@@ -121,12 +121,12 @@ export default function About() {
                   lineHeight: 1,
                 }}
               >
-                2014
+                10+
               </div>
               <div
                 style={{ fontSize: "12px", color: "#888", marginTop: "3px" }}
               >
-                10+ Years of Excellence
+                Years of Excellence
               </div>
             </motion.div>
             <div
@@ -546,7 +546,7 @@ export default function About() {
         </motion.div> */}
 
         {/* ── VALUES ── */}
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        {/* <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <h3
             style={{
               fontSize: "clamp(26px, 4vw, 38px)",
@@ -566,9 +566,9 @@ export default function About() {
               margin: "14px auto 0",
             }}
           />
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -635,7 +635,7 @@ export default function About() {
               </motion.div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -14,10 +14,10 @@ import {
 const slides = [
   {
     id: 1,
-    badge: "Pakistan's #1 Study Abroad Consultants",
-    heading: "Your Dream University",
-    highlight: "Awaits You",
-    sub: "We guide Pakistani students to top universities across UK, USA, Canada, Australia & more with expert visa and admission support.",
+    badge: "Pakistan’s Trusted Partner for Global Education",
+    heading: "Turn Your Study Abroad",
+    highlight: "Dream into Reality",
+    sub: "Start your international education journey with expert guidance for university admissions, scholarships, and student visas.",
     cta1: "Start Your Journey",
     cta2: "Our Services",
     image:
@@ -25,44 +25,44 @@ const slides = [
   },
   {
     id: 2,
-    badge: "200+ Partner Universities Worldwide",
-    heading: "Study in the",
-    highlight: "UK & Europe",
-    sub: "Oxford, Cambridge, Manchester — get expert guidance for top UK and European universities with full scholarship support.",
-    cta1: "Explore UK Programs",
+    badge: "10+ Global Study Destinations",
+    heading: "Study in Top",
+    highlight: "Destinations Worldwide",
+    sub: "Explore study opportunities in the UK, Canada, Australia, Europe, and more with guidance from experienced counselors.",
+    cta1: "Explore Destinations",
     cta2: "Our Services",
     image:
       "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1920&q=85",
   },
   {
     id: 3,
-    badge: "98% Visa Success Rate",
-    heading: "Build Your Future",
-    highlight: "in Canada & USA",
-    sub: "From student visa to post-study work permits — we handle everything so you can focus on your studies.",
+    badge: "1000+ Student Success Stories",
+    heading: "Expert Support at",
+    highlight: "Every Step",
+    sub: "From choosing the right university to visa approval, our team supports you throughout your study abroad journey.",
     cta1: "Apply Now",
     cta2: "Our Services",
     image:
       "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=1920&q=85",
   },
-  {
-    id: 4,
-    badge: "5000+ Students Successfully Placed",
-    heading: "Australia",
-    highlight: "Top Destinations",
-    sub: "World-class education, post-study work rights, and a pathway to permanent residency — let us make it happen.",
-    cta1: "Learn More",
-    cta2: "Our Services",
-    image:
-      "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1920&q=85",
-  },
+  // {
+  //   id: 4,
+  //   badge: "5000+ Students Successfully Placed",
+  //   heading: "Australia",
+  //   highlight: "Top Destinations",
+  //   sub: "World-class education, post-study work rights, and a pathway to permanent residency — let us make it happen.",
+  //   cta1: "Learn More",
+  //   cta2: "Our Services",
+  //   image:
+  //     "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1920&q=85",
+  // },
 ];
 
 const stats = [
-  { icon: Users, number: "5,000+", label: "Students Placed" },
-  { icon: GraduationCap, number: "200+", label: "Partner Universities" },
+  { icon: Users, number: "1,000+", label: "Alumnis" },
+  { icon: GraduationCap, number: "100+", label: "Partner Universities" },
   { icon: Globe, number: "10+", label: "Destinations" },
-  { icon: Star, number: "98%", label: "Visa Success Rate" },
+  { icon: Star, number: "98%", label: "Visa Success Ratio" },
 ];
 
 export default function Hero() {
