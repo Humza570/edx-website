@@ -92,7 +92,7 @@ export default function SuccessStories() {
       style={{
         background:
           "linear-gradient(160deg, #0d0d1a 0%, #160040 50%, #0d0d1a 100%)",
-        padding: "100px 24px",
+        padding: "50px 24px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -192,7 +192,7 @@ export default function SuccessStories() {
             style={{
               fontSize: "17px",
               color: "rgba(255,255,255,0.5)",
-              maxWidth: "520px",
+              maxWidth: "840px",
               margin: "0 auto",
               lineHeight: 1.7,
             }}
@@ -452,7 +452,7 @@ export default function SuccessStories() {
         </div>
 
         {/* Stats bar */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -513,7 +513,7 @@ export default function SuccessStories() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* ── LIGHTBOX ── */}
