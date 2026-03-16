@@ -19,7 +19,7 @@ const countries = {
     color: "#ED4B00",
     image:
       "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1200&q=85",
-    highlight: "UAE · ARU · RGU",
+    highlight: "UEA · ARU · RGU",
     universities: "25+",
     students: "500+",
     tagline: "Where Tradition Meets Excellence.",

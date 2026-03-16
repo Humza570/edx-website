@@ -132,7 +132,7 @@ export default function ServicesPage() {
 
           {/* Stats */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
-            {[['09', 'Services'], ['13', 'Countries'], ['1,000+', 'Students'], ['98%', 'Visa Success']].map(([num, label]) => (
+            {[['09', 'Services'], ['10+', 'Countries'], ['1,000+', 'Students'], ['98%', 'Visa Success']].map(([num, label]) => (
               <div key={label} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '28px', fontWeight: 800, color: '#ED4B00' }}>{num}</div>
                 <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</div>

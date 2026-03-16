@@ -20,8 +20,7 @@ const slides = [
     sub: "Start your international education journey with expert guidance for university admissions, scholarships, and student visas.",
     cta1: "Start Your Journey",
     cta2: "Our Services",
-    image:
-      "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1920&q=85",
+    image: "/sliders/Slider1-Turn-Your-Study-Abroad.jpeg",
   },
   {
     id: 2,
@@ -32,7 +31,7 @@ const slides = [
     cta1: "Explore Destinations",
     cta2: "Our Services",
     image:
-      "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1920&q=85",
+      "/sliders/Slider2-Study-in-Top-Destinations-Worldwide.jpeg",
   },
   {
     id: 3,

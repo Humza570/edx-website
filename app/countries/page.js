@@ -7,12 +7,12 @@ const countries = [
   {
     slug: "united-kingdom",
     name: "United Kingdom",
-    flag: "🇬🇧",
+    flag: "gb",
     universities: "25+",
     students: "500+",
     image:
       "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&q=80",
-    highlight: "UAE · ARU · RGU",
+    highlight: "UEA · ARU · RGU",
     color: "#ED4B00",
     tag: "Most Popular",
     desc: "The UK is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe.",
@@ -20,7 +20,7 @@ const countries = [
   {
     slug: "united-states",
     name: "United States",
-    flag: "🇺🇸",
+    flag: "us",
     universities: "20+",
     students: "100+",
     image:
@@ -33,7 +33,7 @@ const countries = [
   {
     slug: "australia",
     name: "Australia",
-    flag: "🇦🇺",
+    flag: "au",
     universities: "10+",
     students: "80+",
     image:
@@ -46,7 +46,7 @@ const countries = [
   {
     slug: "canada",
     name: "Canada",
-    flag: "🇨🇦",
+    flag: "ca",
     universities: "10+",
     students: "50+",
     image:
@@ -59,7 +59,7 @@ const countries = [
   {
     slug: "malaysia",
     name: "Malaysia",
-    flag: "🇲🇾",
+    flag: "my",
     universities: "30+",
     students: "300+",
     image:
@@ -72,7 +72,7 @@ const countries = [
   {
     slug: "germany",
     name: "Germany",
-    flag: "🇩🇪",
+    flag: "de",
     universities: "10+",
     students: "100+",
     image:
@@ -85,7 +85,7 @@ const countries = [
   {
     slug: "france",
     name: "France",
-    flag: "🇫🇷",
+    flag: "fr",
     universities: "10+",
     students: "30+",
     image:
@@ -98,7 +98,7 @@ const countries = [
   {
     slug: "netherlands",
     name: "Netherlands",
-    flag: "🇳🇱",
+    flag: "nl",
     universities: "10+",
     students: "50+",
     image:
@@ -111,12 +111,12 @@ const countries = [
   {
     slug: "new-zealand",
     name: "New Zealand",
-    flag: "🇳🇿",
+    flag: "nz",
     universities: "10+",
     students: "20+",
     image:
       "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80",
-    highlight: "Auckland · Otago · Victoria University of Wellington",
+    highlight: "Auckland · Otago · Victoria University",
     color: "#ED4B00",
     tag: null,
     desc: "New Zealand provides good quality education, a secure environment, and great prospects for international students. Famous for providing good student communities and a picturesque environment.",
@@ -124,12 +124,12 @@ const countries = [
   {
     slug: "ireland",
     name: "Ireland",
-    flag: "🇮🇪",
+    flag: "ie",
     universities: "25+",
     students: "10+",
     image:
       "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80",
-    highlight: "Trinity College Dublin · UCD · University of Galway",
+    highlight: "Trinity College Dublin · UCD · Galway",
     color: "#ED4B00",
     tag: null,
     desc: "Ireland is becoming a popular destination owing to its connectivity to global industries. Many global technology companies are located in Ireland, creating great work opportunities after graduating.",
@@ -137,7 +137,7 @@ const countries = [
   {
     slug: "turkey",
     name: "Turkey",
-    flag: "🇹🇷",
+    flag: "tr",
     universities: "10+",
     students: "30+",
     image:
@@ -150,7 +150,7 @@ const countries = [
   {
     slug: "uae",
     name: "UAE",
-    flag: "🇦🇪",
+    flag: "ae",
     universities: "10+",
     students: "20+",
     image:
@@ -163,7 +163,7 @@ const countries = [
   {
     slug: "northern-cyprus",
     name: "Northern Cyprus",
-    flag: "🇨🇾",
+    flag: "cy",
     universities: "1",
     students: "10+",
     image:
@@ -214,9 +214,7 @@ export default function CountriesPage() {
             filter: "blur(70px)",
           }}
         />
-
         <div style={{ position: "relative", zIndex: 1, padding: "0 24px" }}>
-          {/* Breadcrumb */}
           <div
             style={{
               display: "flex",
@@ -243,7 +241,6 @@ export default function CountriesPage() {
               Countries
             </span>
           </div>
-
           <div
             style={{
               display: "inline-flex",
@@ -277,7 +274,6 @@ export default function CountriesPage() {
               Study Destinations
             </span>
           </div>
-
           <h1
             style={{
               fontSize: "clamp(36px, 6vw, 64px)",
@@ -288,11 +284,10 @@ export default function CountriesPage() {
               marginBottom: "20px",
             }}
           >
-            13 Countries,
+            10+ Countries,
             <br />
             <span style={{ color: "#ED4B00" }}>Endless Possibilities</span>
           </h1>
-
           <p
             style={{
               fontSize: "18px",
@@ -302,11 +297,9 @@ export default function CountriesPage() {
               lineHeight: 1.7,
             }}
           >
-            We have active panels and 200+ partner universities across 13
+            We have active panels and 100+ partner universities across 10+
             destinations. Find the country that's right for you.
           </p>
-
-          {/* Stats */}
           <div
             style={{
               display: "flex",
@@ -317,9 +310,9 @@ export default function CountriesPage() {
             }}
           >
             {[
-              ["13", "Countries"],
-              ["200+", "Universities"],
-              ["5,000+", "Students Placed"],
+              ["10+", "Countries"],
+              ["100+", "Universities"],
+              ["1,000+", "Students Placed"],
               ["98%", "Visa Success"],
             ].map(([num, label]) => (
               <div key={label} style={{ textAlign: "center" }}>
@@ -437,17 +430,31 @@ export default function CountriesPage() {
                       }}
                     />
 
-                    {/* Flag */}
+                    {/* ✅ Real flag in circle */}
                     <div
                       style={{
                         position: "absolute",
                         top: "14px",
                         left: "14px",
-                        fontSize: "32px",
-                        filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
+                        width: "46px",
+                        height: "46px",
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        border: "3px solid white",
+                        boxShadow: "0 3px 14px rgba(0,0,0,0.5)",
+                        flexShrink: 0,
                       }}
                     >
-                      {country.flag}
+                      <span
+                        className={`fi fi-${country.flag} fis`}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          display: "block",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
                     </div>
 
                     {/* Tag */}
