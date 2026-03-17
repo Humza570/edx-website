@@ -117,7 +117,7 @@ export default function Footer() {
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "80px 32px 48px",
+          padding: "40px 32px 48px",
         }}
       >
         <div
@@ -385,8 +385,7 @@ export default function Footer() {
               gap: "4px",
             }}
           >
-            Made with <Heart size={12} color="#ED4B00" fill="#ED4B00" /> in
-            Pakistan
+            Design & Developed By <span style={{ color: "#ED4B00" }}>EdX Tech Team</span>
           </p>
           <div style={{ display: "flex", gap: "20px" }}>
             {[

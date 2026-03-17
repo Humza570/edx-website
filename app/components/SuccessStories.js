@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 const images = Array.from(
-  { length: 26 },
+  { length: 24 },
   (_, i) => `/success-stories/SuccessStory (${i + 1}).jpeg`,
 );
 

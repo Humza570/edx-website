@@ -1,118 +1,128 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import "flag-icons/css/flag-icons.min.css";
 import {
   ArrowRight,
   GraduationCap,
-  Users,
   Clock,
-  DollarSign,
   Briefcase,
   CheckCircle,
   Globe,
-  MapPin,
 } from "lucide-react";
 
 const countries = {
   "united-kingdom": {
     name: "United Kingdom",
-    flag: "🇬🇧",
+    flag: "gb",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1200&q=85",
+    image: "/Destinations/UK.jpg",
     highlight: "UEA · ARU · RGU",
     universities: "25+",
     students: "500+",
     tagline: "Where Tradition Meets Excellence.",
-    desc: "The United Kingdom is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe. With a rich academic tradition, cutting-edge research facilities, and a multicultural student environment, the UK remains the top choice for Pakistani students.",
+    desc: "The United Kingdom is one of the most popular study destinations for international students. Every year, thousands of students choose the UK because of its world-class universities, strong education system, and global career opportunities. UK universities are known for their high academic standards, modern research facilities, and practical learning approach. A degree from the UK is respected all over the world, which helps students build successful international careers. Students also enjoy studying in a diverse and multicultural environment where they meet people from different countries and cultures. At EdX Consultants, we guide students through every step of the process — from choosing the right university to securing admission and preparing for their visa.",
     whyChoose: [
-      "Home to some of the world's most prestigious universities",
-      "Degrees recognized by employers worldwide",
-      "Post-Study Work Visa — work up to 2 years after graduation",
-      "English-speaking country — no language barrier",
-      "Multicultural and welcoming student environment",
-      "Strong alumni networks globally",
+      "Home to many of the world's top universities",
+      "UK degrees are recognized and respected worldwide",
+      "Post-Study Work Visa allows students to work up to 2 years after graduation",
+      "English-speaking country, so communication is easier for international students",
+      "Safe and multicultural environment for students",
+      "Excellent career opportunities and strong industry connections",
+      "Shorter degree duration compared to many other countries",
     ],
     topUnis: [
-      "UEA",
-      "ARU",
-      "RGU",
-      "University of Manchester",
-      "University of Edinburgh",
-      "Coventry University",
+      "University of East Anglia (UEA) — Norwich, England",
+      "University of Brighton — Brighton, England",
+      "Anglia Ruskin University (ARU) — Chelmsford / Cambridge / London",
+      "Abertay University — Dundee, Scotland",
+      "Canterbury Christ Church University — Kent, England",
+      "London Metropolitan University — London, England",
+      "University of Sunderland — England",
+      "University of Wales Trinity Saint David — Wales / Birmingham / London",
+      "University of East London (UEL) — East London, England",
+      "Glasgow Caledonian University — Scotland / London Campus",
+      "UWE Bristol — Bristol",
+      "Buckinghamshire New University — England",
+      "Bangor University — Wales",
+      "Aston University — Birmingham",
+      "De Montfort University — Leicester",
+      "Queen's University Belfast — Belfast",
+      "University of Hull — England",
+      "University of Greenwich — England",
+      "Robert Gordon University — Scotland",
+      "Leeds Beckett University — Leeds, England",
+      "Middlesex University London — London, England",
+      "University of Aberdeen — Scotland",
+      "University of Salford — England",
+      "University of Portsmouth — England",
     ],
     intake: "January / May / September",
-    duration: "1–3 Years",
-    // tuition: "£10,000 – £38,000 / year",
-    // living: "£12,000 – £15,000 / year",
-    workRights: "20 hrs/week during studies · 2 years PSW visa",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights: "20 hrs/week during studies · 2-year PSW visa after graduation",
     popularCourses: [
       "Business & MBA",
       "Engineering",
-      "Computer Science",
-      "Medicine",
+      "Computer Science & IT",
+      "Medicine & Health Sciences",
       "Law",
-      "Finance",
+      "Finance & Accounting",
     ],
   },
   "united-states": {
     name: "United States",
-    flag: "🇺🇸",
+    flag: "us",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=1200&q=85",
-    highlight: "Harvard · MIT · Stanford",
+    image: "/Destinations/USA.jpg",
+    highlight: "Concordia · Avila · Texas State",
     universities: "20+",
     students: "100+",
-    tagline: "Dream Big. Study Bigger.",
-    desc: "The USA offers a variety of academic programs, research facilities, and globally acclaimed degrees. The country is also home to some of the world's top-ranked universities as well as innovative learning environments. With generous financial aid, OPT work authorization, and a vibrant campus culture, the USA is ideal for ambitious students.",
+    tagline: "Where Innovation Meets Opportunity.",
+    desc: "The United States is one of the most popular study destinations in the world. It is home to many of the top universities and offers a wide variety of academic programs. Students choose the US because of its advanced research facilities, modern campuses, and strong career opportunities. Universities focus on practical learning, innovation, and helping students develop real-world skills. Studying in the United States also gives students the chance to experience a diverse culture and global environment, where they can meet people from many different countries. At EdX Consultants, we help students choose the right university, prepare strong applications, and guide them through the visa process.",
     whyChoose: [
-      "World's largest higher education system",
-      "Generous merit scholarships and financial aid",
-      "OPT — work up to 3 years after graduation (STEM)",
-      "Cutting-edge research and innovation culture",
-      "Global alumni network and employer connections",
-      "Diverse campuses with students from 180+ countries",
+      "Home to many of the world's top universities",
+      "Wide range of programs and specializations",
+      "Strong research and innovation environment",
+      "Excellent career opportunities after graduation",
+      "Multicultural and diverse student community",
+      "Opportunities for internships and practical training (CPT & OPT)",
+      "Access to global companies and industries",
     ],
     topUnis: [
-      "Harvard University",
-      "MIT",
-      "Stanford University",
-      "University of Chicago",
-      "Columbia University",
-      "University of California",
+      "Concordia University Chicago — Chicago, United States",
+      "Avila University Arizona — Arizona, United States",
+      "Algoma University — United States Campus",
+      "Texas State University — Texas, United States",
     ],
-    intake: "August / January",
-    duration: "2–4 Years",
-    // tuition: "$20,000 – $60,000 / year",
-    // living: "$12,000 – $18,000 / year",
-    workRights: "20 hrs/week on-campus · OPT 1–3 years after",
+    intake: "January / May / September",
+    duration: "UG: 4 Years · PG: 1–2 Years",
+    workRights: "20 hrs/week on-campus · CPT & OPT internship programs",
     popularCourses: [
-      "Computer Science",
-      "MBA",
+      "Business Administration & MBA",
+      "Computer Science & IT",
       "Engineering",
-      "Data Science",
-      "Medicine",
-      "Law",
+      "Data Science & Artificial Intelligence",
+      "Finance & Accounting",
+      "Health Sciences",
     ],
   },
   australia: {
     name: "Australia",
-    flag: "🇦🇺",
+    flag: "au",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1200&q=85",
+    image: "/Destinations/Australia.jpg",
     highlight: "Melbourne · ANU · Sydney",
     universities: "10+",
     students: "80+",
-    tagline: "World-Class Education, World-Class Lifestyle.",
-    desc: "Australia is famous for its high-standard education system, cultural diversity, and strong post-study work prospects. International students can experience a safe lifestyle, modern campuses, and globally recognized qualifications. Australia offers an unmatched combination of quality education and quality of life.",
+    tagline: "Quality Education in a Beautiful Country.",
+    desc: "Australia is one of the most welcoming countries for international students. It offers high-quality education, modern campuses, and a safe lifestyle. Australian universities focus on practical learning, research, and career development. Students also enjoy a relaxed environment and a high quality of life. Many students choose Australia because it offers great work opportunities during and after studies. At EdX Consultants, we help students find the right Australian university and program that fits their academic goals and career ambitions.",
     whyChoose: [
-      "High-standard education system globally recognized",
-      "Post-Study Work Visa up to 4 years (regional areas)",
-      "Safe, clean, and student-friendly cities",
-      "Strong job market — especially in IT, engineering, healthcare",
-      "High quality of life and outdoor lifestyle",
-      "Pathway to Australian Permanent Residency",
+      "Globally recognized universities",
+      "High quality education system",
+      "Safe and friendly environment",
+      "Work opportunities while studying — 48 hours per fortnight",
+      "Post-study work visa options available after graduation",
+      "Strong career opportunities after graduation",
+      "Beautiful cities and multicultural lifestyle",
     ],
     topUnis: [
       "University of Melbourne",
@@ -122,149 +132,148 @@ const countries = {
       "UNSW Sydney",
       "University of Queensland",
     ],
-    intake: "February / July",
-    duration: "2–3 Years",
-    // tuition: "AUD 20,000 – 50,000 / year",
-    // living: "AUD 18,000 – 22,000 / year",
-    workRights: "48 hrs/fortnight · PSW visa 2–4 years after",
+    intake: "February / July / November",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights: "48 hrs/fortnight during studies · PSW visa after graduation",
     popularCourses: [
-      "Information Technology",
+      "Business & Management",
       "Engineering",
-      "Business",
-      "Nursing",
-      "Accounting",
-      "Architecture",
+      "Information Technology",
+      "Hospitality & Tourism",
+      "Health Sciences",
+      "Environmental Science",
     ],
   },
   canada: {
     name: "Canada",
-    flag: "🇨🇦",
+    flag: "ca",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=1200&q=85",
-    highlight: "UCW · TRU",
+    image: "/Destinations/Canada.jpg",
+    highlight: "UCW · Durham · George Brown",
     universities: "10+",
     students: "50+",
-    tagline: "Study, Work, Settle — Canada Has It All.",
-    desc: "Canada promises affordable education, a conducive environment, and great career opportunities after completing studies. It provides post-study work permits and permanent residence opportunities. Safe, multicultural, and welcoming, Canada is ideal for students planning long-term settlement.",
+    tagline: "A Safe and Friendly Study Destination.",
+    desc: "Canada is one of the most preferred countries for international students. It is known for its high-quality education, safe environment, and welcoming culture. Canadian universities focus on practical skills, research, and career development. Many students also choose Canada because of its opportunities to work during studies and stay after graduation. Canada offers students the chance to experience modern cities, beautiful nature, and a high standard of living. At EdX Consultants, we help students navigate the entire process — from university selection to visa guidance.",
     whyChoose: [
-      "Post-Graduate Work Permit up to 3 years",
-      "Clear pathway to Permanent Residency (Express Entry)",
-      "Affordable tuition compared to UK and USA",
-      "Safe and multicultural society",
-      "Part-time work — 20 hrs during studies, full-time in holidays",
-      "High quality of life and strong economy",
+      "High-quality education system",
+      "Safe and peaceful environment",
+      "Work opportunities during studies — 20 hours per week",
+      "Post-Graduation Work Permit (PGWP) available",
+      "Friendly and multicultural society",
+      "Opportunities for permanent residency",
+      "Strong career opportunities after graduation",
     ],
     topUnis: [
-      "UCW",
-      "TRU",
-      "University of Toronto",
-      "UBC",
-      "McGill University",
-      "University of Waterloo",
+      "University Canada West — Vancouver, Canada",
+      "University of Niagara Falls Canada — Niagara Falls, Canada",
+      "Adler University — Canada Campus",
+      "Durham College — Ontario, Canada",
+      "George Brown College — Toronto, Canada",
+      "Georgian College — Ontario, Canada",
+      "Lakehead University — Ontario, Canada",
+      "Niagara University Ontario — Ontario, Canada",
     ],
-    intake: "September / January",
-    duration: "2–4 Years",
-    // tuition: "CAD 15,000 – 40,000 / year",
-    // living: "CAD 12,000 – 18,000 / year",
-    workRights: "20 hrs/week · PGWP up to 3 years after",
+    intake: "January / May / September",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights:
+      "20 hrs/week during studies · Full-time in holidays · PGWP after graduation",
     popularCourses: [
+      "Business & Management",
       "Computer Science",
-      "Business",
       "Engineering",
-      "Healthcare",
       "Data Analytics",
-      "Hospitality",
+      "Healthcare Programs",
+      "Finance & Accounting",
     ],
   },
   malaysia: {
     name: "Malaysia",
-    flag: "🇲🇾",
+    flag: "my",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
-    highlight: "APU · UCSI · Raffles",
+    image: "/Destinations/Malaysia.jpg",
+    highlight: "APU · UCSI · Monash Malaysia",
     universities: "30+",
     students: "300+",
-    tagline: "Affordable Excellence in the Heart of Asia.",
-    desc: "Malaysia provides an international education at an affordable price with modern educational campuses and globally recognized qualifications. It is a popular destination for international students seeking quality education at a lower tuition fee, particularly for MBBS and medical programs.",
+    tagline: "Affordable & Quality Education with International Opportunities.",
+    desc: "Malaysia has become a popular destination for international students because it offers affordable education and globally recognized degrees. Many universities in Malaysia have partnerships with universities from the UK and Australia, allowing students to get international qualifications at lower costs. Students enjoy studying in a modern and multicultural environment. At EdX Consultants, we help students choose the right university and program based on their career goals, budget, and academic background, ensuring they get the best study experience in Malaysia.",
     whyChoose: [
-      "Most affordable MBBS programs — internationally recognized",
-      "English medium instruction at all universities",
-      "Culturally similar and Muslim-friendly environment",
-      "Low cost of living compared to Western countries",
-      "Globally accredited degrees (PMC recognized)",
-      "Branch campuses of UK and Australian universities",
+      "Affordable tuition fees",
+      "International degree programs",
+      "Modern universities and campuses",
+      "Safe and student-friendly environment",
+      "English widely used in universities",
+      "Lower living costs compared to many countries",
+      "Opportunity to experience different cultures",
     ],
     topUnis: [
-      "APU",
-      "UCSI University",
-      "Raffles",
-      "University of Malaya",
-      "Taylor's University",
-      "IMU",
+      "Asia Pacific University (APU) — Kuala Lumpur, Malaysia",
+      "Universiti Tunku Abdul Rahman (UTAR) — Perak, Malaysia",
+      "Universiti Kuala Lumpur (UniKL) — Malaysia",
+      "UCSI University — Kuala Lumpur, Malaysia",
+      "London School of Business & Finance (LSBF) — Malaysia Campus",
+      "Geomatika University College — Kuala Lumpur, Malaysia",
+      "MILA University — Malaysia",
+      "Alam College — Malaysia",
+      "Raffles University — Malaysia",
+      "TAR UMT (Tunku Abdul Rahman University) — Malaysia",
+      "SEGi University — Malaysia",
+      "Monash University Malaysia — Kuala Lumpur, Malaysia",
     ],
-    intake: "February / May / September",
-    duration: "2–3 Years",
-    // tuition: "RM 30,000 – 120,000 / year",
-    // living: "RM 12,000 – 18,000 / year",
-    workRights: "Limited — student visa restrictions",
+    intake: "January / May / September",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights: "Limited part-time work rights for international students",
     popularCourses: [
-      "MBBS / Medicine",
-      "Dentistry",
-      "Pharmacy",
+      "Business & Management",
+      "Information Technology",
       "Engineering",
-      "Business",
-      "Nursing",
+      "Hospitality & Tourism",
+      "Media & Communication",
+      "Finance",
     ],
   },
   germany: {
     name: "Germany",
-    flag: "🇩🇪",
+    flag: "de",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=85",
-    highlight: "GISMA · UE · BSBI",
+    image: "/Destinations/Germany.jpg",
+    highlight: "GISMA · UE · BSBI · Steinbeis",
     universities: "10+",
     students: "100+",
-    tagline: "World-Class Education. Almost Free.",
-    desc: "Germany is popular for quality education, especially in the field of engineering and technology, with affordable options for students. Students have access to quality research facilities and good job opportunities in Europe. Most public universities charge little to no tuition fees, even for international students.",
+    tagline: "World-Class Education with Low Tuition Costs.",
+    desc: "Germany is known for its strong education system and affordable universities. Many public universities offer low or no tuition fees, making Germany a great choice for international students. German universities focus on research, innovation, and practical learning, especially in engineering and technology. Students also benefit from Germany's strong economy and excellent career opportunities. At EdX Consultants, we guide students in selecting the right university based on their academic background, budget, and future career plans.",
     whyChoose: [
-      "Tuition-free or very low tuition at public universities",
-      "World-renowned engineering and technical education",
-      "Stay back visa — 18 months to find a job after graduation",
-      "Strong economy and high graduate employment rates",
-      "Central location in Europe",
-      "Scholarships from DAAD and German universities",
+      "High-quality universities",
+      "Affordable or low tuition fees at public universities",
+      "Strong focus on engineering and technology",
+      "Opportunities for research and innovation",
+      "Safe and modern cities",
+      "Strong job market after graduation",
+      "International student community",
     ],
     topUnis: [
-      "GISMA",
-      "UE",
-      "BSBI",
-      "TU Munich",
-      "LMU Munich",
-      "Heidelberg University",
+      "Berlin School of Business and Innovation (BSBI) — Berlin, Germany",
+      "Steinbeis University — Berlin, Germany",
+      "GISMA Business School — Germany",
+      "University of Europe for Applied Sciences (UE) — Germany",
     ],
-    intake: "October / April",
-    duration: "2–3 Years",
-    // tuition: "€0 – €3,000 / year (public)",
-    // living: "€10,000 – €12,000 / year",
-    workRights: "120 full days/year · 18-month job-seeker visa",
+    intake: "March / September",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights:
+      "20 hrs/week during studies · 18-month job-seeker visa after graduation",
     popularCourses: [
       "Engineering",
       "Computer Science",
-      "Automotive",
-      "Business",
-      "Natural Sciences",
-      "Architecture",
+      "Automotive Engineering",
+      "Business Administration",
+      "Data Science",
+      "Mechanical Engineering",
     ],
   },
   france: {
     name: "France",
-    flag: "🇫🇷",
+    flag: "fr",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200&q=85",
+    image: "/Destinations/France.jpg",
     highlight: "Sorbonne · HEC Paris · École Polytechnique",
     universities: "10+",
     students: "30+",
@@ -287,9 +296,7 @@ const countries = {
       "University of Paris",
     ],
     intake: "September / January",
-    duration: "1–2 Years",
-    // tuition: "€3,000 – €15,000 / year",
-    // living: "€10,000 – €14,000 / year",
+    duration: "UG: 3 Years · PG: 1–2 Years",
     workRights: "20 hrs/week during studies",
     popularCourses: [
       "Business & MBA",
@@ -302,10 +309,9 @@ const countries = {
   },
   netherlands: {
     name: "Netherlands",
-    flag: "🇳🇱",
+    flag: "nl",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=1200&q=85",
+    image: "/Destinations/Netherlands.jpg",
     highlight: "UE Amsterdam",
     universities: "10+",
     students: "50+",
@@ -328,9 +334,7 @@ const countries = {
       "Utrecht University",
     ],
     intake: "September / February",
-    duration: "1–3 Years",
-    // tuition: "€8,000 – €20,000 / year",
-    // living: "€10,000 – €14,000 / year",
+    duration: "UG: 3 Years · PG: 1–2 Years",
     workRights: "16 hrs/week · 1-year orientation visa after graduation",
     popularCourses: [
       "Business & MBA",
@@ -343,10 +347,9 @@ const countries = {
   },
   "new-zealand": {
     name: "New Zealand",
-    flag: "🇳🇿",
+    flag: "nz",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=1200&q=85",
+    image: "/Destinations/NewZealand.jpg",
     highlight: "Auckland · Otago · Victoria University of Wellington",
     universities: "10+",
     students: "20+",
@@ -369,9 +372,7 @@ const countries = {
       "AUT",
     ],
     intake: "February / July",
-    duration: "2–3 Years",
-    // tuition: "NZD 22,000 – 45,000 / year",
-    // living: "NZD 15,000 – 20,000 / year",
+    duration: "UG: 3 Years · PG: 1–2 Years",
     workRights: "20 hrs/week · PSW visa up to 3 years",
     popularCourses: [
       "Agriculture",
@@ -384,10 +385,9 @@ const countries = {
   },
   ireland: {
     name: "Ireland",
-    flag: "🇮🇪",
+    flag: "ie",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=1200&q=85",
+    image: "/Destinations/Ireland.jpg",
     highlight: "Trinity College Dublin · UCD · University of Galway",
     universities: "25+",
     students: "10+",
@@ -410,10 +410,8 @@ const countries = {
       "Maynooth University",
     ],
     intake: "September / January",
-    duration: "1–2 Years",
-    // tuition: "€10,000 – €25,000 / year",
-    // living: "€10,000 – €14,000 / year",
-    workRights: "20 hrs/week · 2 year stay back visa",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
+    workRights: "20 hrs/week · 2-year stay back visa",
     popularCourses: [
       "Computer Science",
       "Data Analytics",
@@ -425,10 +423,9 @@ const countries = {
   },
   turkey: {
     name: "Turkey",
-    flag: "🇹🇷",
+    flag: "tr",
     color: "#ED4B00",
-    image:
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85",
+    image: "/Destinations/Turkey.jpg",
     highlight: "BAU · Bilkent University",
     universities: "10+",
     students: "30+",
@@ -451,9 +448,7 @@ const countries = {
       "METU",
     ],
     intake: "September / February",
-    duration: "2–4 Years",
-    // tuition: "$0 – $8,000 / year",
-    // living: "$4,000 – $7,000 / year",
+    duration: "UG: 4 Years · PG: 2 Years",
     workRights: "Limited part-time work rights",
     popularCourses: [
       "Medicine (MBBS)",
@@ -466,10 +461,9 @@ const countries = {
   },
   uae: {
     name: "UAE",
-    flag: "🇦🇪",
+    flag: "ae",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85",
+    image: "/Destinations/UAE.jpg",
     highlight: "UE · American University in Dubai",
     universities: "10+",
     students: "20+",
@@ -492,9 +486,7 @@ const countries = {
       "Middlesex University Dubai",
     ],
     intake: "September / January",
-    duration: "2–3 Years",
-    // tuition: "AED 40,000 – 90,000 / year",
-    // living: "AED 24,000 – 36,000 / year",
+    duration: "UG: 3–4 Years · PG: 1–2 Years",
     workRights: "Internships and part-time permitted",
     popularCourses: [
       "Business & MBA",
@@ -507,10 +499,9 @@ const countries = {
   },
   "northern-cyprus": {
     name: "Northern Cyprus",
-    flag: "🇨🇾",
+    flag: "cy",
     color: "#2100B1",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85",
+    image: "/Destinations/NorthernCyprus.jpeg",
     highlight: "Eastern Mediterranean University",
     universities: "1",
     students: "10+",
@@ -533,9 +524,7 @@ const countries = {
       "Lefke European University",
     ],
     intake: "September / February",
-    duration: "2–4 Years",
-    // tuition: "$3,000 – $8,000 / year",
-    // living: "$4,000 – $7,000 / year",
+    duration: "UG: 4 Years · PG: 2 Years",
     workRights: "Limited part-time work rights",
     popularCourses: [
       "Medicine (MBBS)",
@@ -662,9 +651,17 @@ export default async function CountryDetailPage({ params }) {
             }}
           >
             <div>
-              <div style={{ fontSize: "64px", marginBottom: "8px" }}>
-                {country.flag}
-              </div>
+              {/* flag-icons replacing emoji */}
+              <span
+                className={`fi fi-${country.flag}`}
+                style={{
+                  display: "block",
+                  width: "72px",
+                  height: "52px",
+                  borderRadius: "6px",
+                  marginBottom: "12px",
+                }}
+              />
               <h1
                 style={{
                   fontSize: "clamp(36px, 6vw, 64px)",
@@ -741,7 +738,7 @@ export default async function CountryDetailPage({ params }) {
               gap: "48px",
             }}
           >
-            {/* Left */}
+            {/* Left Column */}
             <div>
               <h2
                 style={{
@@ -771,7 +768,7 @@ export default async function CountryDetailPage({ params }) {
                   display: "flex",
                   flexDirection: "column",
                   gap: "12px",
-                  marginBottom: "32px",
+                  marginBottom: "40px",
                 }}
               >
                 {country.whyChoose.map((reason, i) => (
@@ -801,45 +798,49 @@ export default async function CountryDetailPage({ params }) {
                 ))}
               </div>
 
-              <h3
-                style={{
-                  fontSize: "18px",
-                  fontWeight: 700,
-                  color: "#0d0d1a",
-                  marginBottom: "16px",
-                }}
-              >
-                Top Partner Universities
-              </h3>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "8px",
-                }}
-              >
-                {country.topUnis.map((uni, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      padding: "10px 14px",
-                      background: "white",
-                      borderRadius: "8px",
-                      border: `1px solid ${country.color}22`,
-                      fontSize: "13px",
-                      color: "#444",
-                      fontWeight: 500,
-                    }}
-                  >
-                    🎓 {uni}
-                  </div>
-                ))}
+              {/* Partner Universities */}
+              <div style={{ marginBottom: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#0d0d1a",
+                    marginBottom: "16px",
+                  }}
+                >
+                  Our Partner Universities in {country.name}
+                </h3>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "8px",
+                  }}
+                >
+                  {country.topUnis.map((uni, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        padding: "10px 14px",
+                        background: "white",
+                        borderRadius: "8px",
+                        border: `1px solid ${country.color}22`,
+                        fontSize: "13px",
+                        color: "#444",
+                        fontWeight: 500,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      🎓 {uni}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Right */}
+            {/* Right Column */}
             <div>
-              {/* Key Info */}
+              {/* Key Information */}
               <div
                 style={{
                   background: "white",
@@ -869,12 +870,6 @@ export default async function CountryDetailPage({ params }) {
                     label: "Duration",
                     val: country.duration,
                   },
-                  // {
-                  //   icon: DollarSign,
-                  //   label: "Tuition Fees",
-                  //   val: country.tuition,
-                  // },
-                  // { icon: MapPin, label: "Living Cost", val: country.living },
                   {
                     icon: Briefcase,
                     label: "Work Rights",
@@ -995,14 +990,43 @@ export default async function CountryDetailPage({ params }) {
                 <p
                   style={{
                     fontSize: "14px",
-                    color: "rgba(255,255,255,0.8)",
-                    marginBottom: "20px",
+                    color: "rgba(255,255,255,0.85)",
+                    marginBottom: "8px",
                     lineHeight: 1.6,
                   }}
                 >
-                  Book a free consultation and our experts will guide you
-                  through every step.
+                  Our experienced counselors at EdX Consultants will guide you
+                  through:
                 </p>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: "0 0 20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {[
+                    "Choosing the right university",
+                    "Application & admission process",
+                    "Visa guidance & interview prep",
+                    "Pre-departure support",
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      style={{
+                        fontSize: "13px",
+                        color: "rgba(255,255,255,0.9)",
+                        padding: "3px 0",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                      }}
+                    >
+                      <span style={{ fontSize: "10px" }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   href="/contact"
                   style={{
@@ -1018,7 +1042,7 @@ export default async function CountryDetailPage({ params }) {
                     textDecoration: "none",
                   }}
                 >
-                  Apply Now <ArrowRight size={14} />
+                  Book Free Consultation <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -1080,6 +1104,7 @@ export default async function CountryDetailPage({ params }) {
                         objectFit: "cover",
                       }}
                     />
+                    {/* flag-icons replacing emoji overlay */}
                     <div
                       style={{
                         position: "absolute",
@@ -1090,7 +1115,15 @@ export default async function CountryDetailPage({ params }) {
                         justifyContent: "center",
                       }}
                     >
-                      <span style={{ fontSize: "36px" }}>{c.flag}</span>
+                      <span
+                        className={`fi fi-${c.flag}`}
+                        style={{
+                          display: "block",
+                          width: "56px",
+                          height: "40px",
+                          borderRadius: "5px",
+                        }}
+                      />
                     </div>
                   </div>
                   <div
@@ -1153,7 +1186,8 @@ export default async function CountryDetailPage({ params }) {
             lineHeight: 1.7,
           }}
         >
-          Free consultation — our counselors will build your complete roadmap.
+          Book a free consultation — our counselors will build your complete
+          roadmap.
         </p>
         <Link
           href="/contact"
@@ -1171,7 +1205,7 @@ export default async function CountryDetailPage({ params }) {
             boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
           }}
         >
-          Book Free Consultation <ArrowRight size={16} />
+          Apply Now <ArrowRight size={16} />
         </Link>
       </div>
 

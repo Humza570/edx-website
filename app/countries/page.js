@@ -11,11 +11,11 @@ const countries = [
     universities: "25+",
     students: "500+",
     image:
-      "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&q=80",
+      "/Destinations/UK.jpg",
     highlight: "UEA · ARU · RGU",
     color: "#ED4B00",
     tag: "Most Popular",
-    desc: "The UK is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe.",
+    desc: "The United Kingdom is one of the most popular study destinations in the world. It is home to many globally recognized universities and offers high-quality education in fields like business, engineering, and arts. Students benefit from shorter degree programs, multicultural campuses, and strong career opportunities after graduation.",
   },
   {
     slug: "united-states",
@@ -24,11 +24,11 @@ const countries = [
     universities: "20+",
     students: "100+",
     image:
-      "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=800&q=80",
-    highlight: "Harvard · MIT · Stanford",
+      "/Destinations/USA.jpg",
+    highlight: "Concordia · Avila · Texas State",
     color: "#2100B1",
     tag: null,
-    desc: "The USA offers a variety of academic programs, research facilities, and globally acclaimed degrees. The country is also home to some of the world's top-ranked universities and innovative learning environments.",
+    desc: "The United States has some of the top universities in the world and offers a wide range of study programs and research opportunities. Students choose the US for its innovation, diverse campuses, and strong career opportunities, especially in technology, business, and science.",
   },
   {
     slug: "australia",
@@ -37,11 +37,11 @@ const countries = [
     universities: "10+",
     students: "80+",
     image:
-      "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&q=80",
+      "/Destinations/Australia.jpg",
     highlight: "Melbourne · ANU · Sydney",
     color: "#2100B1",
     tag: null,
-    desc: "Australia is famous for its high-standard education system, cultural diversity, and strong post-study work prospects. Students enjoy a safe lifestyle, modern campuses, and globally recognized qualifications.",
+    desc: "Australia offers world-class universities, modern campuses, and a friendly environment for international students. Students enjoy a high standard of living, part-time work opportunities, and strong career prospects after graduation.",
   },
   {
     slug: "canada",
@@ -50,11 +50,11 @@ const countries = [
     universities: "10+",
     students: "50+",
     image:
-      "https://images.unsplash.com/photo-1543716091-a840c05249ec?w=800&q=80",
-    highlight: "UCW · TRU",
+      "/Destinations/Canada.jpg",
+    highlight: "UCW · Durham · George Brown",
     color: "#ED4B00",
     tag: "PR Pathway",
-    desc: "Canada promises affordable education, a conducive environment, and great career opportunities. It provides post-study work permits and permanent residence opportunities.",
+    desc: "Canada is known for its safe environment, high quality of life, and welcoming culture for international students. Students can work while studying and may also get opportunities to stay and work after graduation, which makes Canada a very attractive destination.",
   },
   {
     slug: "malaysia",
@@ -63,11 +63,11 @@ const countries = [
     universities: "30+",
     students: "300+",
     image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
-    highlight: "APU · UCSI · Raffles",
+      "/Destinations/Malaysia.jpg",
+    highlight: "APU · UCSI · Monash Malaysia",
     color: "#2100B1",
     tag: "MBBS",
-    desc: "Malaysia provides international education at an affordable price with modern campuses and globally recognized qualifications. A popular destination for students seeking quality education at lower tuition fees.",
+    desc: "Malaysia is a cost-effective study destination with modern universities and international programs. Many universities offer globally recognized degrees and partnerships with universities in the UK and Australia.",
   },
   {
     slug: "germany",
@@ -76,11 +76,11 @@ const countries = [
     universities: "10+",
     students: "100+",
     image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80",
-    highlight: "GISMA · UE · BSBI",
+      "/Destinations/Germany.jpg",
+    highlight: "GISMA · UE · BSBI · Steinbeis",
     color: "#2100B1",
     tag: "Low Tuition",
-    desc: "Germany is popular for quality education, especially in engineering and technology, with affordable options for students. Students have access to quality research facilities and good job opportunities in Europe.",
+    desc: "Germany is famous for its high-quality education and affordable tuition fees, especially at public universities. It is a great choice for students interested in engineering, technology, and research programs.",
   },
   {
     slug: "france",
@@ -89,7 +89,7 @@ const countries = [
     universities: "10+",
     students: "30+",
     image:
-      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+      "/Destinations/France.jpg",
     highlight: "Sorbonne · HEC Paris · École Polytechnique",
     color: "#ED4B00",
     tag: null,
@@ -102,7 +102,7 @@ const countries = [
     universities: "10+",
     students: "50+",
     image:
-      "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=800&q=80",
+      "/Destinations/Netherlands.jpg",
     highlight: "UE Amsterdam",
     color: "#2100B1",
     tag: null,
@@ -115,7 +115,7 @@ const countries = [
     universities: "10+",
     students: "20+",
     image:
-      "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80",
+      "/Destinations/NewZealand.jpg",
     highlight: "Auckland · Otago · Victoria University",
     color: "#ED4B00",
     tag: null,
@@ -128,7 +128,7 @@ const countries = [
     universities: "25+",
     students: "10+",
     image:
-      "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80",
+      "/Destinations/Ireland.jpg",
     highlight: "Trinity College Dublin · UCD · Galway",
     color: "#ED4B00",
     tag: null,
@@ -141,7 +141,7 @@ const countries = [
     universities: "10+",
     students: "30+",
     image:
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80",
+      "/Destinations/Turkey.jpg",
     highlight: "BAU · Bilkent University",
     color: "#ED4B00",
     tag: "Scholarships",
@@ -154,7 +154,7 @@ const countries = [
     universities: "10+",
     students: "20+",
     image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+      "/Destinations/UAE.jpg",
     highlight: "UE · American University in Dubai",
     color: "#2100B1",
     tag: null,
@@ -167,7 +167,7 @@ const countries = [
     universities: "1",
     students: "10+",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "/Destinations/NorthernCyprus.jpeg",
     highlight: "Eastern Mediterranean University",
     color: "#2100B1",
     tag: null,
@@ -214,6 +214,7 @@ export default function CountriesPage() {
             filter: "blur(70px)",
           }}
         />
+
         <div style={{ position: "relative", zIndex: 1, padding: "0 24px" }}>
           <div
             style={{
@@ -241,6 +242,7 @@ export default function CountriesPage() {
               Countries
             </span>
           </div>
+
           <div
             style={{
               display: "inline-flex",
@@ -274,6 +276,7 @@ export default function CountriesPage() {
               Study Destinations
             </span>
           </div>
+
           <h1
             style={{
               fontSize: "clamp(36px, 6vw, 64px)",
@@ -288,18 +291,22 @@ export default function CountriesPage() {
             <br />
             <span style={{ color: "#ED4B00" }}>Endless Possibilities</span>
           </h1>
+
           <p
             style={{
               fontSize: "18px",
               color: "rgba(255,255,255,0.55)",
-              maxWidth: "560px",
+              maxWidth: "600px",
               margin: "0 auto 36px",
               lineHeight: 1.7,
             }}
           >
-            We have active panels and 100+ partner universities across 10+
-            destinations. Find the country that's right for you.
+            Studying abroad opens the door to better education, global exposure,
+            and career opportunities. At EdX Consultants, we help you explore
+            different countries and choose the destination that fits your career
+            goals, budget, and future plans.
           </p>
+
           <div
             style={{
               display: "flex",
@@ -341,8 +348,31 @@ export default function CountriesPage() {
         </div>
       </div>
 
+      {/* Intro Section */}
+      <div style={{ background: "#0d0d1a", padding: "60px 24px 0" }}>
+        <div
+          style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}
+        >
+          <p
+            style={{
+              fontSize: "16px",
+              color: "rgba(255,255,255,0.55)",
+              lineHeight: 1.85,
+            }}
+          >
+            Every country offers different advantages such as{" "}
+            <span style={{ color: "#ED4B00", fontWeight: 600 }}>
+              high-quality education, job opportunities, scholarships, and
+              post-study work options
+            </span>
+            . We have active panels and 100+ partner universities across 10+
+            destinations. Find the country that is right for you.
+          </p>
+        </div>
+      </div>
+
       {/* Countries Grid */}
-      <div style={{ background: "#0d0d1a", padding: "100px 24px" }}>
+      <div style={{ background: "#0d0d1a", padding: "60px 24px 100px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <h2
@@ -430,7 +460,7 @@ export default function CountriesPage() {
                       }}
                     />
 
-                    {/* ✅ Real flag in circle */}
+                    {/* Real flag circle */}
                     <div
                       style={{
                         position: "absolute",
@@ -612,7 +642,7 @@ export default function CountriesPage() {
           style={{
             fontSize: "17px",
             color: "rgba(255,255,255,0.8)",
-            maxWidth: "480px",
+            maxWidth: "520px",
             margin: "0 auto 32px",
             lineHeight: 1.7,
           }}

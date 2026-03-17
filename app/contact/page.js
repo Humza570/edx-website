@@ -1,7 +1,5 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -14,63 +12,54 @@ import {
   MessageSquare,
   Instagram,
   Facebook,
-  Youtube,
   Linkedin,
-  Twitter,
-  ArrowRight,
   ChevronDown,
 } from "lucide-react";
 
 const offices = [
   {
     city: "Lahore",
-    address: "Main Boulevard, Gulberg III, Lahore",
-    phone: "+92 42 0000000",
-    email: "lahore@edxconsultants.com",
-    hours: "Mon–Sat: 9am – 7pm",
-    mapUrl: "https://maps.google.com",
+    address:
+      "First Floor, Building No. 55, Johar Block B Phase 1 Town, Lahore, 54000",
+    phone: "+92 333 9989153",
+    email: "info@edxconsultants.com",
+    hours: "Mon–Fri: 10am – 6pm · Sat: 11am – 4pm",
     flag: "🏙️",
-  },
-  {
-    city: "Islamabad",
-    address: "Blue Area, F-7 Markaz, Islamabad",
-    phone: "+92 51 0000000",
-    email: "islamabad@edxconsultants.com",
-    hours: "Mon–Sat: 9am – 7pm",
-    mapUrl: "https://maps.google.com",
-    flag: "🏛️",
-  },
-  {
-    city: "Karachi",
-    address: "Clifton Block 5, Karachi",
-    phone: "+92 21 0000000",
-    email: "karachi@edxconsultants.com",
-    hours: "Mon–Sat: 9am – 7pm",
-    mapUrl: "https://maps.google.com",
-    flag: "🌊",
   },
 ];
 
 const faqs = [
   {
-    q: "Is the initial consultation really free?",
-    a: "Yes, 100% free with no obligations. Our first session is purely to understand your goals and give you an honest assessment of your options.",
+    q: "How is EDX different from other educational consultants?",
+    a: "At EDX we combine personalized attention, expert guidance, and years of experience to make your study abroad journey seamless and successful.",
   },
   {
-    q: "How long does the entire process take?",
-    a: "From initial consultation to visa approval typically takes 3–6 months depending on the country, university, and intake. We guide you through every step.",
+    q: "What is the cost of studying abroad?",
+    a: "The cost varies by country, university, and program. During your consultation, we'll help you understand the tuition fees, living expenses, other costs, and financial aid options.",
   },
   {
-    q: "Do you guarantee visa approval?",
-    a: "While no consultant can legally guarantee a visa, our 98% success rate speaks for itself. We prepare your file to the highest standard to maximize your chances.",
+    q: "How long does the application process take?",
+    a: "The timeline depends on the destination and the institution's deadlines. Generally, the process takes 3–6 months, including university applications, offers, and visa approval.",
   },
   {
-    q: "What documents do I need to bring to my first meeting?",
-    a: "Just your academic transcripts and a clear idea of your goals. Our counselors will guide you on what else is needed after understanding your profile.",
+    q: "What support does EDX offer after I reach my study destination?",
+    a: "We assist with pre-departure briefings, connecting you with student communities, and providing guidance on accommodation, banking, and local support networks.",
   },
   {
-    q: "Can you help with IELTS preparation too?",
-    a: "Yes! We offer dedicated IELTS and PTE preparation coaching alongside our consultancy services.",
+    q: "How do I get started with EDX?",
+    a: "Simply contact us through our website, email, or visit our office. Our counselors will schedule a free consultation to understand your academic goals and guide you accordingly.",
+  },
+  {
+    q: "Are there any scholarships available?",
+    a: "Yes, many universities and institutions offer scholarships based on academic merit, financial need, or other criteria. Our team will help you identify and apply for scholarships that suit your profile.",
+  },
+  {
+    q: "Does EdX assist with visa applications?",
+    a: "Absolutely! Our team provides comprehensive visa guidance, including preparing required documents, filling out forms, and preparing for interviews, to ensure a smooth visa application process.",
+  },
+  {
+    q: "Can I work while studying abroad?",
+    a: "Yes, many destinations allow international students to work part-time during their studies. Our counselors will provide detailed information based on the country's specific work regulations.",
   },
 ];
 
@@ -114,15 +103,13 @@ export default function ContactPage() {
 
   return (
     <main>
-      <Navbar />
-
       {/* Hero */}
       <div
         style={{
           background:
             "linear-gradient(135deg, #0d0d1a 0%, #1a0050 60%, #0d0d1a 100%)",
           paddingTop: "160px",
-          paddingBottom: "80px",
+          paddingBottom: "0px",
           position: "relative",
           overflow: "hidden",
         }}
@@ -166,7 +153,7 @@ export default function ContactPage() {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              marginBottom: "20px",
+              marginBottom: "0px",
               justifyContent: "center",
             }}
           >
@@ -251,7 +238,7 @@ export default function ContactPage() {
           </div>
 
           {/* Quick contact cards */}
-          <div
+          {/* <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -264,18 +251,18 @@ export default function ContactPage() {
               {
                 icon: Phone,
                 label: "Call Us",
-                val: "+92 300 0000000",
-                sub: "Mon–Sat, 9am–7pm",
+                val: "+92 333 9989153",
+                sub: "Mon–Fri 10am–6pm · Sat 11am–4pm",
                 color: "#2100B1",
-                href: "tel:+923000000000",
+                href: "tel:+923339989153",
               },
               {
                 icon: MessageSquare,
                 label: "WhatsApp",
-                val: "+92 300 0000000",
+                val: "+92 333 9989153",
                 sub: "Quick responses",
                 color: "#25D366",
-                href: "https://wa.me/923000000000",
+                href: "https://api.whatsapp.com/send?phone=+923339989153&text=Welcome%20to%20Edx%20Consultants.",
               },
               {
                 icon: Mail,
@@ -288,8 +275,8 @@ export default function ContactPage() {
               {
                 icon: Clock,
                 label: "Working Hours",
-                val: "Mon – Saturday",
-                sub: "9:00 AM – 7:00 PM",
+                val: "Mon–Fri · Sat",
+                sub: "10am–6pm · 11am–4pm",
                 color: "#2100B1",
                 href: null,
               },
@@ -365,11 +352,11 @@ export default function ContactPage() {
                 </div>
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
-      {/* Form + Map Section */}
+      {/* Form + Offices Section */}
       <div style={{ background: "white", padding: "100px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div
@@ -509,7 +496,7 @@ export default function ContactPage() {
                         value={form.phone}
                         onChange={handleChange}
                         required
-                        placeholder="+92 300 0000000"
+                        placeholder="+92 333 9989153"
                         style={inputStyle}
                         onFocus={(e) =>
                           (e.target.style.borderColor = "#2100B1")
@@ -652,7 +639,7 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Right — Offices + Social */}
+            {/* Right — Office + Social */}
             <div>
               <h2
                 style={{
@@ -663,127 +650,151 @@ export default function ContactPage() {
                   marginBottom: "32px",
                 }}
               >
-                Visit Our <span style={{ color: "#ED4B00" }}>Offices</span>
+                Visit Our <span style={{ color: "#ED4B00" }}>Office</span>
               </h2>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "16px",
-                  marginBottom: "40px",
-                }}
-              >
-                {offices.map((office, i) => (
+              {offices.map((office) => (
+                <div
+                  key={office.city}
+                  style={{
+                    padding: "28px",
+                    borderRadius: "16px",
+                    background: "#f8f9ff",
+                    border: "1px solid rgba(33,0,177,0.08)",
+                    marginBottom: "16px",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 30px rgba(33,0,177,0.1)";
+                    e.currentTarget.style.background = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.background = "#f8f9ff";
+                  }}
+                >
                   <div
-                    key={office.city}
                     style={{
-                      padding: "24px",
-                      borderRadius: "16px",
-                      background: "#f8f9ff",
-                      border: "1px solid rgba(33,0,177,0.08)",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 30px rgba(33,0,177,0.1)";
-                      e.currentTarget.style.background = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.background = "#f8f9ff";
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "16px",
                     }}
                   >
                     <div
                       style={{
+                        width: "44px",
+                        height: "44px",
+                        borderRadius: "12px",
+                        background: "rgba(33,0,177,0.1)",
                         display: "flex",
-                        alignItems: "flex-start",
-                        gap: "16px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "22px",
+                        flexShrink: 0,
                       }}
                     >
+                      {office.flag}
+                    </div>
+                    <div style={{ flex: 1 }}>
                       <div
                         style={{
-                          width: "44px",
-                          height: "44px",
-                          borderRadius: "12px",
-                          background:
-                            i % 2 === 0
-                              ? "rgba(33,0,177,0.1)"
-                              : "rgba(237,75,0,0.1)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: "22px",
-                          flexShrink: 0,
+                          fontSize: "16px",
+                          fontWeight: 800,
+                          color: "#0d0d1a",
+                          marginBottom: "6px",
                         }}
                       >
-                        {office.flag}
+                        {office.city} Office
                       </div>
-                      <div style={{ flex: 1 }}>
-                        <div
-                          style={{
-                            fontSize: "16px",
-                            fontWeight: 800,
-                            color: "#0d0d1a",
-                            marginBottom: "4px",
-                          }}
-                        >
-                          {office.city} Office
-                        </div>
-                        <div
+                      <div
+                        style={{
+                          fontSize: "13px",
+                          color: "#666",
+                          marginBottom: "10px",
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                        }}
+                      >
+                        <MapPin
+                          size={13}
+                          color="#888"
+                          style={{ flexShrink: 0, marginTop: "2px" }}
+                        />
+                        {office.address}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "20px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <a
+                          href={`tel:${office.phone.replace(/\s/g, "")}`}
                           style={{
                             fontSize: "13px",
-                            color: "#666",
-                            marginBottom: "8px",
+                            color: "#2100B1",
+                            fontWeight: 600,
+                            textDecoration: "none",
                             display: "flex",
-                            alignItems: "flex-start",
-                            gap: "6px",
+                            alignItems: "center",
+                            gap: "5px",
                           }}
                         >
-                          <MapPin
-                            size={13}
-                            color="#888"
-                            style={{ flexShrink: 0, marginTop: "2px" }}
-                          />
-                          {office.address}
-                        </div>
-                        <div
+                          <Phone size={12} /> {office.phone}
+                        </a>
+                        <a
+                          href={`mailto:${office.email}`}
                           style={{
+                            fontSize: "13px",
+                            color: "#ED4B00",
+                            fontWeight: 600,
+                            textDecoration: "none",
                             display: "flex",
-                            gap: "16px",
-                            flexWrap: "wrap",
+                            alignItems: "center",
+                            gap: "5px",
                           }}
                         >
-                          <a
-                            href={`tel:${office.phone}`}
-                            style={{
-                              fontSize: "13px",
-                              color: "#2100B1",
-                              fontWeight: 600,
-                              textDecoration: "none",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "5px",
-                            }}
-                          >
-                            <Phone size={12} /> {office.phone}
-                          </a>
-                          <span
-                            style={{
-                              fontSize: "13px",
-                              color: "#888",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "5px",
-                            }}
-                          >
-                            <Clock size={12} /> {office.hours}
-                          </span>
-                        </div>
+                          <Mail size={12} /> {office.email}
+                        </a>
+                      </div>
+                      <div
+                        style={{
+                          marginTop: "8px",
+                          fontSize: "13px",
+                          color: "#888",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "5px",
+                        }}
+                      >
+                        <Clock size={12} /> {office.hours}
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
+
+              {/* Map embed */}
+              <div
+                style={{
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  marginBottom: "24px",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0!2d74.2895003!3d31.4654886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901d2f9a447b7%3A0x239eb5c354a94be9!2sEdX%20Consultants%20Pvt.%20Ltd.!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, display: "block" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
 
               {/* Social Links */}
@@ -816,15 +827,37 @@ export default function ContactPage() {
                 </p>
                 <div style={{ display: "flex", gap: "10px" }}>
                   {[
-                    { icon: Instagram, href: "#", color: "#E1306C" },
-                    { icon: Facebook, href: "#", color: "#1877F2" },
-                    { icon: Youtube, href: "#", color: "#FF0000" },
-                    { icon: Linkedin, href: "#", color: "#0A66C2" },
-                    { icon: Twitter, href: "#", color: "#1DA1F2" },
-                  ].map(({ icon: Icon, href, color }) => (
+                    {
+                      icon: Instagram,
+                      href: "https://www.instagram.com/edxconsultants",
+                      color: "#E1306C",
+                      label: "Instagram",
+                    },
+                    {
+                      icon: Facebook,
+                      href: "https://www.facebook.com/profile.php?id=61569584940276",
+                      color: "#1877F2",
+                      label: "Facebook",
+                    },
+                    {
+                      icon: Linkedin,
+                      href: "https://www.linkedin.com/company/edxconsultants/",
+                      color: "#0A66C2",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: MessageSquare,
+                      href: "https://api.whatsapp.com/send?phone=+923339989153&text=Welcome%20to%20Edx%20Consultants.",
+                      color: "#25D366",
+                      label: "WhatsApp",
+                    },
+                  ].map(({ icon: Icon, href, color, label }) => (
                     <a
-                      key={color}
+                      key={label}
                       href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={label}
                       style={{
                         width: "42px",
                         height: "42px",
@@ -946,12 +979,11 @@ export default function ContactPage() {
                 {openFaq === i && (
                   <div
                     style={{
-                      padding: "0 24px 20px",
+                      padding: "16px 24px 20px",
                       fontSize: "14px",
                       color: "#666",
                       lineHeight: 1.8,
                       borderTop: "1px solid #f0f0f0",
-                      paddingTop: "16px",
                     }}
                   >
                     {faq.a}
@@ -1002,7 +1034,7 @@ export default function ContactPage() {
           }}
         >
           <a
-            href="tel:+923000000000"
+            href="tel:+923339989153"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1020,7 +1052,9 @@ export default function ContactPage() {
             <Phone size={16} /> Call Now
           </a>
           <a
-            href="https://wa.me/923000000000"
+            href="https://api.whatsapp.com/send?phone=+923339989153&text=Welcome%20to%20Edx%20Consultants."
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1039,7 +1073,6 @@ export default function ContactPage() {
           </a>
         </div>
       </div>
-
     </main>
   );
 }
