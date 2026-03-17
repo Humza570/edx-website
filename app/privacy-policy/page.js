@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Link from "next/link";
 
 export const metadata = {
@@ -11,8 +9,6 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <main>
-      <Navbar />
-
       {/* Hero */}
       <div
         style={{
@@ -149,233 +145,242 @@ export default function PrivacyPolicyPage() {
             }}
           >
             <p style={bodyText}>
-              EdX Consultants Pvt. Ltd. ("EdX Consultants", "we", "our", or
-              "us") is committed to protecting your privacy. This Privacy Policy
-              explains how we collect, use, disclose, and safeguard your
-              information when you visit our website{" "}
-              <strong>edxconsultants.com</strong> or use our services. Please
-              read this policy carefully. If you disagree with its terms, please
-              discontinue use of our website and services.
+              At <strong>EdX Consultants</strong>, we value your trust and are
+              committed to protecting your personal information. This Privacy
+              Policy explains how we collect, use, and safeguard your data when
+              you use our website <strong>edxconsultants.com</strong> or engage
+              with our services.
+            </p>
+            <p style={{ ...bodyText, marginBottom: 0 }}>
+              By using our website, you agree to the practices outlined below.
+              Please read this policy carefully.
             </p>
           </div>
 
-          <Section num="1" title="Information We Collect">
+          <Section num="1" title="Our Purpose">
             <p style={bodyText}>
-              We may collect the following types of information from you:
-            </p>
-            <SubHeading>1.1 Personal Information You Provide</SubHeading>
-            <ul style={listStyle}>
-              <li>Full name, email address, phone number</li>
-              <li>Academic qualifications and transcripts</li>
-              <li>
-                Passport and identification details (where required for visa
-                applications)
-              </li>
-              <li>
-                Financial information required for visa or scholarship
-                applications
-              </li>
-              <li>Country of interest and intended study program</li>
-              <li>
-                Any other information you voluntarily share during consultations
-                or via our contact forms
-              </li>
-            </ul>
-            <SubHeading>1.2 Automatically Collected Information</SubHeading>
-            <ul style={listStyle}>
-              <li>IP address and browser type</li>
-              <li>Pages visited and time spent on our website</li>
-              <li>Referring URLs and device information</li>
-              <li>Cookies and similar tracking technologies</li>
-            </ul>
-          </Section>
-
-          <Section num="2" title="How We Use Your Information">
-            <p style={bodyText}>
-              We use the information we collect for the following purposes:
-            </p>
-            <ul style={listStyle}>
-              <li>
-                To provide and manage our consultancy services, including
-                university applications, visa assistance, and scholarship
-                guidance
-              </li>
-              <li>
-                To communicate with you regarding your application status,
-                inquiries, or appointments
-              </li>
-              <li>
-                To send you updates, newsletters, and promotional materials (you
-                may opt out at any time)
-              </li>
-              <li>
-                To process and submit applications to universities and embassies
-                on your behalf
-              </li>
-              <li>
-                To comply with legal obligations and regulatory requirements
-              </li>
-              <li>To improve our website, services, and customer experience</li>
-              <li>
-                To analyze usage patterns and measure the effectiveness of our
-                marketing efforts
-              </li>
-            </ul>
-          </Section>
-
-          <Section num="3" title="Sharing Your Information">
-            <p style={bodyText}>
-              We do not sell, trade, or rent your personal information to third
-              parties. We may share your information in the following limited
-              circumstances:
-            </p>
-            <SubHeading>3.1 With Service Partners</SubHeading>
-            <p style={bodyText}>
-              We share relevant personal and academic information with
-              universities, colleges, and embassies strictly for the purpose of
-              processing your applications. This is done only with your explicit
-              consent.
-            </p>
-            <SubHeading>3.2 With Third-Party Service Providers</SubHeading>
-            <p style={bodyText}>
-              We may share information with trusted third-party vendors who
-              assist us in operating our website and business (e.g., email
-              marketing platforms, CRM tools). These parties are contractually
-              obligated to keep your information confidential.
-            </p>
-            <SubHeading>3.3 Legal Requirements</SubHeading>
-            <p style={bodyText}>
-              We may disclose your information if required by law, court order,
-              or government regulation, or if we believe disclosure is necessary
-              to protect our rights or the safety of others.
+              The primary goal of EdX Consultants is to help students find
+              suitable courses, universities, and career opportunities, and to
+              support them through the admission and visa process. This falls
+              under our Legitimate Business Interest.
             </p>
           </Section>
 
-          <Section num="4" title="Cookies and Tracking Technologies">
+          <Section num="2" title="Collecting and Using Your Personal Data">
             <p style={bodyText}>
-              Our website uses cookies — small text files stored on your device
-              — to enhance your browsing experience. Cookies help us:
+              You may browse our website without providing personal information.
+              However, for some enhanced features and services, we may ask for
+              details to process your request:
             </p>
             <ul style={listStyle}>
-              <li>Remember your preferences and settings</li>
-              <li>Analyze website traffic and usage patterns</li>
-              <li>Deliver targeted content and relevant information</li>
+              <li>
+                Submitting your name and email to create an account, receive
+                newsletters, or save searches.
+              </li>
+              <li>
+                Providing contact details to request a prospectus, course
+                information, or scholarship guidance.
+              </li>
+              <li>
+                Sharing academic history and background for counselling or
+                university application support.
+              </li>
             </ul>
             <p style={bodyText}>
-              You may disable cookies through your browser settings. However,
-              doing so may limit some functionality of our website. By
-              continuing to use our site, you consent to our use of cookies.
+              We clearly display why each piece of information is collected next
+              to the relevant form field.
             </p>
           </Section>
 
-          <Section num="5" title="Data Security">
+          <Section num="3" title="What Personal Data Do We Collect?">
             <p style={bodyText}>
-              We implement appropriate technical and organizational security
-              measures to protect your personal information from unauthorized
-              access, disclosure, alteration, or destruction. These include:
+              The following data we collect directly through our forms:
             </p>
-            <ul style={listStyle}>
-              <li>SSL encryption on all data transmission</li>
-              <li>
-                Restricted access to personal data — only authorized staff can
-                access your information
-              </li>
-              <li>Secure storage of physical and digital records</li>
-              <li>Regular security audits and staff training</li>
-            </ul>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "8px",
+                margin: "12px 0",
+              }}
+            >
+              {[
+                "First name",
+                "Last name",
+                "Email",
+                "Country of residence",
+                "Nationality",
+                "Intake year and month",
+                "Preferred study destination",
+                "Subject",
+                "Study level",
+                "Date of birth",
+                "Phone number",
+                "Gender",
+                "Mailing address",
+                "Current qualification",
+                "Qualification status",
+                "Grade type",
+                "Qualification score",
+                "Date of completion",
+                "English proficiency test scores",
+                "Other tests",
+              ].map((item) => (
+                <div
+                  key={item}
+                  style={{
+                    padding: "8px 12px",
+                    background: "rgba(33,0,177,0.04)",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    color: "#444",
+                    border: "1px solid rgba(33,0,177,0.08)",
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+            <SubHeading>IP Address</SubHeading>
             <p style={bodyText}>
-              However, no method of transmission over the internet or method of
-              electronic storage is 100% secure. While we strive to use
-              commercially acceptable means to protect your information, we
-              cannot guarantee absolute security.
+              Each time you access our website, we receive your IP address. We
+              keep this information for 6 months only and use it for analytics
+              purposes only.
             </p>
           </Section>
 
-          <Section num="6" title="Data Retention">
+          <Section num="4" title="Cookies">
             <p style={bodyText}>
-              We retain your personal information for as long as necessary to
-              fulfill the purposes outlined in this policy, or as required by
-              law. Specifically:
+              Our website uses cookies to provide a smooth and personalized
+              experience. Cookies help us:
             </p>
             <ul style={listStyle}>
+              <li>Keep you logged in.</li>
+              <li>Save your preferences and improve future visits.</li>
               <li>
-                Active client records are retained for the duration of your
-                engagement with us
+                Analyze site traffic and user interactions via tools like Google
+                Analytics.
               </li>
-              <li>
-                Application documents are retained for up to 5 years after
-                completion
-              </li>
-              <li>
-                You may request deletion of your data at any time (subject to
-                legal retention obligations)
-              </li>
+              <li>Provide targeted content and relevant information.</li>
             </ul>
+            <p style={bodyText}>
+              You can control cookies via your browser settings. Please note,
+              disabling cookies may limit some website features.
+            </p>
+          </Section>
+
+          <Section num="5" title="Analytics and Insights">
+            <p style={bodyText}>
+              We may request additional details such as your country or city to
+              analyze the reach and effectiveness of our services. This
+              information is anonymized and never used to identify you
+              personally.
+            </p>
+          </Section>
+
+          <Section num="6" title="Data Storage & Security">
+            <p style={bodyText}>
+              Your personal information is stored securely in trusted hosting
+              environments. We use encryption, firewalls, malware protection,
+              and strict company-wide policies to protect your data.
+            </p>
           </Section>
 
           <Section num="7" title="Your Rights">
             <p style={bodyText}>
-              You have the following rights regarding your personal information:
+              In line with global privacy laws, you have the right to:
             </p>
             <ul style={listStyle}>
-              <li>
-                <strong>Access:</strong> Request a copy of the personal
-                information we hold about you
-              </li>
-              <li>
-                <strong>Correction:</strong> Request correction of inaccurate or
-                incomplete data
-              </li>
-              <li>
-                <strong>Deletion:</strong> Request deletion of your personal
-                data where legally permissible
-              </li>
-              <li>
-                <strong>Opt-Out:</strong> Unsubscribe from our marketing
-                communications at any time
-              </li>
-              <li>
-                <strong>Portability:</strong> Request transfer of your data in a
-                machine-readable format
-              </li>
+              <li>Know why and how we use your data.</li>
+              <li>Request details of your stored information.</li>
+              <li>Correct inaccurate or incomplete data.</li>
+              <li>Request deletion of your data ("right to be forgotten").</li>
+              <li>Temporarily pause data usage.</li>
+              <li>Opt-out of services or communications at any time.</li>
+              <li>Stop your data from being used for certain purposes.</li>
             </ul>
             <p style={bodyText}>
-              To exercise any of these rights, please contact us at{" "}
-              <strong>privacy@edxconsultants.com</strong>.
+              Requests can be made by contacting us at{" "}
+              <a
+                href="mailto:marketing@edxconsultants.com"
+                style={{ color: "#2100B1", fontWeight: 600 }}
+              >
+                marketing@edxconsultants.com
+              </a>
+              .
             </p>
           </Section>
 
-          <Section num="8" title="Third-Party Links">
+          <Section num="8" title="Marketing & Newsletters">
             <p style={bodyText}>
-              Our website may contain links to third-party websites, including
-              university portals, embassy websites, and scholarship databases.
-              We are not responsible for the privacy practices or content of
-              these external sites. We encourage you to review the privacy
-              policies of any third-party sites you visit.
+              At EdX Consultants, it is our primary objective to help students
+              throughout their educational journey. As part of this, we offer a
+              number of subscription options:
             </p>
-          </Section>
-
-          <Section num="9" title="Children's Privacy">
+            <SubHeading>Newsletters</SubHeading>
             <p style={bodyText}>
-              Our services are intended for individuals who are 16 years of age
-              or older. We do not knowingly collect personal information from
-              children under 16 without parental consent. If you believe we have
-              inadvertently collected such information, please contact us
-              immediately and we will take steps to delete it.
+              Inspiring emails from our marketing team, providing you with the
+              latest university news, tips, and guides.
             </p>
-          </Section>
-
-          <Section num="10" title="Changes to This Policy">
+            <SubHeading>University Updates</SubHeading>
             <p style={bodyText}>
-              We reserve the right to update this Privacy Policy at any time.
-              Changes will be posted on this page with an updated "Last Updated"
-              date. We encourage you to review this policy periodically. Your
-              continued use of our website after any changes constitutes your
-              acceptance of the updated policy.
+              Emails providing news and updates of course information, open
+              days, events, and scholarships from universities and partners that
+              match your interests.
+            </p>
+            <p style={bodyText}>
+              You may unsubscribe anytime by updating your profile preferences
+              or clicking the unsubscribe link in emails.
             </p>
           </Section>
 
-          <Section num="11" title="Contact Us">
+          <Section num="9" title="Partner Institutions & Data Sharing">
+            <p style={bodyText}>
+              We only share your details with institutions you actively engage
+              with (e.g., requesting a prospectus, enquiry, or application
+              assistance).
+            </p>
+            <p style={bodyText}>
+              Universities may contact you directly after you opt-in. If you
+              later wish to withdraw consent, please contact the respective
+              institution.
+            </p>
+            <p style={bodyText}>
+              We also provide anonymized usage data to partner universities for
+              reporting purposes — never identifiable personal data.
+            </p>
+          </Section>
+
+          <Section num="10" title="Multimedia & Social Media">
+            <p style={bodyText}>
+              Occasionally, EdX Consultants may collect photos, videos, or
+              testimonials (with consent) for promotional purposes. Consent will
+              always be requested before use.
+            </p>
+            <p style={bodyText}>
+              We also use social media platforms to share educational content.
+              Please avoid posting personal details publicly. For specific
+              queries, use direct/private messages.
+            </p>
+          </Section>
+
+          <Section num="11" title="Links to External Websites">
+            <p style={bodyText}>
+              Our website may link to third-party university or partner sites.
+              This Privacy Policy does not cover those websites. Please review
+              their policies separately.
+            </p>
+          </Section>
+
+          <Section num="12" title="Changes to This Policy">
+            <p style={bodyText}>
+              We may update this Privacy Policy periodically. The latest version
+              will always be available on our website. If significant changes
+              occur, we will notify you via email.
+            </p>
+          </Section>
+
+          <Section num="13" title="Contact Us">
             <p style={bodyText}>
               If you have any questions, concerns, or requests regarding this
               Privacy Policy or our data practices, please contact us:
@@ -393,24 +398,25 @@ export default function PrivacyPolicyPage() {
                 <strong>EdX Consultants Pvt. Ltd.</strong>
               </p>
               <p style={{ ...bodyText, marginBottom: "6px" }}>
-                Main Boulevard, Gulberg III, Lahore, Pakistan
+                First Floor, Building No. 55, Johar Block B Phase 1 Town,
+                Lahore, 54000, Pakistan
               </p>
               <p style={{ ...bodyText, marginBottom: "6px" }}>
                 📧{" "}
                 <a
-                  href="mailto:privacy@edxconsultants.com"
+                  href="mailto:marketing@edxconsultants.com"
                   style={{ color: "#2100B1", fontWeight: 600 }}
                 >
-                  privacy@edxconsultants.com
+                  marketing@edxconsultants.com
                 </a>
               </p>
               <p style={{ ...bodyText, marginBottom: 0 }}>
                 📞{" "}
                 <a
-                  href="tel:+923000000000"
+                  href="tel:+923339989153"
                   style={{ color: "#2100B1", fontWeight: 600 }}
                 >
-                  +92 300 0000000
+                  +92 333 9989153
                 </a>
               </p>
             </div>
@@ -450,8 +456,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }
