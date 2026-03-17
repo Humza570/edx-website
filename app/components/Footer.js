@@ -373,12 +373,12 @@ export default function Footer() {
             gap: "12px",
           }}
         >
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)" }}>
+          <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)" }}>
             © 2025 EdX Consultants Pvt. Ltd. All rights reserved.
           </p>
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "11px",
               color: "rgba(255,255,255,0.3)",
               display: "flex",
               alignItems: "center",
@@ -396,7 +396,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 style={{
-                  fontSize: "13px",
+                  fontSize: "11px",
                   color: "rgba(255,255,255,0.3)",
                   textDecoration: "none",
                   transition: "color 0.2s",
