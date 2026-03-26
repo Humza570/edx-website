@@ -175,18 +175,18 @@ const countries = [
     intake: "September / January",
   },
   {
-    name: "Türkiye",
+    name: "Turkey",
     flag: "tr",
     flagEmoji: "🇹🇷",
-    slug: "Türkiye",
+    slug: "turkey",
     lat: 39.9334,
     lng: 32.8597,
     universities: "10+",
     students: "30+",
-    image: "/Destinations/Türkiye.jpg",
+    image: "/Destinations/Turkey.jpg",
     highlight: "BAU · Bilkent University",
     color: "#ED4B00",
-    desc: "Türkiye has affordable education, modern universities, and a unique cultural experience for international students. Türkiye is a bridge between Europe and Asia and has many academic and cultural opportunities to offer.",
+    desc: "Turkey has affordable education, modern universities, and a unique cultural experience for international students. Turkey is a bridge between Europe and Asia and has many academic and cultural opportunities to offer.",
     duration: "2–4 Years",
     intake: "September / February",
   },
@@ -245,23 +245,11 @@ export default function Countries() {
   const isMobile = screenWidth < 768;
   const globeSize = screenWidth < 400 ? 220 : screenWidth < 768 ? 260 : 420;
 
- useEffect(() => {
-  if (typeof window === "undefined") return;
-  
-  // WebGL support check
-  const canvas = document.createElement("canvas");
-  const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  
-  if (!gl) {
-    // WebGL nahi hai, globe load mat karo
-    setGlobeComponent(null);
-    return;
-  }
-
-  import("react-globe.gl")
-    .then((mod) => setGlobeComponent(() => mod.default))
-    .catch(() => setGlobeComponent(null));
-}, []);
+  useEffect(() => {
+    import("react-globe.gl").then((mod) =>
+      setGlobeComponent(() => mod.default),
+    );
+  }, []);
 
   useEffect(() => {
     if (!globeReady || !globeRef.current) return;
@@ -342,10 +330,8 @@ export default function Countries() {
               width: "100%",
               height: "100%",
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "8px",
             }}
           >
             <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px" }}>
