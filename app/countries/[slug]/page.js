@@ -205,18 +205,26 @@ const countries = {
       "Opportunity to experience different cultures",
     ],
     topUnis: [
-      "Asia Pacific University (APU) — Kuala Lumpur, Malaysia",
-      "Universiti Tunku Abdul Rahman (UTAR) — Perak, Malaysia",
-      "Universiti Kuala Lumpur (UniKL) — Malaysia",
-      "UCSI University — Kuala Lumpur, Malaysia",
-      "London School of Business & Finance (LSBF) — Malaysia Campus",
-      "Geomatika University College — Kuala Lumpur, Malaysia",
-      "MILA University — Malaysia",
-      "Alam College — Malaysia",
-      "Raffles University — Malaysia",
-      "TAR UMT (Tunku Abdul Rahman University) — Malaysia",
-      "SEGi University — Malaysia",
-      "Monash University Malaysia — Kuala Lumpur, Malaysia",
+      {
+        name: "Asia Pacific University (APU) — Kuala Lumpur, Malaysia",
+        logo: "/Universities/Malaysia/www.apu.edu.my.png",
+        url: "https://www.apu.edu.my.png",
+      },
+      {
+        name: "Alam College — Malaysia",
+        logo: "/Universities/Malaysia/alam.edu.my.png",
+        url: "https://alam.edu.my.png",
+      },
+      {
+        name: "Geomatika University College — Kuala Lumpur, Malaysia",
+        logo: "/Universities/Malaysia/geomatika.edu.my.png",
+        url: "https://geomatika.edu.my.png",
+      },
+      {
+        name: "University of Europe for Applied Sciences (UE)",
+        logo: "/Universities/Germany/www.ue-germany.com.png",
+        url: "https://www.ue-germany.com",
+      },
     ],
     intake: "January / May / September",
     duration: "UG: 3–4 Years · PG: 1–2 Years",
@@ -825,86 +833,7 @@ export default async function CountryDetailPage({ params }) {
                 >
                   Our Partner Universities in {country.name}
                 </h3>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "10px",
-                  }}
-                >
-                  <UniGrid topUnis={country.topUnis} color={country.color} />
-                  {/* {country.topUnis.map((uni, i) => {
-                    const isObj = typeof uni === "object";
-                    const name = isObj ? uni.name : uni;
-                    const logo = isObj ? uni.logo : null;
-                    const url = isObj ? uni.url : null;
-
-                    const cardContent = (
-                      <div
-                        style={{
-                          padding: "12px 14px",
-                          background: "white",
-                          borderRadius: "10px",
-                          border: `1px solid ${country.color}22`,
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          gap: "8px",
-                          textAlign: "center",
-                          height: "100%",
-                          transition: "box-shadow 0.2s, transform 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.boxShadow = `0 4px 16px ${country.color}33`;
-                          e.currentTarget.style.transform = "translateY(-2px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = "none";
-                          e.currentTarget.style.transform = "translateY(0)";
-                        }}
-                      >
-                        {logo ? (
-                          <img
-                            src={logo}
-                            alt={`${name} logo`}
-                            style={{
-                              width: "100%",
-                              height: "52px",
-                              objectFit: "contain",
-                            }}
-                          />
-                        ) : (
-                          <span style={{ fontSize: "22px" }}>🎓</span>
-                        )}
-                        <span
-                          style={{
-                            fontSize: "12px",
-                            color: "#444",
-                            fontWeight: 600,
-                            lineHeight: 1.4,
-                          }}
-                        >
-                          {name}
-                        </span>
-                      </div>
-                    );
-
-                    return url ? (
-                      <a
-                        key={i}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={`Visit ${name}`}
-                        style={{ textDecoration: "none", display: "block" }}
-                      >
-                        {cardContent}
-                      </a>
-                    ) : (
-                      <div key={i}>{cardContent}</div>
-                    );
-                  })} */}
-                </div>
+                <UniGrid topUnis={country.topUnis} color={country.color} countryName={country.name} />
               </div>
             </div>
 

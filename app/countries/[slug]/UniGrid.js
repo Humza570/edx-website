@@ -1,85 +1,165 @@
 "use client";
+import { useEffect, useState, useRef } from "react";
 
-export default function UniGrid({ topUnis, color }) {
+export default function UniGrid({ topUnis, color, countryName }) {
+  const [logos, setLogos] = useState(null);
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    if (!countryName) return;
+
+    fetch(`/api/uni-logos?country=${encodeURIComponent(countryName)}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.logos && data.logos.length > 0) {
+          setLogos(data.logos);
+        }
+      })
+      .catch(() => {});
+  }, [countryName]);
+
+  const unis = logos
+    ? logos
+    : (topUnis || []).map((uni) =>
+        typeof uni === "object"
+          ? uni
+          : { name: uni, logo: null, url: null }
+      );
+
+  // Auto-scroll
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || unis.length === 0) return;
+
+    let animFrame;
+    let pos = 0;
+    const speed = 0.4;
+
+    const step = () => {
+      pos += speed;
+      const half = track.scrollWidth / 2;
+      if (pos >= half) pos = 0;
+      track.style.transform = `translateX(-${pos}px)`;
+      animFrame = requestAnimationFrame(step);
+    };
+
+    animFrame = requestAnimationFrame(step);
+
+    const pause = () => cancelAnimationFrame(animFrame);
+    const resume = () => { animFrame = requestAnimationFrame(step); };
+
+    track.addEventListener("mouseenter", pause);
+    track.addEventListener("mouseleave", resume);
+
+    return () => {
+      cancelAnimationFrame(animFrame);
+      track.removeEventListener("mouseenter", pause);
+      track.removeEventListener("mouseleave", resume);
+    };
+  }, [unis]);
+
+  // Duplicate for infinite loop
+  const doubled = [...unis, ...unis];
+
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "10px",
+        overflow: "hidden",
+        width: "100%",
+        padding: "8px 0",
+        position: "relative",
       }}
     >
-      {topUnis.map((uni, i) => {
-        const isObj = typeof uni === "object";
-        const name = isObj ? uni.name : uni;
-        const logo = isObj ? uni.logo : null;
-        const url = isObj ? uni.url : null;
+      {/* Fade edges */}
+      <div style={{
+        position: "absolute", left: 0, top: 0, bottom: 0, width: "48px",
+        background: `linear-gradient(to right, #f8f9ff, transparent)`,
+        zIndex: 2, pointerEvents: "none",
+      }} />
+      <div style={{
+        position: "absolute", right: 0, top: 0, bottom: 0, width: "48px",
+        background: `linear-gradient(to left, #f8f9ff, transparent)`,
+        zIndex: 2, pointerEvents: "none",
+      }} />
 
-        const cardContent = (
-          <div
-            style={{
-              padding: "12px 14px",
-              background: "white",
-              borderRadius: "10px",
-              border: `1px solid ${color}22`,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "8px",
-              textAlign: "center",
-              height: "100%",
-              transition: "box-shadow 0.2s, transform 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `0 4px 16px ${color}33`;
-              e.currentTarget.style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "none";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          >
-            {logo ? (
-              <img
-                src={logo}
-                alt={`${name} logo`}
-                style={{
-                  width: "100%",
-                  height: "52px",
-                  objectFit: "contain",
-                }}
-              />
-            ) : (
-              <span style={{ fontSize: "22px" }}>🎓</span>
-            )}
-            <span
+      <div
+        ref={trackRef}
+        style={{
+          display: "flex",
+          gap: "12px",
+          width: "max-content",
+          willChange: "transform",
+        }}
+      >
+        {doubled.map((uni, i) => {
+          const card = (
+            <div
               style={{
-                fontSize: "12px",
-                color: "#444",
-                fontWeight: 600,
-                lineHeight: 1.4,
+                width: "130px",
+                height: "90px",
+                background: "white",
+                borderRadius: "12px",
+                border: `1px solid ${color}22`,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+                padding: "10px",
+                flexShrink: 0,
+                transition: "box-shadow 0.2s, transform 0.2s",
+                cursor: uni.url ? "pointer" : "default",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = `0 4px 18px ${color}33`;
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              {name}
-            </span>
-          </div>
-        );
+              {uni.logo ? (
+                <img
+                  src={uni.logo}
+                  alt={uni.name}
+                  style={{ width: "100%", height: "52px", objectFit: "contain" }}
+                />
+              ) : (
+                <span style={{ fontSize: "26px" }}>🎓</span>
+              )}
+              <span style={{
+                fontSize: "10px",
+                color: "#666",
+                fontWeight: 600,
+                textAlign: "center",
+                lineHeight: 1.3,
+                overflow: "hidden",
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                width: "100%",
+              }}>
+                {uni.name}
+              </span>
+            </div>
+          );
 
-        return url ? (
-          <a
-            key={i}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`Visit ${name}`}
-            style={{ textDecoration: "none", display: "block" }}
-          >
-            {cardContent}
-          </a>
-        ) : (
-          <div key={i}>{cardContent}</div>
-        );
-      })}
+          return uni.url ? (
+            <a
+              key={i}
+              href={uni.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", flexShrink: 0 }}
+            >
+              {card}
+            </a>
+          ) : (
+            <div key={i} style={{ flexShrink: 0 }}>{card}</div>
+          );
+        })}
+      </div>
     </div>
   );
 }
