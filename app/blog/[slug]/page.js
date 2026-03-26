@@ -430,7 +430,7 @@ const posts = {
     title:
       "Turkish Government Scholarship 2025 — Full Guide for Pakistani Students",
     category: "Scholarships",
-    country: "Turkey",
+    country: "Türkiye",
     flag: "🇹🇷",
     date: "November 18, 2024",
     readTime: "7 min read",
@@ -459,7 +459,7 @@ const posts = {
         heading: "Eligibility Requirements",
         type: "checklist",
         items: [
-          "Pakistani nationality (not currently studying in Turkey)",
+          "Pakistani nationality (not currently studying in Türkiye)",
           "Age: Under 21 for undergraduate / Under 30 for Masters / Under 35 for PhD",
           "Minimum GPA: 70% for undergraduate / 75% for Masters and PhD",
           "IELTS / TOEFL for English-medium programs (not always required)",
@@ -489,7 +489,7 @@ const posts = {
           {
             num: "04",
             title: "Interview",
-            desc: "The interview assesses your motivation, academic potential, and reasons for choosing Turkey. It is conducted in English or Turkish.",
+            desc: "The interview assesses your motivation, academic potential, and reasons for choosing Türkiye. It is conducted in English or Turkish.",
           },
           {
             num: "05",
@@ -506,11 +506,11 @@ const posts = {
       {
         heading: "Tips to Win the Scholarship",
         content:
-          "1. Start your application early — the portal opens in January and closes in February. Do not wait until the last week.\n\n2. Write a compelling personal statement — explain specifically why Turkey, why this field, and what you plan to do after graduation.\n\n3. Choose your university preferences carefully — list at least 10–12 programs across different universities for maximum placement chances.\n\n4. Prepare for the interview thoroughly — practice explaining your academic background, career goals, and interest in Turkey in clear English.\n\n5. Strong academic records matter — the scholarship is competitive. A GPA above 80% significantly improves your chances.",
+          "1. Start your application early — the portal opens in January and closes in February. Do not wait until the last week.\n\n2. Write a compelling personal statement — explain specifically why Türkiye, why this field, and what you plan to do after graduation.\n\n3. Choose your university preferences carefully — list at least 10–12 programs across different universities for maximum placement chances.\n\n4. Prepare for the interview thoroughly — practice explaining your academic background, career goals, and interest in Türkiye in clear English.\n\n5. Strong academic records matter — the scholarship is competitive. A GPA above 80% significantly improves your chances.",
       },
     ],
     tags: [
-      "Turkey",
+      "Türkiye",
       "Türkiye Burslari",
       "Scholarship",
       "Free Education",

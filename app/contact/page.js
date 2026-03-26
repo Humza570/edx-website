@@ -70,7 +70,7 @@ const destinations = [
   "Australia",
   "Ireland",
   "Germany",
-  "Turkey",
+  "Türkiye",
   "Malaysia",
   "New Zealand",
   "UAE",

@@ -77,7 +77,7 @@ const countryList = [
   "Netherlands",
   "New Zealand",
   "Ireland",
-  "Turkey",
+  "Türkiye",
   "UAE",
   "Northern Cyprus",
 ];

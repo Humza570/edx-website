@@ -24,7 +24,7 @@ const footerLinks = {
     { label: "Australia", href: "/countries/australia" },
     { label: "Germany", href: "/countries/germany" },
     { label: "Ireland", href: "/countries/ireland" },
-    { label: "Turkey", href: "/countries/turkey" },
+    { label: "Türkiye", href: "/countries/Türkiye" },
     { label: "Malaysia", href: "/countries/malaysia" },
   ],
   Company: [

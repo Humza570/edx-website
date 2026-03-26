@@ -8,6 +8,15 @@ import {
 } from 'lucide-react';
 
 const services = [
+  
+  {
+    slug: 'initial-consultation',
+    icon: MessageCircle,
+    title: 'Initial Consultation',
+    short: 'Your first step — a free, no-commitment session where we understand your goals and build your roadmap.',
+    color: '#ED4B00',
+    tag: 'Free',
+  },
   {
     slug: 'career-counseling',
     icon: Compass,
@@ -33,20 +42,20 @@ const services = [
     tag: null,
   },
   {
-    slug: 'admission-application',
-    icon: FileText,
-    title: 'Admission Application',
-    short: 'We handle your entire application process — SOPs, LORs, documents — to maximize your chances.',
-    color: '#ED4B00',
-    tag: null,
-  },
-  {
     slug: 'scholarship-guidance',
     icon: Award,
     title: 'Scholarship Guidance',
     short: 'Discover and apply for scholarships that can significantly reduce your cost of studying abroad.',
     color: '#2100B1',
     tag: 'Save Money',
+  },
+  {
+    slug: 'admission-application',
+    icon: FileText,
+    title: 'Admission Application',
+    short: 'We handle your entire application process — SOPs, LORs, documents — to maximize your chances.',
+    color: '#ED4B00',
+    tag: null,
   },
   {
     slug: 'visa-assistance',
@@ -71,14 +80,6 @@ const services = [
     short: 'We help you find safe, affordable, and convenient housing options near your university.',
     color: '#ED4B00',
     tag: null,
-  },
-  {
-    slug: 'initial-consultation',
-    icon: MessageCircle,
-    title: 'Initial Consultation',
-    short: 'Your first step — a free, no-commitment session where we understand your goals and build your roadmap.',
-    color: '#ED4B00',
-    tag: 'Free',
   },
 ];
 

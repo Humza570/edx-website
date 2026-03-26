@@ -72,7 +72,7 @@ const posts = [
     title: 'Turkish Government Scholarship 2025 — Full Guide for Pakistani Students',
     excerpt: 'The Türkiye Burslari scholarship covers full tuition, accommodation, and a monthly stipend. Here\'s how to apply and what to expect.',
     category: 'Scholarships',
-    country: 'Turkey',
+    country: 'Türkiye',
     date: 'November 18, 2024',
     readTime: '7 min read',
     image: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80',

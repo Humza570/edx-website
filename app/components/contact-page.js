@@ -65,7 +65,7 @@ const faqs = [
 
 const destinations = [
   'United Kingdom', 'United States', 'Canada', 'Australia',
-  'Ireland', 'Germany', 'Turkey', 'Malaysia', 'New Zealand', 'UAE', 'Other',
+  'Ireland', 'Germany', 'Türkiye', 'Malaysia', 'New Zealand', 'UAE', 'Other',
 ];
 
 export default function ContactPage() {

@@ -157,7 +157,7 @@ export default function Navbar() {
             >
               <Clock size={11} strokeWidth={2} />
               <span>
-                Mon–Fri 10:00AM–06:00PM &nbsp;·&nbsp; Sat 11:00AM–04:00PM
+                Mon–Fri 10:00AM–06:00PM &nbsp;·&nbsp; Sat 12:00PM–04:00PM
               </span>
             </div>
           </div>

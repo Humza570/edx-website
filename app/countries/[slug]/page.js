@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import "flag-icons/css/flag-icons.min.css";
+import UniGrid from "./UniGrid";
 import {
   ArrowRight,
   GraduationCap,
@@ -16,7 +17,7 @@ const countries = {
     flag: "gb",
     color: "#ED4B00",
     image: "/Destinations/UK.jpg",
-    highlight: "UEA · ARU · RGU",
+    highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
     universities: "25+",
     students: "500+",
     tagline: "Where Tradition Meets Excellence.",
@@ -37,7 +38,6 @@ const countries = {
       "Abertay University — Dundee, Scotland",
       "Canterbury Christ Church University — Kent, England",
       "London Metropolitan University — London, England",
-      "University of Sunderland — England",
       "University of Wales Trinity Saint David — Wales / Birmingham / London",
       "University of East London (UEL) — East London, England",
       "Glasgow Caledonian University — Scotland / London Campus",
@@ -50,7 +50,6 @@ const countries = {
       "University of Hull — England",
       "University of Greenwich — England",
       "Robert Gordon University — Scotland",
-      "Leeds Beckett University — Leeds, England",
       "Middlesex University London — London, England",
       "University of Aberdeen — Scotland",
       "University of Salford — England",
@@ -251,10 +250,26 @@ const countries = {
       "International student community",
     ],
     topUnis: [
-      "Berlin School of Business and Innovation (BSBI) — Berlin, Germany",
-      "Steinbeis University — Berlin, Germany",
-      "GISMA Business School — Germany",
-      "University of Europe for Applied Sciences (UE) — Germany",
+      {
+        name: "Berlin School of Business and Innovation (BSBI)",
+        logo: "/Universities/Germany/berlinsbi.com.png",
+        url: "https://berlinsbi.com",
+      },
+      {
+        name: "Steinbeis University",
+        logo: "/Universities/Germany/httpswww.steinbeis-next.de.png",
+        url: "https://www.steinbeis-next.de",
+      },
+      {
+        name: "GISMA Business School",
+        logo: "/Universities/Germany/gisma.com.png",
+        url: "https://www.gisma.com",
+      },
+      {
+        name: "University of Europe for Applied Sciences (UE)",
+        logo: "/Universities/Germany/www.ue-germany.com.png",
+        url: "https://www.ue-germany.com",
+      },
     ],
     intake: "March / September",
     duration: "UG: 3–4 Years · PG: 1–2 Years",
@@ -421,16 +436,16 @@ const countries = {
       "Engineering",
     ],
   },
-  turkey: {
-    name: "Turkey",
+  Türkiye: {
+    name: "Türkiye",
     flag: "tr",
     color: "#ED4B00",
-    image: "/Destinations/Turkey.jpg",
+    image: "/Destinations/Türkiye.jpg",
     highlight: "BAU · Bilkent University",
     universities: "10+",
     students: "30+",
     tagline: "Quality Education, Exceptional Value.",
-    desc: "Turkey has affordable education, modern universities, and a unique cultural experience for international students. Turkey is a bridge between Europe and Asia and has many academic and cultural opportunities to offer. Turkish Government Scholarships provide full funding for eligible international students.",
+    desc: "Türkiye has affordable education, modern universities, and a unique cultural experience for international students. Türkiye is a bridge between Europe and Asia and has many academic and cultural opportunities to offer. Turkish Government Scholarships provide full funding for eligible international students.",
     whyChoose: [
       "Turkish Government Scholarships available (full funding)",
       "Very affordable tuition and living costs",
@@ -814,26 +829,81 @@ export default async function CountryDetailPage({ params }) {
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
-                    gap: "8px",
+                    gap: "10px",
                   }}
                 >
-                  {country.topUnis.map((uni, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        padding: "10px 14px",
-                        background: "white",
-                        borderRadius: "8px",
-                        border: `1px solid ${country.color}22`,
-                        fontSize: "13px",
-                        color: "#444",
-                        fontWeight: 500,
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      🎓 {uni}
-                    </div>
-                  ))}
+                  <UniGrid topUnis={country.topUnis} color={country.color} />
+                  {/* {country.topUnis.map((uni, i) => {
+                    const isObj = typeof uni === "object";
+                    const name = isObj ? uni.name : uni;
+                    const logo = isObj ? uni.logo : null;
+                    const url = isObj ? uni.url : null;
+
+                    const cardContent = (
+                      <div
+                        style={{
+                          padding: "12px 14px",
+                          background: "white",
+                          borderRadius: "10px",
+                          border: `1px solid ${country.color}22`,
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          gap: "8px",
+                          textAlign: "center",
+                          height: "100%",
+                          transition: "box-shadow 0.2s, transform 0.2s",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.boxShadow = `0 4px 16px ${country.color}33`;
+                          e.currentTarget.style.transform = "translateY(-2px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.boxShadow = "none";
+                          e.currentTarget.style.transform = "translateY(0)";
+                        }}
+                      >
+                        {logo ? (
+                          <img
+                            src={logo}
+                            alt={`${name} logo`}
+                            style={{
+                              width: "100%",
+                              height: "52px",
+                              objectFit: "contain",
+                            }}
+                          />
+                        ) : (
+                          <span style={{ fontSize: "22px" }}>🎓</span>
+                        )}
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            color: "#444",
+                            fontWeight: 600,
+                            lineHeight: 1.4,
+                          }}
+                        >
+                          {name}
+                        </span>
+                      </div>
+                    );
+
+                    return url ? (
+                      <a
+                        key={i}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Visit ${name}`}
+                        style={{ textDecoration: "none", display: "block" }}
+                      >
+                        {cardContent}
+                      </a>
+                    ) : (
+                      <div key={i}>{cardContent}</div>
+                    );
+                  })} */}
                 </div>
               </div>
             </div>

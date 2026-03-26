@@ -12,7 +12,7 @@ const countries = [
     students: "500+",
     image:
       "/Destinations/UK.jpg",
-    highlight: "UEA · ARU · RGU",
+    highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
     color: "#ED4B00",
     tag: "Most Popular",
     desc: "The United Kingdom is one of the most popular study destinations in the world. It is home to many globally recognized universities and offers high-quality education in fields like business, engineering, and arts. Students benefit from shorter degree programs, multicultural campuses, and strong career opportunities after graduation.",
@@ -135,17 +135,17 @@ const countries = [
     desc: "Ireland is becoming a popular destination owing to its connectivity to global industries. Many global technology companies are located in Ireland, creating great work opportunities after graduating.",
   },
   {
-    slug: "turkey",
-    name: "Turkey",
+    slug: "Türkiye",
+    name: "Türkiye",
     flag: "tr",
     universities: "10+",
     students: "30+",
     image:
-      "/Destinations/Turkey.jpg",
+      "/Destinations/Türkiye.jpg",
     highlight: "BAU · Bilkent University",
     color: "#ED4B00",
     tag: "Scholarships",
-    desc: "Turkey has affordable education, modern universities, and a unique cultural experience for international students. A bridge between Europe and Asia with many academic and cultural opportunities.",
+    desc: "Türkiye has affordable education, modern universities, and a unique cultural experience for international students. A bridge between Europe and Asia with many academic and cultural opportunities.",
   },
   {
     slug: "uae",
