@@ -8,7 +8,7 @@ const countries = [
     slug: "united-kingdom",
     name: "United Kingdom",
     flag: "gb",
-    universities: "25+",
+    universities: "10+",
     students: "500+",
     image: "/Destinations/UK.jpg",
     highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
