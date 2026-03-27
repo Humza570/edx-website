@@ -9,6 +9,7 @@ import {
   Briefcase,
   CheckCircle,
   Globe,
+  Users,
 } from "lucide-react";
 
 const countries = {
@@ -206,19 +207,19 @@ const countries = {
     ],
     topUnis: [
       {
-        name: "Asia Pacific University (APU) — Kuala Lumpur, Malaysia",
+        name: "Asia Pacific University (APU)",
         logo: "/Universities/Malaysia/www.apu.edu.my.png",
-        url: "https://www.apu.edu.my.png",
+        url: "https://www.apu.edu.my",
       },
       {
-        name: "Alam College — Malaysia",
+        name: "Alam College",
         logo: "/Universities/Malaysia/alam.edu.my.png",
-        url: "https://alam.edu.my.png",
+        url: "https://alam.edu.my",
       },
       {
-        name: "Geomatika University College — Kuala Lumpur, Malaysia",
+        name: "Geomatika University College",
         logo: "/Universities/Malaysia/geomatika.edu.my.png",
-        url: "https://geomatika.edu.my.png",
+        url: "https://geomatika.edu.my",
       },
       {
         name: "University of Europe for Applied Sciences (UE)",
@@ -444,7 +445,7 @@ const countries = {
       "Engineering",
     ],
   },
-  Türkiye: {
+  türkiye: {
     name: "Türkiye",
     flag: "tr",
     color: "#ED4B00",
@@ -585,41 +586,51 @@ export default async function CountryDetailPage({ params }) {
     .slice(0, 4);
 
   return (
-    <main>
-      {/* Hero */}
+    <main style={{ background: "#f8f9ff" }}>
+      {/* ─── HERO ─── */}
       <div
-        style={{ position: "relative", height: "520px", overflow: "hidden" }}
+        style={{ position: "relative", minHeight: "520px", overflow: "hidden" }}
       >
         <img
           src={country.image}
           alt={country.name}
           style={{
+            position: "absolute",
+            inset: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
             display: "block",
           }}
         />
+        {/* Strong left-heavy overlay for text readability */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(13,13,26,0.5) 0%, rgba(13,13,26,0.85) 100%)",
+              "linear-gradient(to right, rgba(4,4,20,0.94) 0%, rgba(4,4,20,0.80) 50%, rgba(4,4,20,0.40) 100%)",
           }}
         />
+        {/* Bottom fade into page bg */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-            padding: "clamp(24px, 5vw, 80px)",
-            maxWidth: "1280px",
-            margin: "0 auto",
+            bottom: 0,
             left: 0,
             right: 0,
+            height: "100px",
+            background: "linear-gradient(to bottom, transparent, #f8f9ff)",
+          }}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "clamp(100px, 12vw, 160px) 24px 80px",
           }}
         >
           {/* Breadcrumb */}
@@ -628,7 +639,7 @@ export default async function CountryDetailPage({ params }) {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              marginBottom: "20px",
+              marginBottom: "28px",
             }}
           >
             <Link
@@ -641,7 +652,7 @@ export default async function CountryDetailPage({ params }) {
             >
               Home
             </Link>
-            <span style={{ color: "rgba(255,255,255,0.3)" }}>›</span>
+            <span style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
             <Link
               href="/countries"
               style={{
@@ -652,7 +663,7 @@ export default async function CountryDetailPage({ params }) {
             >
               Countries
             </Link>
-            <span style={{ color: "rgba(255,255,255,0.3)" }}>›</span>
+            <span style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
             <span
               style={{
                 fontSize: "13px",
@@ -670,66 +681,105 @@ export default async function CountryDetailPage({ params }) {
               alignItems: "flex-end",
               justifyContent: "space-between",
               flexWrap: "wrap",
-              gap: "24px",
+              gap: "32px",
             }}
           >
-            <div>
-              {/* flag-icons replacing emoji */}
+            <div style={{ maxWidth: "600px" }}>
               <span
                 className={`fi fi-${country.flag}`}
                 style={{
                   display: "block",
-                  width: "72px",
-                  height: "52px",
+                  width: "64px",
+                  height: "46px",
                   borderRadius: "6px",
-                  marginBottom: "12px",
+                  marginBottom: "16px",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
                 }}
               />
+              {/* Tagline pill */}
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "5px 14px",
+                  borderRadius: "999px",
+                  marginBottom: "14px",
+                  
+                 
+                  background: "rgba(255,255,255,0.83)",
+  border: "rgba(255,255,255,0.83)",
+  borderRadius: "10px",
+                }}
+              >
+                <span
+                  style={{
+                    width: "5px",
+                    height: "5px",
+                    borderRadius: "50%",
+                    background: country.color,
+                    display: "inline-block",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    color: country.color,
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {country.tagline}
+                </span>
+              </div>
               <h1
                 style={{
-                  fontSize: "clamp(36px, 6vw, 64px)",
+                  fontSize: "clamp(40px, 6vw, 72px)",
                   fontWeight: 800,
                   color: "white",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
-                  marginBottom: "8px",
+                  lineHeight: 1.0,
+                  letterSpacing: "-0.03em",
                 }}
               >
-                Study in {country.name}
+                Study in
+                <br />
+                <span style={{ color: country.color }}>{country.name}</span>
               </h1>
-              <p
-                style={{
-                  fontSize: "18px",
-                  color: country.color,
-                  fontWeight: 600,
-                  fontStyle: "italic",
-                }}
-              >
-                "{country.tagline}"
-              </p>
             </div>
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+
+            {/* Stats */}
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
               {[
-                { val: country.universities, label: "Partner Unis" },
-                { val: country.students, label: "Our Students" },
-              ].map(({ val, label }) => (
+                {
+                  icon: GraduationCap,
+                  val: country.universities,
+                  label: "Partner Unis",
+                },
+                { icon: Users, val: country.students, label: "Our Students" },
+              ].map(({ icon: Icon, val, label }) => (
                 <div
                   key={label}
                   style={{
                     background: "rgba(255,255,255,0.1)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    borderRadius: "12px",
-                    padding: "16px 20px",
+                    backdropFilter: "blur(16px)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    borderRadius: "16px",
+                    padding: "20px 24px",
                     textAlign: "center",
-                    minWidth: "100px",
+                    minWidth: "110px",
                   }}
                 >
+                  <Icon
+                    size={18}
+                    color="#fff"
+                    style={{ margin: "0 auto 6px" }}
+                  />
                   <div
                     style={{
-                      fontSize: "24px",
+                      fontSize: "28px",
                       fontWeight: 800,
-                      color: country.color,
+                      color: "#fff",
+                      lineHeight: 1,
                     }}
                   >
                     {val}
@@ -737,9 +787,10 @@ export default async function CountryDetailPage({ params }) {
                   <div
                     style={{
                       fontSize: "11px",
-                      color: "rgba(255,255,255,0.6)",
+                      color: "rgba(255,255,255,0.55)",
                       textTransform: "uppercase",
-                      letterSpacing: "0.05em",
+                      letterSpacing: "0.06em",
+                      marginTop: "4px",
                     }}
                   >
                     {label}
@@ -751,116 +802,233 @@ export default async function CountryDetailPage({ params }) {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div style={{ background: "#f8f9ff", padding: "80px 24px" }}>
+      {/* ─── PARTNER UNIVERSITIES — full width strip at top ─── */}
+      <div
+        style={{
+          background: "white",
+          borderBottom: "1px solid rgba(0,0,0,0.07)",
+          padding: "36px 24px",
+        }}
+      >
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: "22px",
+              flexWrap: "wrap",
+              gap: "12px",
+            }}
+          >
+            <div>
+              <h2
+                style={{
+                  fontSize: "18px",
+                  fontWeight: 800,
+                  color: "#0d0d1a",
+                  marginBottom: "3px",
+                }}
+              >
+                Our Partner Universities in{" "}
+                <span style={{ color: country.color }}>{country.name}</span>
+              </h2>
+              <p style={{ fontSize: "13px", color: "#999" }}>
+                Internationally recognized institutions with active EdX panels
+              </p>
+            </div>
+            <div
+              style={{
+                padding: "5px 14px",
+                borderRadius: "999px",
+                background: isOrange
+                  ? "rgba(237,75,0,0.08)"
+                  : "rgba(33,0,177,0.08)",
+                border: `1px solid ${country.color}25`,
+                fontSize: "13px",
+                fontWeight: 700,
+                color: country.color,
+              }}
+            >
+              {country.universities} Universities
+            </div>
+          </div>
+          <UniGrid
+            topUnis={country.topUnis}
+            color={country.color}
+            countryName={country.name}
+          />
+        </div>
+      </div>
+
+      {/* ─── MAIN CONTENT ─── */}
+      <div style={{ padding: "56px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "48px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "32px",
+              alignItems: "start",
             }}
           >
-            {/* Left Column */}
-            <div>
-              <h2
-                style={{
-                  fontSize: "clamp(26px, 3.5vw, 36px)",
-                  fontWeight: 800,
-                  color: "#0d0d1a",
-                  marginBottom: "16px",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Why Study in{" "}
-                <span style={{ color: country.color }}>{country.name}?</span>
-              </h2>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#555",
-                  lineHeight: 1.8,
-                  marginBottom: "28px",
-                }}
-              >
-                {country.desc}
-              </p>
-
+            {/* LEFT */}
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            >
+              {/* Why Study */}
               <div
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "12px",
-                  marginBottom: "40px",
+                  background: "white",
+                  borderRadius: "20px",
+                  padding: "32px",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
                 }}
               >
-                {country.whyChoose.map((reason, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "12px",
-                    }}
-                  >
-                    <CheckCircle
-                      size={18}
-                      color={country.color}
-                      style={{ flexShrink: 0, marginTop: "2px" }}
-                    />
-                    <span
-                      style={{
-                        fontSize: "15px",
-                        color: "#444",
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {reason}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Partner Universities */}
-              <div style={{ marginBottom: "32px" }}>
-                <h3
+                <h2
                   style={{
-                    fontSize: "18px",
-                    fontWeight: 700,
+                    fontSize: "clamp(22px, 3vw, 28px)",
+                    fontWeight: 800,
                     color: "#0d0d1a",
-                    marginBottom: "16px",
+                    marginBottom: "14px",
+                    letterSpacing: "-0.02em",
                   }}
                 >
-                  Our Partner Universities in {country.name}
-                </h3>
-                <UniGrid topUnis={country.topUnis} color={country.color} countryName={country.name} />
+                  Why Study in{" "}
+                  <span style={{ color: country.color }}>{country.name}?</span>
+                </h2>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "#555",
+                    lineHeight: 1.85,
+                    marginBottom: "22px",
+                  }}
+                >
+                  {country.desc}
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                  }}
+                >
+                  {country.whyChoose.map((reason, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          borderRadius: "50%",
+                          flexShrink: 0,
+                          marginTop: "1px",
+                          background: isOrange
+                            ? "rgba(237,75,0,0.1)"
+                            : "rgba(33,0,177,0.1)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <CheckCircle size={13} color={country.color} />
+                      </div>
+                      <span
+                        style={{
+                          fontSize: "14px",
+                          color: "#444",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {reason}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Right Column */}
-            <div>
-              {/* Key Information */}
+              {/* Popular Courses */}
               <div
                 style={{
                   background: "white",
                   borderRadius: "20px",
                   padding: "28px",
                   border: "1px solid rgba(0,0,0,0.07)",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                  marginBottom: "24px",
+                  boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
                 }}
               >
                 <h3
                   style={{
                     fontSize: "16px",
-                    fontWeight: 700,
+                    fontWeight: 800,
                     color: "#0d0d1a",
-                    marginBottom: "20px",
-                    paddingBottom: "12px",
-                    borderBottom: "2px solid #f0f0f0",
+                    marginBottom: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                   }}
                 >
-                  📋 Key Information
+                  <span style={{ fontSize: "18px" }}>🎓</span> Popular Courses
+                </h3>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                  {country.popularCourses.map((course, i) => (
+                    <span
+                      key={i}
+                      style={{
+                        padding: "7px 16px",
+                        background: isOrange
+                          ? "rgba(237,75,0,0.07)"
+                          : "rgba(33,0,177,0.07)",
+                        color: country.color,
+                        borderRadius: "999px",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        border: `1px solid ${country.color}20`,
+                      }}
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            >
+              {/* Key Info */}
+              <div
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  padding: "28px",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 800,
+                    color: "#0d0d1a",
+                    marginBottom: "20px",
+                    paddingBottom: "14px",
+                    borderBottom: "2px solid #f0f0f0",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <span style={{ fontSize: "18px" }}>📋</span> Key Information
                 </h3>
                 {[
                   { icon: Clock, label: "Intake", val: country.intake },
@@ -881,7 +1049,7 @@ export default async function CountryDetailPage({ params }) {
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "flex-start",
-                      padding: "12px 0",
+                      padding: "13px 0",
                       borderBottom: "1px solid #f5f5f5",
                       gap: "16px",
                     }}
@@ -894,7 +1062,21 @@ export default async function CountryDetailPage({ params }) {
                         flexShrink: 0,
                       }}
                     >
-                      <Icon size={15} color={country.color} />
+                      <div
+                        style={{
+                          width: "30px",
+                          height: "30px",
+                          borderRadius: "8px",
+                          background: isOrange
+                            ? "rgba(237,75,0,0.08)"
+                            : "rgba(33,0,177,0.08)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Icon size={14} color={country.color} />
+                      </div>
                       <span
                         style={{
                           fontSize: "13px",
@@ -909,8 +1091,9 @@ export default async function CountryDetailPage({ params }) {
                       style={{
                         fontSize: "13px",
                         color: "#333",
-                        fontWeight: 600,
+                        fontWeight: 700,
                         textAlign: "right",
+                        maxWidth: "220px",
                       }}
                     >
                       {val}
@@ -919,66 +1102,39 @@ export default async function CountryDetailPage({ params }) {
                 ))}
               </div>
 
-              {/* Popular Courses */}
-              <div
-                style={{
-                  background: "white",
-                  borderRadius: "20px",
-                  padding: "28px",
-                  border: "1px solid rgba(0,0,0,0.07)",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                  marginBottom: "24px",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    color: "#0d0d1a",
-                    marginBottom: "16px",
-                  }}
-                >
-                  🎓 Popular Courses
-                </h3>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                  {country.popularCourses.map((course, i) => (
-                    <span
-                      key={i}
-                      style={{
-                        padding: "6px 14px",
-                        background: isOrange
-                          ? "rgba(237,75,0,0.08)"
-                          : "rgba(33,0,177,0.08)",
-                        color: country.color,
-                        borderRadius: "999px",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        border: `1px solid ${country.color}25`,
-                      }}
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* CTA Card */}
               <div
                 style={{
-                  background: `linear-gradient(135deg, ${country.color}, ${isOrange ? "#ff9a00" : "#0ea5e9"})`,
+                  background:
+                    "linear-gradient(135deg, #0d0d1a 0%, #1a0050 100%)",
                   borderRadius: "20px",
-                  padding: "28px",
-                  textAlign: "center",
+                  padding: "32px",
+                  border: `1px solid ${country.color}30`,
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-40px",
+                    right: "-40px",
+                    width: "160px",
+                    height: "160px",
+                    borderRadius: "50%",
+                    background: `${country.color}30`,
+                    filter: "blur(40px)",
+                    pointerEvents: "none",
+                  }}
+                />
                 <Globe
-                  size={32}
-                  color="white"
-                  style={{ margin: "0 auto 12px", opacity: 0.8 }}
+                  size={28}
+                  color={country.color}
+                  style={{ marginBottom: "14px", opacity: 0.9 }}
                 />
                 <h3
                   style={{
-                    fontSize: "18px",
+                    fontSize: "20px",
                     fontWeight: 800,
                     color: "white",
                     marginBottom: "8px",
@@ -989,20 +1145,20 @@ export default async function CountryDetailPage({ params }) {
                 <p
                   style={{
                     fontSize: "14px",
-                    color: "rgba(255,255,255,0.85)",
-                    marginBottom: "8px",
+                    color: "rgba(255,255,255,0.6)",
+                    marginBottom: "16px",
                     lineHeight: 1.6,
                   }}
                 >
                   Our experienced counselors at EdX Consultants will guide you
                   through:
                 </p>
-                <ul
+                <div
                   style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: "0 0 20px",
-                    textAlign: "left",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                    marginBottom: "24px",
                   }}
                 >
                   {[
@@ -1011,37 +1167,66 @@ export default async function CountryDetailPage({ params }) {
                     "Visa guidance & interview prep",
                     "Pre-departure support",
                   ].map((item, i) => (
-                    <li
+                    <div
                       key={i}
                       style={{
-                        fontSize: "13px",
-                        color: "rgba(255,255,255,0.9)",
-                        padding: "3px 0",
                         display: "flex",
                         alignItems: "center",
-                        gap: "6px",
+                        gap: "8px",
                       }}
                     >
-                      <span style={{ fontSize: "10px" }}>✓</span> {item}
-                    </li>
+                      <div
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "50%",
+                          background: `${country.color}25`,
+                          border: `1px solid ${country.color}50`,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "9px",
+                            color: country.color,
+                            fontWeight: 800,
+                          }}
+                        >
+                          ✓
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: "13px",
+                          color: "rgba(255,255,255,0.8)",
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <Link
                   href="/contact"
                   style={{
-                    display: "inline-flex",
+                    display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
                     gap: "8px",
-                    padding: "12px 28px",
-                    background: "white",
-                    color: country.color,
-                    borderRadius: "8px",
+                    padding: "14px 24px",
+                    background: country.color,
+                    color: "white",
+                    borderRadius: "10px",
                     fontSize: "14px",
                     fontWeight: 800,
                     textDecoration: "none",
+                    boxShadow: `0 8px 24px ${country.color}50`,
                   }}
                 >
-                  Book Free Consultation <ArrowRight size={14} />
+                  Book Free Consultation <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -1049,7 +1234,7 @@ export default async function CountryDetailPage({ params }) {
         </div>
       </div>
 
-      {/* Other Countries */}
+      {/* ─── OTHER DESTINATIONS ─── */}
       <div style={{ background: "#0d0d1a", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <h2
@@ -1057,16 +1242,16 @@ export default async function CountryDetailPage({ params }) {
               fontSize: "clamp(24px, 3vw, 36px)",
               fontWeight: 800,
               color: "white",
-              marginBottom: "8px",
+              marginBottom: "6px",
             }}
           >
             Explore Other <span style={{ color: "#ED4B00" }}>Destinations</span>
           </h2>
           <p
             style={{
-              fontSize: "15px",
+              fontSize: "14px",
               color: "rgba(255,255,255,0.4)",
-              marginBottom: "40px",
+              marginBottom: "36px",
             }}
           >
             We have active counseling panels in 13 countries.
@@ -1087,7 +1272,7 @@ export default async function CountryDetailPage({ params }) {
               >
                 <div
                   style={{
-                    borderRadius: "12px",
+                    borderRadius: "14px",
                     overflow: "hidden",
                     border: "1px solid rgba(255,255,255,0.07)",
                     transition: "all 0.25s",
@@ -1103,12 +1288,11 @@ export default async function CountryDetailPage({ params }) {
                         objectFit: "cover",
                       }}
                     />
-                    {/* flag-icons replacing emoji overlay */}
                     <div
                       style={{
                         position: "absolute",
                         inset: 0,
-                        background: "rgba(0,0,0,0.35)",
+                        background: "rgba(0,0,0,0.4)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1118,9 +1302,10 @@ export default async function CountryDetailPage({ params }) {
                         className={`fi fi-${c.flag}`}
                         style={{
                           display: "block",
-                          width: "56px",
-                          height: "40px",
-                          borderRadius: "5px",
+                          width: "52px",
+                          height: "38px",
+                          borderRadius: "4px",
+                          boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
                         }}
                       />
                     </div>
@@ -1136,7 +1321,7 @@ export default async function CountryDetailPage({ params }) {
                         fontSize: "15px",
                         fontWeight: 700,
                         color: "white",
-                        marginBottom: "4px",
+                        marginBottom: "3px",
                       }}
                     >
                       {c.name}
@@ -1158,7 +1343,7 @@ export default async function CountryDetailPage({ params }) {
         </div>
       </div>
 
-      {/* Bottom CTA */}
+      {/* ─── BOTTOM CTA ─── */}
       <div
         style={{
           background: "linear-gradient(135deg, #2100B1, #ED4B00)",
@@ -1171,7 +1356,7 @@ export default async function CountryDetailPage({ params }) {
             fontSize: "clamp(26px, 4vw, 42px)",
             fontWeight: 800,
             color: "white",
-            marginBottom: "16px",
+            marginBottom: "14px",
           }}
         >
           Start Your {country.name} Journey Today

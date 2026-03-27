@@ -10,8 +10,7 @@ const countries = [
     flag: "gb",
     universities: "25+",
     students: "500+",
-    image:
-      "/Destinations/UK.jpg",
+    image: "/Destinations/UK.jpg",
     highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
     color: "#ED4B00",
     tag: "Most Popular",
@@ -23,8 +22,7 @@ const countries = [
     flag: "us",
     universities: "20+",
     students: "100+",
-    image:
-      "/Destinations/USA.jpg",
+    image: "/Destinations/USA.jpg",
     highlight: "Concordia · Avila · Texas State",
     color: "#2100B1",
     tag: null,
@@ -36,8 +34,7 @@ const countries = [
     flag: "au",
     universities: "10+",
     students: "80+",
-    image:
-      "/Destinations/Australia.jpg",
+    image: "/Destinations/Australia.jpg",
     highlight: "Melbourne · ANU · Sydney",
     color: "#2100B1",
     tag: null,
@@ -49,8 +46,7 @@ const countries = [
     flag: "ca",
     universities: "10+",
     students: "50+",
-    image:
-      "/Destinations/Canada.jpg",
+    image: "/Destinations/Canada.jpg",
     highlight: "UCW · Durham · George Brown",
     color: "#ED4B00",
     tag: "PR Pathway",
@@ -62,8 +58,7 @@ const countries = [
     flag: "my",
     universities: "30+",
     students: "300+",
-    image:
-      "/Destinations/Malaysia.jpg",
+    image: "/Destinations/Malaysia.jpg",
     highlight: "APU · UCSI · Monash Malaysia",
     color: "#2100B1",
     tag: "MBBS",
@@ -75,8 +70,7 @@ const countries = [
     flag: "de",
     universities: "10+",
     students: "100+",
-    image:
-      "/Destinations/Germany.jpg",
+    image: "/Destinations/Germany.jpg",
     highlight: "GISMA · UE · BSBI · Steinbeis",
     color: "#2100B1",
     tag: "Low Tuition",
@@ -88,8 +82,7 @@ const countries = [
     flag: "fr",
     universities: "10+",
     students: "30+",
-    image:
-      "/Destinations/France.jpg",
+    image: "/Destinations/France.jpg",
     highlight: "Sorbonne · HEC Paris · École Polytechnique",
     color: "#ED4B00",
     tag: null,
@@ -101,8 +94,7 @@ const countries = [
     flag: "nl",
     universities: "10+",
     students: "50+",
-    image:
-      "/Destinations/Netherlands.jpg",
+    image: "/Destinations/Netherlands.jpg",
     highlight: "UE Amsterdam",
     color: "#2100B1",
     tag: null,
@@ -114,8 +106,7 @@ const countries = [
     flag: "nz",
     universities: "10+",
     students: "20+",
-    image:
-      "/Destinations/NewZealand.jpg",
+    image: "/Destinations/NewZealand.jpg",
     highlight: "Auckland · Otago · Victoria University",
     color: "#ED4B00",
     tag: null,
@@ -127,8 +118,7 @@ const countries = [
     flag: "ie",
     universities: "25+",
     students: "10+",
-    image:
-      "/Destinations/Ireland.jpg",
+    image: "/Destinations/Ireland.jpg",
     highlight: "Trinity College Dublin · UCD · Galway",
     color: "#ED4B00",
     tag: null,
@@ -140,8 +130,7 @@ const countries = [
     flag: "tr",
     universities: "10+",
     students: "30+",
-    image:
-      "/Destinations/Türkiye.jpg",
+    image: "/Destinations/Türkiye.jpg",
     highlight: "BAU · Bilkent University",
     color: "#ED4B00",
     tag: "Scholarships",
@@ -153,8 +142,7 @@ const countries = [
     flag: "ae",
     universities: "10+",
     students: "20+",
-    image:
-      "/Destinations/UAE.jpg",
+    image: "/Destinations/UAE.jpg",
     highlight: "UE · American University in Dubai",
     color: "#2100B1",
     tag: null,
@@ -166,8 +154,7 @@ const countries = [
     flag: "cy",
     universities: "1",
     students: "10+",
-    image:
-      "/Destinations/NorthernCyprus.jpeg",
+    image: "/Destinations/NorthernCyprus.jpeg",
     highlight: "Eastern Mediterranean University",
     color: "#2100B1",
     tag: null,
@@ -530,6 +517,10 @@ export default function CountriesPage() {
                           color: country.color,
                           fontWeight: 600,
                           marginTop: "2px",
+                          background: "rgba(255,255,255,0.83)",
+                          border: "rgba(255,255,255,0.83)",
+                          padding: "0.25em 1em",
+                          borderRadius: "10px",
                         }}
                       >
                         {country.highlight}
