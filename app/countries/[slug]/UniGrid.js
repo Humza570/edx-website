@@ -166,11 +166,31 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const INITIAL_SHOW = 10;
+const INITIAL_SHOW = 12;
+
+function getInitials(name) {
+  return name
+    .split(/[\s\-()]+/)
+    .filter((w) => w.length > 2 && !["and", "the", "for", "of", "in"].includes(w.toLowerCase()))
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+}
+
+function getAccentColor(name) {
+  const palette = [
+    "#2100B1", "#ED4B00", "#0ea5e9", "#7c3aed",
+    "#059669", "#dc2626", "#d97706", "#0891b2",
+  ];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return palette[Math.abs(hash) % palette.length];
+}
 
 export default function UniGrid({ topUnis, color, countryName }) {
   const [logos, setLogos] = useState(null);
   const [showAll, setShowAll] = useState(false);
+  const [imgErrors, setImgErrors] = useState({});
 
   useEffect(() => {
     if (!countryName) return;
@@ -191,117 +211,100 @@ export default function UniGrid({ topUnis, color, countryName }) {
   const visible = showAll ? unis : unis.slice(0, INITIAL_SHOW);
   const hasMore = unis.length > INITIAL_SHOW;
 
+  const handleImgError = (i) => setImgErrors((prev) => ({ ...prev, [i]: true }));
+
   return (
     <div style={{ width: "100%" }}>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
-          gap: "10px",
-        }}
-      >
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "12px" }}>
         {visible.map((uni, i) => {
-          const card = (
+          const hasLogo = uni.logo && !imgErrors[i];
+          const accent = getAccentColor(uni.name);
+          const initials = getInitials(uni.name);
+
+          const cardInner = (
             <div
               style={{
                 background: "white",
-                borderRadius: "12px",
-                border: `1px solid rgba(0,0,0,0.08)`,
+                borderRadius: "14px",
+                border: "1px solid rgba(0,0,0,0.07)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                padding: "12px 8px",
-                height: "100px",
-                transition: "box-shadow 0.2s, transform 0.2s",
+                gap: "10px",
+                padding: "16px 12px",
+                transition: "box-shadow 0.2s, transform 0.2s, border-color 0.2s",
                 cursor: uni.url ? "pointer" : "default",
-                overflow: "hidden",
+                width: "100%",
+                boxSizing: "border-box",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = `0 4px 18px ${color}33`;
-                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = `0 6px 24px ${color}28`;
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.borderColor = `${color}40`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "none";
                 e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.borderColor = "rgba(0,0,0,0.07)";
               }}
             >
-              {uni.logo ? (
-                /* Checkerboard background container — makes white logos visible */
-                <div
-                  style={{
-                    width: "100%",
-                    height: "52px",
-                    borderRadius: "6px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundImage:
-                      "linear-gradient(45deg, #e8e8e8 25%, transparent 25%), linear-gradient(-45deg, #e8e8e8 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e8e8e8 75%), linear-gradient(-45deg, transparent 75%, #e8e8e8 75%)",
-                    backgroundSize: "8px 8px",
-                    backgroundPosition: "0 0, 0 4px, 4px -4px, -4px 0px",
-                    backgroundColor: "#f4f4f4",
-                    padding: "4px",
-                  }}
-                >
+              {/* Logo box — always colored background so white logos show up */}
+              <div style={{
+                width: "64px", height: "64px", borderRadius: "14px",
+                background: `linear-gradient(135deg, ${accent}18, ${accent}08)`,
+                border: `1.5px solid ${accent}22`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0, overflow: "hidden",
+                padding: hasLogo ? "6px" : "0",
+              }}>
+                {hasLogo ? (
                   <img
                     src={uni.logo}
                     alt={uni.name}
-                    style={{
-                      maxWidth: "100%",
-                      maxHeight: "44px",
-                      objectFit: "contain",
-                    }}
+                    onError={() => handleImgError(i)}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
                   />
-                </div>
-              ) : (
-                <div
-                  style={{
-                    width: "100%",
-                    height: "52px",
-                    borderRadius: "6px",
-                    background: `linear-gradient(135deg, ${color}15, ${color}08)`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "24px",
-                  }}
-                >
-                  🎓
-                </div>
-              )}
-              <span
-                style={{
-                  fontSize: "10px",
-                  color: "#555",
-                  fontWeight: 600,
-                  textAlign: "center",
-                  lineHeight: 1.3,
-                  overflow: "hidden",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  width: "100%",
-                }}
-              >
+                ) : (
+                  <span style={{
+                    fontSize: "20px", fontWeight: 800,
+                    color: accent, letterSpacing: "-0.03em", lineHeight: 1,
+                  }}>
+                    {initials || "🎓"}
+                  </span>
+                )}
+              </div>
+
+              {/* Name */}
+              <span style={{
+                fontSize: "11px", color: "#444", fontWeight: 600,
+                textAlign: "center", lineHeight: 1.4,
+                overflow: "hidden", display: "-webkit-box",
+                WebkitLineClamp: 3, WebkitBoxOrient: "vertical", width: "100%",
+              }}>
                 {uni.name}
               </span>
+
+              {/* URL pill */}
+              {uni.url && (
+                <span style={{
+                  fontSize: "9px", color: accent, fontWeight: 600,
+                  background: `${accent}10`, padding: "2px 8px",
+                  borderRadius: "999px", letterSpacing: "0.02em",
+                  maxWidth: "100%", overflow: "hidden",
+                  textOverflow: "ellipsis", whiteSpace: "nowrap",
+                }}>
+                  {uni.url.replace(/https?:\/\//, "").replace(/\/$/, "")}
+                </span>
+              )}
             </div>
           );
 
           return uni.url ? (
-            <a
-              key={i}
-              href={uni.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              {card}
+            <a key={i} href={uni.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "flex" }}>
+              {cardInner}
             </a>
           ) : (
-            <div key={i}>{card}</div>
+            <div key={i} style={{ display: "flex" }}>{cardInner}</div>
           );
         })}
       </div>
@@ -310,20 +313,13 @@ export default function UniGrid({ topUnis, color, countryName }) {
         <button
           onClick={() => setShowAll((p) => !p)}
           style={{
-            marginTop: "14px",
-            width: "100%",
-            padding: "10px",
-            background: "white",
-            border: `1.5px solid ${color}44`,
-            borderRadius: "10px",
-            color: color,
-            fontSize: "13px",
-            fontWeight: 700,
-            cursor: "pointer",
-            transition: "background 0.2s",
+            marginTop: "16px", width: "100%", padding: "11px",
+            background: "white", border: `1.5px solid ${color}40`,
+            borderRadius: "12px", color: color,
+            fontSize: "13px", fontWeight: 700, cursor: "pointer", transition: "all 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = `${color}0f`)}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "white")}
+          onMouseEnter={(e) => { e.currentTarget.style.background = `${color}0a`; e.currentTarget.style.borderColor = color; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "white"; e.currentTarget.style.borderColor = `${color}40`; }}
         >
           {showAll ? "Show Less ↑" : `Show All ${unis.length} Universities ↓`}
         </button>
