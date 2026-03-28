@@ -14,7 +14,7 @@ export async function GET(request) {
   }
 
   const dirPath = path.join(process.cwd(), "public", "Universities", country);
-
+  console.log("DIR:", dirPath);
   try {
     const files = await fs.readdir(dirPath);
 
