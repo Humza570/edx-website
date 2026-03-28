@@ -166,7 +166,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const INITIAL_SHOW = 8;
+const INITIAL_SHOW = 10;
 
 export default function UniGrid({ topUnis, color, countryName }) {
   const [logos, setLogos] = useState(null);
@@ -196,7 +196,7 @@ export default function UniGrid({ topUnis, color, countryName }) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
           gap: "10px",
         }}
       >
@@ -206,16 +206,17 @@ export default function UniGrid({ topUnis, color, countryName }) {
               style={{
                 background: "white",
                 borderRadius: "12px",
-                border: `1px solid ${color}22`,
+                border: `1px solid rgba(0,0,0,0.08)`,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: "6px",
+                gap: "8px",
                 padding: "12px 8px",
-                height: "90px",
+                height: "100px",
                 transition: "box-shadow 0.2s, transform 0.2s",
                 cursor: uni.url ? "pointer" : "default",
+                overflow: "hidden",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow = `0 4px 18px ${color}33`;
@@ -227,13 +228,48 @@ export default function UniGrid({ topUnis, color, countryName }) {
               }}
             >
               {uni.logo ? (
-                <img
-                  src={uni.logo}
-                  alt={uni.name}
-                  style={{ width: "100%", height: "48px", objectFit: "contain" }}
-                />
+                /* Checkerboard background container — makes white logos visible */
+                <div
+                  style={{
+                    width: "100%",
+                    height: "52px",
+                    borderRadius: "6px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundImage:
+                      "linear-gradient(45deg, #e8e8e8 25%, transparent 25%), linear-gradient(-45deg, #e8e8e8 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e8e8e8 75%), linear-gradient(-45deg, transparent 75%, #e8e8e8 75%)",
+                    backgroundSize: "8px 8px",
+                    backgroundPosition: "0 0, 0 4px, 4px -4px, -4px 0px",
+                    backgroundColor: "#f4f4f4",
+                    padding: "4px",
+                  }}
+                >
+                  <img
+                    src={uni.logo}
+                    alt={uni.name}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "44px",
+                      objectFit: "contain",
+                    }}
+                  />
+                </div>
               ) : (
-                <span style={{ fontSize: "24px" }}>🎓</span>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "52px",
+                    borderRadius: "6px",
+                    background: `linear-gradient(135deg, ${color}15, ${color}08)`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "24px",
+                  }}
+                >
+                  🎓
+                </div>
               )}
               <span
                 style={{
