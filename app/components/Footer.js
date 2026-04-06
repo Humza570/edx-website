@@ -32,7 +32,7 @@ const footerLinks = {
     { label: "Why Choose Us", href: "/#why-us" },
     { label: "Student Stories", href: "/#success-stories" },
     { label: "Countries", href: "/countries" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ],
 };
@@ -390,7 +390,7 @@ export default function Footer() {
           <div style={{ display: "flex", gap: "20px" }}>
             {[
               { label: "Privacy Policy", href: "/privacy-policy" },
-              { label: "Terms of Service", href: "/terms-of-services" },
+              // { label: "Terms of Service", href: "/terms-of-services" },
             ].map(({ label, href }) => (
               <Link
                 key={label}

@@ -21,7 +21,7 @@ export default function Home() {
       <WhyUs />
       <Testimonials />
       <SuccessStories />
-      <Blogs />
+      {/* <Blogs /> */}
       {/* <Contact /> */}
       {/* <div style={{ height: '200vh', background: '#f8f9ff' }}>
         <div style={{ paddingTop: '120px', textAlign: 'center' }}>

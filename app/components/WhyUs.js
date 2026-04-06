@@ -82,6 +82,15 @@ const countryList = [
   "Northern Cyprus",
 ];
 
+const serviceList = [
+  "University Admissions",
+  "Visa Assistance",
+  "Scholarship Guidance",
+  "IELTS / PTE Prep",
+  "Career Counseling",
+  "General Inquiry",
+];
+
 const cardVariants = {
   hidden: { opacity: 0, y: 36 },
   visible: (i) => ({
@@ -91,20 +100,45 @@ const cardVariants = {
   }),
 };
 
+const inputStyle = {
+  padding: "14px 18px",
+  borderRadius: "10px",
+  border: "1.5px solid rgba(255,255,255,0.15)",
+  background: "rgba(255,255,255,0.12)",
+  color: "white",
+  fontSize: "14px",
+  outline: "none",
+  fontFamily: "inherit",
+  backdropFilter: "blur(10px)",
+  transition: "all 0.2s",
+  width: "100%",
+  boxSizing: "border-box",
+};
+
+const onFocusStyle = (e) => {
+  e.target.style.background = "rgba(255,255,255,0.2)";
+  e.target.style.borderColor = "rgba(255,255,255,0.4)";
+};
+const onBlurStyle = (e) => {
+  e.target.style.background = "rgba(255,255,255,0.12)";
+  e.target.style.borderColor = "rgba(255,255,255,0.15)";
+};
+
 export default function WhyUs() {
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     country: "",
+    service: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
@@ -418,7 +452,8 @@ export default function WhyUs() {
             </motion.div>
           ) : (
             <>
-              {/* Row 1 — Name, Email, Phone */}
+              {/* Row 1 — Name + Phone */}
+              {/* Row 1 — Name + Email + Phone */}
               <div
                 style={{
                   display: "grid",
@@ -428,8 +463,12 @@ export default function WhyUs() {
                 }}
               >
                 {[
-                  { name: "name", placeholder: "Name", type: "text" },
-                  { name: "email", placeholder: "Email", type: "email" },
+                  { name: "name", placeholder: "Full Name", type: "text" },
+                  {
+                    name: "email",
+                    placeholder: "Email Address",
+                    type: "email",
+                  },
                   { name: "phone", placeholder: "Phone", type: "tel" },
                 ].map(({ name, placeholder, type }) => (
                   <input
@@ -439,75 +478,44 @@ export default function WhyUs() {
                     value={form[name]}
                     onChange={handleChange}
                     placeholder={placeholder}
-                    style={{
-                      padding: "14px 18px",
-                      borderRadius: "10px",
-                      border: "1.5px solid rgba(255,255,255,0.15)",
-                      background: "rgba(255,255,255,0.12)",
-                      color: "white",
-                      fontSize: "14px",
-                      outline: "none",
-                      fontFamily: "inherit",
-                      backdropFilter: "blur(10px)",
-                      transition: "all 0.2s",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.background = "rgba(255,255,255,0.2)";
-                      e.target.style.borderColor = "rgba(255,255,255,0.4)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.background = "rgba(255,255,255,0.12)";
-                      e.target.style.borderColor = "rgba(255,255,255,0.15)";
-                    }}
+                    style={inputStyle}
+                    onFocus={onFocusStyle}
+                    onBlur={onBlurStyle}
                   />
                 ))}
               </div>
 
-              {/* Row 2 — Country + Submit */}
+              {/* Row 2 — Destination + Service */}
               <div
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
                   gap: "12px",
-                  alignItems: "stretch",
+                  marginBottom: "12px",
                 }}
               >
-                {/* Country dropdown */}
+                {/* Destination */}
                 <div style={{ position: "relative" }}>
                   <select
                     name="country"
                     value={form.country}
                     onChange={handleChange}
                     style={{
-                      width: "100%",
+                      ...inputStyle,
                       padding: "14px 40px 14px 18px",
-                      borderRadius: "10px",
-                      border: "1.5px solid rgba(255,255,255,0.15)",
-                      background: "rgba(255,255,255,0.12)",
                       color: form.country ? "white" : "rgba(255,255,255,0.6)",
-                      fontSize: "14px",
-                      outline: "none",
-                      fontFamily: "inherit",
-                      backdropFilter: "blur(10px)",
                       appearance: "none",
                       WebkitAppearance: "none",
                       cursor: "pointer",
-                      transition: "all 0.2s",
                     }}
-                    onFocus={(e) => {
-                      e.target.style.background = "rgba(255,255,255,0.2)";
-                      e.target.style.borderColor = "rgba(255,255,255,0.4)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.background = "rgba(255,255,255,0.12)";
-                      e.target.style.borderColor = "rgba(255,255,255,0.15)";
-                    }}
+                    onFocus={onFocusStyle}
+                    onBlur={onBlurStyle}
                   >
                     <option
                       value=""
                       style={{ background: "#0d0d1a", color: "white" }}
                     >
-                      Select Country
+                      Select Destination
                     </option>
                     {countryList.map((c) => (
                       <option
@@ -532,7 +540,64 @@ export default function WhyUs() {
                   />
                 </div>
 
-                {/* Submit button */}
+                {/* Service */}
+                <div style={{ position: "relative" }}>
+                  <select
+                    name="service"
+                    value={form.service}
+                    onChange={handleChange}
+                    style={{
+                      ...inputStyle,
+                      padding: "14px 40px 14px 18px",
+                      color: form.service ? "white" : "rgba(255,255,255,0.6)",
+                      appearance: "none",
+                      WebkitAppearance: "none",
+                      cursor: "pointer",
+                    }}
+                    onFocus={onFocusStyle}
+                    onBlur={onBlurStyle}
+                  >
+                    <option
+                      value=""
+                      style={{ background: "#0d0d1a", color: "white" }}
+                    >
+                      Select Service
+                    </option>
+                    {serviceList.map((s) => (
+                      <option
+                        key={s}
+                        value={s}
+                        style={{ background: "#0d0d1a", color: "white" }}
+                      >
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown
+                    size={16}
+                    color="rgba(255,255,255,0.6)"
+                    style={{
+                      position: "absolute",
+                      right: "14px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Row 4 — Message + Submit */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr auto",
+                  gap: "12px",
+                  alignItems: "flex-end",
+                }}
+              >
+                
+
                 <button
                   onClick={handleSubmit}
                   style={{
@@ -553,6 +618,7 @@ export default function WhyUs() {
                     transition: "all 0.2s",
                     boxShadow: "0 6px 24px rgba(237,75,0,0.4)",
                     whiteSpace: "nowrap",
+                    height: "fit-content",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = "#cc3f00";
@@ -575,9 +641,8 @@ export default function WhyUs() {
         </div>
       </motion.div>
 
-      {/* Placeholder style for inputs */}
       <style>{`
-        input::placeholder { color: rgba(255,255,255,0.55) !important; }
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.55) !important; }
       `}</style>
     </section>
   );
