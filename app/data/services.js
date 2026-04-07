@@ -418,11 +418,11 @@ export const aboutContent = {
       },
       {
         title: "Dedicated Experts",
-        desc: "Every student is paired with a specialist visa counselor to navigate the fine details.",
+        desc: "Every student is paired with a specialist Education/Career Counselor to navigate the fine details.",
       },
       {
         title: "Global Connections",
-        desc: "We work directly with over 200 partner universities to ensure you have the best options available.",
+        desc: "We work directly with over 200 Partner Institutes to ensure you have the best options available.",
       },
       {
         title: "End-to-End Care",

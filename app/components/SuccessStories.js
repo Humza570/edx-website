@@ -473,7 +473,7 @@ export default function SuccessStories() {
             { num: "1,000+", label: "Students Placed" },
             { num: "98%", label: "Visa Success Rate" },
             { num: "13", label: "Countries" },
-            { num: "100+", label: "Partner Universities" },
+            { num: "100+", label: "Partner Institutes" },
           ].map(({ num, label }, i) => (
             <div
               key={label}

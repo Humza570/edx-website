@@ -30,7 +30,7 @@ const reasons = [
   },
   {
     icon: Globe,
-    title: "100+ Partner Universities",
+    title: "100+ Partner Institutes",
     desc: "Students have access to a vast array of programs and opportunities worldwide thanks to our partnerships with universities in ten different countries.",
     color: "#ED4B00",
   },
@@ -363,6 +363,7 @@ export default function WhyUs() {
 
       {/* ── BANNER FORM ── */}
       <motion.div
+        id="contact"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -596,8 +597,6 @@ export default function WhyUs() {
                   alignItems: "flex-end",
                 }}
               >
-                
-
                 <button
                   onClick={handleSubmit}
                   style={{

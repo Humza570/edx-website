@@ -20,6 +20,8 @@ const slides = [
     sub: "Start your international education journey with expert guidance for university admissions, scholarships, and student visas.",
     cta1: "Start Your Journey",
     cta2: "Our Services",
+    link1: "#contact",
+    link2: "#services",
     image: "/sliders/Slider1-Turn-Your-Study-Abroad.jpeg",
   },
   {
@@ -30,6 +32,8 @@ const slides = [
     sub: "Explore study opportunities in the UK, Canada, Australia, Europe, and more with guidance from experienced counselors.",
     cta1: "Explore Destinations",
     cta2: "Our Services",
+    link1: "#destinations",
+    link2: "#services",
     image:
       "/sliders/Slider2-Study-in-Top-Destinations-Worldwide.jpeg",
   },
@@ -41,6 +45,8 @@ const slides = [
     sub: "From choosing the right university to visa approval, our team supports you throughout your study abroad journey.",
     cta1: "Apply Now",
     cta2: "Our Services",
+    link1: "#contact",
+    link2: "#services",
     image:
       "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=1920&q=85",
   },
@@ -59,7 +65,7 @@ const slides = [
 
 const stats = [
   { icon: Users, number: "1,000+", label: "Alumnis" },
-  { icon: GraduationCap, number: "100+", label: "Partner Universities" },
+  { icon: GraduationCap, number: "100+", label: "Partner Institutes" },
   { icon: Globe, number: "10+", label: "Destinations" },
   { icon: Star, number: "98%", label: "Visa Success Ratio" },
 ];
@@ -256,7 +262,7 @@ export default function Hero() {
                 }}
               >
                 <a
-                  href="#contact"
+                  href={slide.link1}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -286,7 +292,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="#services"
+                  href={slide.link2}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",

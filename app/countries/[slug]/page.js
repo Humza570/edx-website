@@ -19,7 +19,7 @@ const countries = {
     color: "#ED4B00",
     image: "/Destinations/UK.jpg",
     highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
-    universities: "10+",
+    universities: "5+",
     students: "500+",
     tagline: "Where Tradition Meets Excellence.",
     desc: "The United Kingdom is one of the most popular study destinations for international students. Every year, thousands of students choose the UK because of its world-class universities, strong education system, and global career opportunities. UK universities are known for their high academic standards, modern research facilities, and practical learning approach. A degree from the UK is respected all over the world, which helps students build successful international careers. Students also enjoy studying in a diverse and multicultural environment where they meet people from different countries and cultures. At EdX Consultants, we guide students through every step of the process — from choosing the right university to securing admission and preparing for their visa.",
@@ -174,7 +174,7 @@ const countries = {
     color: "#2100B1",
     image: "/Destinations/Malaysia.jpg",
     highlight: "APU · Monash · Raffles  · Sunway",
-    universities: "15+",
+    universities: "10+",
     students: "300+",
     tagline: "Affordable & Quality Education with International Opportunities.",
     desc: "Malaysia has become a popular destination for international students because it offers affordable education and globally recognized degrees. Many universities in Malaysia have partnerships with universities from the UK and Australia, allowing students to get international qualifications at lower costs. Students enjoy studying in a modern and multicultural environment. At EdX Consultants, we help students choose the right university and program based on their career goals, budget, and academic background, ensuring they get the best study experience in Malaysia.",
@@ -365,7 +365,7 @@ const countries = {
     color: "#ED4B00",
     image: "/Destinations/Ireland.jpg",
     highlight: "DBS· Grifith · UCD",
-    universities: "10+",
+    universities: "3",
     students: "10+",
     tagline: "Europe's English-Speaking Tech Hub.",
     desc: "Ireland is becoming a popular destination for international students owing to its connectivity to global industries. Many global technology companies are located in Ireland, creating great opportunities for students to work after graduating. An English-speaking EU country with top-ranked universities.",
@@ -722,7 +722,7 @@ export default async function CountryDetailPage({ params }) {
         </div>
       </div>
 
-      {/* ─── PARTNER UNIVERSITIES — full width strip at top ─── */}
+      {/* ─── Partner Institutes — full width strip at top ─── */}
       <div
         style={{
           background: "white",
@@ -750,7 +750,7 @@ export default async function CountryDetailPage({ params }) {
                   marginBottom: "3px",
                 }}
               >
-                Our Partner Universities in{" "}
+                Our Partner Institutes in{" "}
                 <span style={{ color: country.color }}>{country.name}</span>
               </h2>
               <p style={{ fontSize: "13px", color: "#999" }}>

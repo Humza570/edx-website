@@ -21,10 +21,10 @@ const countries = [
     slug: "united-kingdom",
     lat: 51.5074,
     lng: -0.1278,
-    universities: "25+",
+    universities: "5+",
     students: "500+",
     image: "/Destinations/UK.jpg",
-    highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
+    highlight: "UEA · ARU · Brighton · RGU · Abertay · Queens University Belfast · Cardiff",
     color: "#ED4B00",
     desc: "The UK is one of the most popular study destinations, famous for its top-ranked universities and education system. A degree from the UK is recognized by employers all over the globe.",
     duration: "1–3 Years",
@@ -85,7 +85,7 @@ const countries = [
     slug: "malaysia",
     lat: 3.139,
     lng: 101.6869,
-    universities: "15+",
+    universities: "10+",
     students: "300+",
     image: "/Destinations/Malaysia.jpg",
     highlight: "APU · Monash · Raffles  · Sunway",
@@ -101,10 +101,10 @@ const countries = [
     slug: "germany",
     lat: 52.52,
     lng: 13.405,
-    universities: "10+",
+    universities: "4",
     students: "100+",
     image: "/Destinations/Germany.jpg",
-    highlight: "GISMA · UE · BSBI",
+    highlight: "GISMA · UE · BSBI · Steinbeis",
     color: "#ED4B00",
     desc: "Germany is a popular country for quality education, especially in the field of engineering and technology, with affordable options for students. Students have access to quality research facilities and good job opportunities in Europe.",
     duration: "2–3 Years",
@@ -356,7 +356,7 @@ export default function Countries() {
 
   return (
     <section
-      id="countries"
+      id="destinations"
       style={{
         background: "#0d0d1a",
         padding: "50px 24px",
@@ -427,7 +427,7 @@ export default function Countries() {
                 lineHeight: 1.7,
               }}
             >
-              With 100+ partner universities in 10 countries, we help you choose
+              With 100+ Partner Institutes in 10 countries, we help you choose
               the best destination for your academic journey.
             </p>
             <div
@@ -983,7 +983,7 @@ function DetailPanel({ selected }) {
               >
                 Learn More
               </Link>
-              <Link
+              {/* <Link
                 href={`/countries/${selected.slug}#apply`}
                 style={{
                   flex: 1,
@@ -1011,7 +1011,7 @@ function DetailPanel({ selected }) {
                 }}
               >
                 Apply Now <ArrowRight size={13} />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </motion.div>

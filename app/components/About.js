@@ -15,7 +15,7 @@ import Link from "next/link";
 const achievements = [
   { number: "10+", label: "Years Experience" },
   { number: "1,000+", label: "Students Placed" },
-  { number: "100+", label: "Partner Universities" },
+  { number: "100+", label: "Partner Institutes" },
   { number: "98%", label: "Visa Success Rate" },
 ];
 

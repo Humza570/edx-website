@@ -346,7 +346,7 @@ export default function PrivacyPolicyPage() {
               institution.
             </p>
             <p style={bodyText}>
-              We also provide anonymized usage data to partner universities for
+              We also provide anonymized usage data to Partner Institutes for
               reporting purposes — never identifiable personal data.
             </p>
           </Section>
