@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, ArrowRight, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useState, useEffect } from "react";
 const footerLinks = {
   Services: [
     { label: "University Admissions", href: "/services/admission-application" },
@@ -108,7 +108,49 @@ const socials = [
   },
   { Icon: PinterestIcon, href: "#", label: "Pinterest" },
 ];
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return visible ? (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      style={{
+        position: "fixed",
+        bottom: "32px",
+        right: "32px",
+        zIndex: 999,
+        width: "44px",
+        height: "44px",
+        borderRadius: "50%",
+        background: "#ED4B00",
+        border: "none",
+        color: "white",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxShadow: "0 4px 20px rgba(237,75,0,0.45)",
+        transition: "all 0.2s",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = "#cc3f00";
+        e.currentTarget.style.transform = "translateY(-3px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "#ED4B00";
+        e.currentTarget.style.transform = "translateY(0)";
+      }}
+    >
+      <ArrowRight size={18} style={{ transform: "rotate(-90deg)" }} />
+    </button>
+  ) : null;
+}
 export default function Footer() {
   return (
     <footer style={{ background: "#0a0a14", color: "white" }}>
@@ -385,7 +427,8 @@ export default function Footer() {
               gap: "4px",
             }}
           >
-            Design & Developed By <span style={{ color: "#ED4B00" }}>EdX Tech Team</span>
+            Design & Developed By{" "}
+            <span style={{ color: "#ED4B00" }}>EdX Tech Team</span>
           </p>
           <div style={{ display: "flex", gap: "20px" }}>
             {[
@@ -414,6 +457,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </footer>
   );
 }
