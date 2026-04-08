@@ -14,6 +14,7 @@ import {
   ChevronDown,
   ArrowRight,
 } from "lucide-react";
+import { submitLead } from "@/lib/submitLead";
 
 const reasons = [
   {
@@ -129,18 +130,46 @@ export default function WhyUs() {
     name: "",
     email: "",
     phone: "",
-    country: "",
-    service: "",
-    message: "",
+    country_of_interest: "",
+    program_of_interest: "",
+    message: "", // optional — only sent if filled
+    _hp: "", // honeypot — must stay empty
   });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = () => {
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+  const handleSubmit = async () => {
+    setError("");
+
+    // Basic client-side required field check
+    if (!form.name || !form.email || !form.phone || !form.country_of_interest) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+    const result = await submitLead(form);
+    setLoading(false);
+
+    if (result.success) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        country_of_interest: "",
+        program_of_interest: "",
+        message: "",
+        _hp: "",
+      });
+    } else {
+      setError(result.message);
+    }
   };
 
   return (
@@ -453,7 +482,24 @@ export default function WhyUs() {
             </motion.div>
           ) : (
             <>
-              {/* Row 1 — Name + Phone */}
+              {/* ── Honeypot — DO NOT REMOVE ─────────────────────────────────────── */}
+              <input
+                type="text"
+                name="_hp"
+                value={form._hp}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: "1px",
+                  height: "1px",
+                  opacity: 0,
+                  pointerEvents: "none",
+                }}
+              />
               {/* Row 1 — Name + Email + Phone */}
               <div
                 style={{
@@ -498,8 +544,8 @@ export default function WhyUs() {
                 {/* Destination */}
                 <div style={{ position: "relative" }}>
                   <select
-                    name="country"
-                    value={form.country}
+                    name="country_of_interest"
+                    value={form.country_of_interest}
                     onChange={handleChange}
                     style={{
                       ...inputStyle,
@@ -541,51 +587,17 @@ export default function WhyUs() {
                   />
                 </div>
 
-                {/* Service */}
-                <div style={{ position: "relative" }}>
-                  <select
-                    name="service"
-                    value={form.service}
-                    onChange={handleChange}
-                    style={{
-                      ...inputStyle,
-                      padding: "14px 40px 14px 18px",
-                      color: form.service ? "white" : "rgba(255,255,255,0.6)",
-                      appearance: "none",
-                      WebkitAppearance: "none",
-                      cursor: "pointer",
-                    }}
-                    onFocus={onFocusStyle}
-                    onBlur={onBlurStyle}
-                  >
-                    <option
-                      value=""
-                      style={{ background: "#0d0d1a", color: "white" }}
-                    >
-                      Select Service
-                    </option>
-                    {serviceList.map((s) => (
-                      <option
-                        key={s}
-                        value={s}
-                        style={{ background: "#0d0d1a", color: "white" }}
-                      >
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown
-                    size={16}
-                    color="rgba(255,255,255,0.6)"
-                    style={{
-                      position: "absolute",
-                      right: "14px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      pointerEvents: "none",
-                    }}
-                  />
-                </div>
+                {/* Program of Interest — text field */}
+                <input
+                  type="text"
+                  name="program_of_interest"
+                  value={form.program_of_interest}
+                  onChange={handleChange}
+                  placeholder="Program of Interest"
+                  style={inputStyle}
+                  onFocus={onFocusStyle}
+                  onBlur={onBlurStyle}
+                />
               </div>
 
               {/* Row 4 — Message + Submit */}
@@ -597,6 +609,18 @@ export default function WhyUs() {
                   alignItems: "flex-end",
                 }}
               >
+                {error && (
+                  <p
+                    style={{
+                      color: "#ffccaa",
+                      fontSize: "13px",
+                      marginBottom: "8px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    ⚠ {error}
+                  </p>
+                )}
                 <button
                   onClick={handleSubmit}
                   style={{
@@ -618,6 +642,8 @@ export default function WhyUs() {
                     boxShadow: "0 6px 24px rgba(237,75,0,0.4)",
                     whiteSpace: "nowrap",
                     height: "fit-content",
+                    opacity: loading ? 0.7 : 1,
+                    cursor: loading ? "not-allowed" : "pointer",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = "#cc3f00";
@@ -632,7 +658,8 @@ export default function WhyUs() {
                       "0 6px 24px rgba(237,75,0,0.4)";
                   }}
                 >
-                  APPLY NOW <ArrowRight size={16} />
+                  {loading ? "Sending..." : "APPLY NOW"}{" "}
+                  <ArrowRight size={16} />
                 </button>
               </div>
             </>

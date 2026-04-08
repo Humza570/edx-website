@@ -18,7 +18,7 @@ const countries = {
     flag: "gb",
     color: "#ED4B00",
     image: "/Destinations/UK.jpg",
-    highlight: "UEA · ARU · Brighton · RGU · Abertay · CCCU",
+    highlight: "UEA · ARU · Brighton · RGU · Abertay · Queens University Belfast · Cardiff",
     universities: "5+",
     students: "500+",
     tagline: "Where Tradition Meets Excellence.",

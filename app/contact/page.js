@@ -15,6 +15,7 @@ import {
   Linkedin,
   ChevronDown,
 } from "lucide-react";
+import { submitLead } from "@/lib/submitLead";
 
 const offices = [
   {
@@ -63,18 +64,20 @@ const faqs = [
   },
 ];
 
-const destinations = [
+const countryList = [
   "United Kingdom",
   "United States",
-  "Canada",
   "Australia",
-  "Ireland",
-  "Germany",
-  "Türkiye",
+  "Canada",
   "Malaysia",
+  "Germany",
+  "France",
+  "Netherlands",
   "New Zealand",
+  "Ireland",
+  "Türkiye",
   "UAE",
-  "Other",
+  "Northern Cyprus",
 ];
 
 export default function ContactPage() {
@@ -82,28 +85,77 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    destination: "",
-    service: "",
+    country_of_interest: "",
+    program_of_interest: "",
     message: "",
+    _hp: "",
   });
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({ phone: "", email: "" });
   const [openFaq, setOpenFaq] = useState(null);
 
-  const handleChange = (e) =>
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    // Clear field-specific error when user starts typing
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+    if (error) setError("");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setFieldErrors({ phone: "", email: "" });
+
+    // Client-side required fields check
+    if (!form.name || !form.email || !form.phone || !form.country_of_interest) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
+    const result = await submitLead(form);
     setLoading(false);
-    setSubmitted(true);
+
+    if (result.success) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        country_of_interest: "",
+        program_of_interest: "",
+        message: "",
+        _hp: "",
+      });
+    } else {
+      // Handle backend errors
+      if (result.errors) {
+        if (result.errors.phone) {
+          setFieldErrors((prev) => ({
+            ...prev,
+            phone: result.errors.phone[0],
+          }));
+        }
+        if (result.errors.email) {
+          setFieldErrors((prev) => ({
+            ...prev,
+            email: result.errors.email[0],
+          }));
+        }
+      }
+      setError(result.message || "Something went wrong. Please try again.");
+    }
   };
 
   return (
     <main>
-      {/* Hero */}
+      {/* Hero Section */}
       <div
         style={{
           background:
@@ -157,7 +209,7 @@ export default function ContactPage() {
               justifyContent: "center",
             }}
           >
-            <a
+            <Link
               href="/"
               style={{
                 fontSize: "13px",
@@ -166,7 +218,7 @@ export default function ContactPage() {
               }}
             >
               Home
-            </a>
+            </Link>
             <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
             <span
               style={{ fontSize: "13px", color: "#ED4B00", fontWeight: 600 }}
@@ -236,123 +288,6 @@ export default function ContactPage() {
               apply — we are here and happy to help.
             </p>
           </div>
-
-          {/* Quick contact cards */}
-          {/* <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "16px",
-              maxWidth: "900px",
-              margin: "0 auto",
-            }}
-          >
-            {[
-              {
-                icon: Phone,
-                label: "Call Us",
-                val: "+92 333 9989153",
-                sub: "Mon–Fri 10am–6pm · Sat 11am–4pm",
-                color: "#2100B1",
-                href: "tel:+923339989153",
-              },
-              {
-                icon: MessageSquare,
-                label: "WhatsApp",
-                val: "+92 333 9989153",
-                sub: "Quick responses",
-                color: "#25D366",
-                href: "https://api.whatsapp.com/send?phone=+923339989153&text=Welcome%20to%20Edx%20Consultants.",
-              },
-              {
-                icon: Mail,
-                label: "Email Us",
-                val: "info@edxconsultants.com",
-                sub: "Reply within 2 hours",
-                color: "#ED4B00",
-                href: "mailto:info@edxconsultants.com",
-              },
-              {
-                icon: Clock,
-                label: "Working Hours",
-                val: "Mon–Fri · Sat",
-                sub: "10am–6pm · 11am–4pm",
-                color: "#2100B1",
-                href: null,
-              },
-            ].map(({ icon: Icon, label, val, sub, color, href }) => (
-              <a
-                key={label}
-                href={href || "#"}
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "16px",
-                    padding: "20px",
-                    backdropFilter: "blur(10px)",
-                    transition: "all 0.2s",
-                    cursor: href ? "pointer" : "default",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (href) {
-                      e.currentTarget.style.background =
-                        "rgba(255,255,255,0.08)";
-                      e.currentTarget.style.transform = "translateY(-3px)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "10px",
-                      background: `${color}22`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    <Icon size={20} color={color} />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "11px",
-                      color: "rgba(255,255,255,0.4)",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.06em",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    {label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 700,
-                      color: "white",
-                      marginBottom: "2px",
-                    }}
-                  >
-                    {val}
-                  </div>
-                  <div
-                    style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}
-                  >
-                    {sub}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div> */}
         </div>
       </div>
 
@@ -439,9 +374,10 @@ export default function ContactPage() {
                         name: "",
                         email: "",
                         phone: "",
-                        destination: "",
-                        service: "",
+                        country_of_interest: "",
+                        program_of_interest: "",
                         message: "",
+                        _hp: "",
                       });
                     }}
                     style={{
@@ -467,6 +403,25 @@ export default function ContactPage() {
                     gap: "16px",
                   }}
                 >
+                  {/* Honeypot - DO NOT REMOVE */}
+                  <input
+                    type="text"
+                    name="_hp"
+                    value={form._hp}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      left: "-9999px",
+                      width: "1px",
+                      height: "1px",
+                      opacity: 0,
+                      pointerEvents: "none",
+                    }}
+                  />
+
                   <div
                     style={{
                       display: "grid",
@@ -483,10 +438,6 @@ export default function ContactPage() {
                         required
                         placeholder="Your full name"
                         style={inputStyle}
-                        onFocus={(e) =>
-                          (e.target.style.borderColor = "#2100B1")
-                        }
-                        onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
                       />
                     </div>
                     <div>
@@ -497,12 +448,24 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         placeholder="+92 333 9989153"
-                        style={inputStyle}
-                        onFocus={(e) =>
-                          (e.target.style.borderColor = "#2100B1")
-                        }
-                        onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+                        style={{
+                          ...inputStyle,
+                          borderColor: fieldErrors.phone
+                            ? "#dc2626"
+                            : "#e5e7eb",
+                        }}
                       />
+                      {fieldErrors.phone && (
+                        <p
+                          style={{
+                            color: "#dc2626",
+                            fontSize: "12px",
+                            marginTop: "4px",
+                          }}
+                        >
+                          {fieldErrors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -515,10 +478,22 @@ export default function ContactPage() {
                       required
                       type="email"
                       placeholder="your@email.com"
-                      style={inputStyle}
-                      onFocus={(e) => (e.target.style.borderColor = "#2100B1")}
-                      onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+                      style={{
+                        ...inputStyle,
+                        borderColor: fieldErrors.email ? "#dc2626" : "#e5e7eb",
+                      }}
                     />
+                    {fieldErrors.email && (
+                      <p
+                        style={{
+                          color: "#dc2626",
+                          fontSize: "12px",
+                          marginTop: "4px",
+                        }}
+                      >
+                        {fieldErrors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div
@@ -531,42 +506,28 @@ export default function ContactPage() {
                     <div>
                       <label style={labelStyle}>Destination *</label>
                       <select
-                        name="destination"
-                        value={form.destination}
+                        name="country_of_interest"
+                        value={form.country_of_interest}
                         onChange={handleChange}
                         required
-                        style={{ ...inputStyle, cursor: "pointer" }}
-                        onFocus={(e) =>
-                          (e.target.style.borderColor = "#2100B1")
-                        }
-                        onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+                        style={inputStyle}
                       >
                         <option value="">Select country</option>
-                        {destinations.map((d) => (
+                        {countryList.map((d) => (
                           <option key={d}>{d}</option>
                         ))}
                       </select>
                     </div>
                     <div>
-                      <label style={labelStyle}>Service</label>
-                      <select
-                        name="service"
-                        value={form.service}
+                      <label style={labelStyle}>Program of Interest *</label>
+                      <input
+                        type="text"
+                        name="program_of_interest"
+                        value={form.program_of_interest}
                         onChange={handleChange}
-                        style={{ ...inputStyle, cursor: "pointer" }}
-                        onFocus={(e) =>
-                          (e.target.style.borderColor = "#2100B1")
-                        }
-                        onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
-                      >
-                        <option value="">Select service</option>
-                        <option>University Admissions</option>
-                        <option>Visa Assistance</option>
-                        <option>Scholarship Guidance</option>
-                        <option>IELTS / PTE Prep</option>
-                        <option>Career Counseling</option>
-                        <option>General Inquiry</option>
-                      </select>
+                        placeholder="e.g., Computer Science"
+                        style={inputStyle}
+                      />
                     </div>
                   </div>
 
@@ -583,10 +544,21 @@ export default function ContactPage() {
                         resize: "vertical",
                         minHeight: "100px",
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = "#2100B1")}
-                      onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
                     />
                   </div>
+
+                  {error && (
+                    <p
+                      style={{
+                        color: "#dc2626",
+                        fontSize: "13px",
+                        marginBottom: "8px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      ⚠ {error}
+                    </p>
+                  )}
 
                   <button
                     type="submit"
@@ -605,7 +577,7 @@ export default function ContactPage() {
                       justifyContent: "center",
                       gap: "8px",
                       boxShadow: "0 6px 24px rgba(237,75,0,0.3)",
-                      transition: "all 0.2s",
+                      transition: "background 0.2s",
                     }}
                     onMouseEnter={(e) => {
                       if (!loading)
@@ -663,15 +635,6 @@ export default function ContactPage() {
                     border: "1px solid rgba(33,0,177,0.08)",
                     marginBottom: "16px",
                     transition: "all 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 8px 30px rgba(33,0,177,0.1)";
-                    e.currentTarget.style.background = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.background = "#f8f9ff";
                   }}
                 >
                   <div
@@ -777,7 +740,7 @@ export default function ContactPage() {
                 </div>
               ))}
 
-              {/* Map embed */}
+              {/* Map Embed */}
               <div
                 style={{
                   borderRadius: "16px",
