@@ -294,7 +294,7 @@ export default function Footer() {
               },
               {
                 icon: MapPin,
-                text: "First Floor, Building No. 55, Johar, Block B Phase 1 Town, Lahore, Pakistan",
+                text: "First Floor, Building No. 55, Johar Town, Block B Phase 1, Lahore, Pakistan",
                 href: null,
               },
             ].map(({ icon: Icon, text, href }) => (
