@@ -21,7 +21,7 @@ const offices = [
   {
     city: "Lahore",
     address:
-      "First Floor, Building No. 55, Johar Block B Phase 1 Town, Lahore, 54000",
+      "First Floor, Building No. 55, Johar Town, Block B Phase 1, Lahore, 54000",
     phone: "+92 333 9989153",
     email: "info@edxconsultants.com",
     hours: "Mon–Fri: 10am – 6pm · Sat: 11am – 4pm",
