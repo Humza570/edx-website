@@ -5,6 +5,8 @@ import { Phone, Mail, MapPin, ArrowRight, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Script from "next/script";
+
 const footerLinks = {
   Services: [
     { label: "University Admissions", href: "/services/admission-application" },
@@ -183,7 +185,15 @@ export default function Footer() {
                 marginBottom: "20px",
               }}
             />
-
+            {/* ICEF Badge */}
+            <div style={{ marginBottom: "20px" }}>
+              <span id="iasBadge" data-account-id="7142"></span>
+              <Script
+                src="https://www-cdn.icef.com/scripts/iasbadgeid.js"
+                strategy="afterInteractive"
+                crossOrigin="anonymous"
+              />
+            </div>
             {/* Socials */}
             <div style={{ display: "flex", gap: "8px" }}>
               {socials.map(({ Icon, href, label }) => (
