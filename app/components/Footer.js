@@ -186,7 +186,7 @@ export default function Footer() {
               }}
             />
             {/* ICEF Badge */}
-            <div style={{ marginBottom: "20px" }}>
+            <div style={{ marginBottom: "0px" }}>
               <span id="iasBadge" data-account-id="7142"></span>
               <Script
                 src="https://www-cdn.icef.com/scripts/iasbadgeid.js"
