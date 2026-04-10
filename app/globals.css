@@ -57,3 +57,7 @@ body {
   background: var(--edx-blue);
   color: white;
 }
+#iasBadge img {
+  max-width: 120px !important;
+  height: auto !important;
+}

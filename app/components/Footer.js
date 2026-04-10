@@ -168,7 +168,7 @@ export default function Footer() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "48px",
+            gap: "32px",
           }}
         >
           {/* Brand column */}
@@ -179,14 +179,15 @@ export default function Footer() {
               width={140}
               height={60}
               style={{
-                height: "140px",
+                height: "100px",
                 width: "auto",
                 objectFit: "contain",
-                marginBottom: "20px",
+                marginBottom: "16px",
               }}
             />
+
             {/* ICEF Badge */}
-            <div style={{ marginBottom: "0px" }}>
+            <div style={{ marginBottom: "16px" }}>
               <span id="iasBadge" data-account-id="7142"></span>
               <Script
                 src="https://www-cdn.icef.com/scripts/iasbadgeid.js"
@@ -194,8 +195,9 @@ export default function Footer() {
                 crossOrigin="anonymous"
               />
             </div>
+
             {/* Socials */}
-            <div style={{ display: "flex", gap: "8px" }}>
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
               {socials.map(({ Icon, href, label }) => (
                 <a
                   key={label}
