@@ -30,7 +30,7 @@ const navLinks = [
   { name: "Services", href: "/services" },
   { name: "Countries", href: "/countries" },
   { name: "Branches", href: "/branches" },
-  // { name: "Blog", href: "/blog" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
