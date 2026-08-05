@@ -24,8 +24,8 @@ university admissions, scholarships, and visa assistance.
 ### 🏠 Homepage
 ![Homepage](screenshots/homepage.png)
 
-### 🛎️ Services Page
-![Services](screenshots/services.png)
+### 🛎️ Desinations Section
+![Services](screenshots/destinations.png)
 
 ## 📄 Pages
 
