@@ -17,7 +17,29 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "EdX Consultants | Education Consultants in Pakistan",
-  description: "EdX Consultants Pvt Ltd – Your trusted study abroad consultancy firm. Offering expert guidance to students in Pakistan for life-changing opportunities to pursue education worldwide. Let us help you achieve your dreams of studying abroad!",
+  description: "EdX Consultants Pvt Ltd – Your trusted study abroad consultancy firm...",
+  metadataBase: new URL("https://edxconsultants.com"),
+  openGraph: {
+    title: "EdX Consultants | Education Consultants in Pakistan",
+    description: "Your trusted study abroad consultancy firm — expert guidance for admissions, scholarships & visas.",
+    url: "https://edxconsultants.com",
+    siteName: "EdX Consultants",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EdX Consultants | Education Consultants in Pakistan",
+    description: "Your trusted study abroad consultancy firm.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {
