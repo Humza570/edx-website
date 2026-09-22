@@ -1,27 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import "flag-icons/css/flag-icons.min.css";
 import Script from "next/script";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata = {
   title: "EdX Consultants | Education Consultants in Pakistan",
-  description: "EdX Consultants Pvt Ltd – Your trusted study abroad consultancy firm...",
+  description:
+    "EdX Consultants Pvt Ltd – Your trusted study abroad consultancy firm...",
   metadataBase: new URL("https://edxconsultants.com"),
   openGraph: {
     title: "EdX Consultants | Education Consultants in Pakistan",
-    description: "Your trusted study abroad consultancy firm — expert guidance for admissions, scholarships & visas.",
+    description:
+      "Your trusted study abroad consultancy firm — expert guidance for admissions, scholarships & visas.",
     url: "https://edxconsultants.com",
     siteName: "EdX Consultants",
     images: [
@@ -45,9 +36,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
